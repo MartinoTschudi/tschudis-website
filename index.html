@@ -304,10 +304,99 @@
             font-weight: 600;
             color: #666;
         }
+
+        .language-selector {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .language-selector h2 {
+            font-size: 1.5rem;
+            color: #666;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .language-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .language-button {
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+            background: #333;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            font-family: inherit;
+        }
+
+        .language-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            background: #444;
+        }
+
+        .language-button:active {
+            transform: translateY(0);
+        }
+
+        .main-content {
+            display: none;
+        }
+
+        .main-content.show {
+            display: block;
+        }
+
+        .language-selection-screen {
+            display: block;
+        }
+
+        .language-selection-screen.hidden {
+            display: none;
+        }
+
+        #changeLanguageLink {
+            transition: opacity 0.2s ease;
+        }
+
+        #changeLanguageLink:hover {
+            opacity: 1 !important;
+            text-decoration: underline !important;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- Language Selection Screen -->
+    <div class="container language-selection-screen" id="languageSelection">
+        <div class="section">
+            <span class="emoji">💍</span>
+            <h1>Paola & Martino</h1>
+            <div class="italian-quote">
+                <img src="quote.png" alt="Ci sposiamo, ma niente di serio.">
+            </div>
+            <div class="language-selector">
+                <h2 data-translate="selectLanguage">Select Language / Wähle Sprache</h2>
+                <div class="language-buttons">
+                    <button class="language-button" onclick="selectLanguage('it')">Italiano</button>
+                    <button class="language-button" onclick="selectLanguage('de')">Deutsch</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container main-content" id="mainContent">
         <div class="section">
             <span class="emoji">💍</span>
             <h1>Paola & Martino</h1>
@@ -315,17 +404,17 @@
                 <img src="quote.png" alt="Ci sposiamo, ma niente di serio.">
             </div>
             <div class="date-display">
-                <div class="date-day">Friday</div>
-                <div class="date-full">February 20th</div>
+                <div class="date-day" data-translate="friday">Friday</div>
+                <div class="date-full" data-translate="february20">February 20th</div>
                 <div id="countdown" class="countdown"></div>
             </div>
 
-            <h2>Program</h2>
+            <h2 data-translate="program">Program</h2>
 
             <div class="program-item">
                 <div class="program-time">13:30</div>
-                <div class="program-title">Ceremony</div>
-                <div class="program-details">
+                <div class="program-title" data-translate="ceremony">Ceremony</div>
+                <div class="program-details" data-translate="ceremonyDuration">
                     The ceremony will last 15 to 30 minutes.
                 </div>
                 <div class="program-location">
@@ -334,14 +423,14 @@
                     </a>
                 </div>
                 <div class="program-note">
-                    <strong>Note:</strong> The place for the ceremony will be limited. We invite guests to wait outside the Stadthaus for our exit.
+                    <strong data-translate="note">Note:</strong> <span data-translate="ceremonyNote">The place for the ceremony will be limited. We invite guests to wait outside the Stadthaus for our exit.</span>
                 </div>
             </div>
 
             <div class="program-item">
                 <div class="program-time">~14:00</div>
-                <div class="program-title">Reception & Celebration</div>
-                <div class="program-details">
+                <div class="program-title" data-translate="reception">Reception & Celebration</div>
+                <div class="program-details" data-translate="receptionDetails">
                     We will move towards the Quartierzentrum Schütze for Mexican catering with our favorite tacos and palomas.
                 </div>
                 <div class="program-location">
@@ -349,55 +438,189 @@
                         📍 Quartierzentrum Schütze, Heinrichstrasse 238, 8005 Zürich
                     </a>
                 </div>
-                <div class="program-details" style="margin-top: 0.5rem;">
+                <div class="program-details" style="margin-top: 0.5rem;" data-translate="transport">
                     Transport can be easily done with public transportation.
                 </div>
             </div>
 
             <div class="program-item">
                 <div class="program-time">~18:00</div>
-                <div class="program-title">End of Event</div>
-                <div class="program-details" style="margin-top: 0.5rem; font-style: italic; color: #666;">
+                <div class="program-title" data-translate="endOfEvent">End of Event</div>
+                <div class="program-details" style="margin-top: 0.5rem; font-style: italic; color: #666;" data-translate="endOfEventNote">
                     If you need a recommendation for a nice dining spot, or help booking a hotel, we are happy to help!
                 </div>
             </div>
         </div>
 
         <div class="section">
-            <h2>RSVP</h2>
-            <p style="text-align: center; margin-bottom: 2rem;">We'd love to celebrate with you! Please confirm your attendance.</p>
+            <h2 data-translate="rsvp">RSVP</h2>
+            <p style="text-align: center; margin-bottom: 2rem;" data-translate="rsvpMessage">We'd love to celebrate with you! Please confirm your attendance.</p>
         
             <form id="rsvpForm">
             <div class="form-group">
-                <label for="name">Your Name</label>
-                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                <label for="firstName" data-translate="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" data-translate-placeholder="firstNamePlaceholder" placeholder="Enter your first name" required>
             </div>
             <div class="form-group">
-                <label>Meal Preference</label>
+                <label for="lastName" data-translate="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" data-translate-placeholder="lastNamePlaceholder" placeholder="Enter your last name" required>
+            </div>
+            <div class="form-group">
+                <label data-translate="mealPreference">Meal Preference</label>
                 <div class="radio-group">
                     <div class="radio-option">
                         <input type="radio" id="vegetarian" name="meal" value="vegetarian" required>
-                        <label for="vegetarian">Vegetarian</label>
+                        <label for="vegetarian" data-translate="vegetarian">Vegetarian</label>
                     </div>
                     <div class="radio-option">
                         <input type="radio" id="meat" name="meal" value="meat" required>
-                        <label for="meat">Meat</label>
+                        <label for="meat" data-translate="meat">Meat</label>
                     </div>
                 </div>
             </div>
-            <button type="submit">Confirm</button>
+            <button type="submit" data-translate="confirm">Confirm</button>
         </form>
         
-            <div id="successMessage" class="success-message">
+            <div id="successMessage" class="success-message" data-translate="rsvpSuccess">
                 Thank you! We've received your RSVP. 🎉
             </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 2rem; margin-bottom: 1rem;">
+            <a href="#" id="changeLanguageLink" onclick="returnToLanguageSelection(); return false;" style="color: #666; text-decoration: none; font-size: 0.9rem; opacity: 0.7;">
+                <span data-translate="changeLanguage">Change Language / Sprache ändern</span>
+            </a>
         </div>
     </div>
 
     <script>
         // Google Apps Script Web App URL
         // Replace this with your deployed Apps Script URL after setup
-        const RSVP_API_URL = 'https://script.google.com/macros/s/AKfycbyJDe43MCWFpyLpFRhTUbx37ttRN1fWrLTGXQRguLuigsvgWrz_O_JZ4cqn6sK2xQyH/exec';
+        const RSVP_API_URL = 'https://script.google.com/macros/s/AKfycbx-EeeLriRt-WYlCgueSjEUofOWDRsrUga3FypOTWjLUcu2v_27CSca5l7xFl22Nqs/exec';
+        
+        // Translations
+        const translations = {
+            it: {
+                selectLanguage: "Seleziona Lingua",
+                friday: "Venerdì",
+                february20: "20 Febbraio",
+                program: "Programma",
+                ceremony: "Cerimonia",
+                ceremonyDuration: "La cerimonia durerà 15-30 minuti.",
+                note: "Nota:",
+                ceremonyNote: "Il luogo per la cerimonia sarà limitato. Invitiamo gli ospiti ad aspettare fuori dallo Stadthaus per la nostra uscita.",
+                reception: "Ricevimento & Celebrazione",
+                receptionDetails: "Ci sposteremo verso il Quartierzentrum Schütze per un catering messicano con i nostri tacos e palomas preferiti.",
+                transport: "Il trasporto può essere facilmente fatto con i mezzi pubblici.",
+                endOfEvent: "Fine dell'Evento",
+                endOfEventNote: "Se hai bisogno di una raccomandazione per un bel ristorante, o aiuto per prenotare un hotel, siamo felici di aiutare!",
+                rsvp: "RSVP",
+                rsvpMessage: "Ci piacerebbe celebrare con te! Per favore conferma la tua partecipazione.",
+                firstName: "Nome",
+                lastName: "Cognome",
+                firstNamePlaceholder: "Inserisci il tuo nome",
+                lastNamePlaceholder: "Inserisci il tuo cognome",
+                mealPreference: "Preferenza Pasto",
+                vegetarian: "Vegetariano",
+                meat: "Carne",
+                confirm: "Conferma",
+                rsvpSuccess: "Grazie! Abbiamo ricevuto il tuo RSVP. 🎉",
+                submitting: "Invio in corso...",
+                days: "giorni",
+                day: "giorno",
+                hours: "ore",
+                today: "Oggi!",
+                changeLanguage: "Cambia Lingua"
+            },
+            de: {
+                selectLanguage: "Sprache wählen",
+                friday: "Freitag",
+                february20: "20. Februar",
+                program: "Programm",
+                ceremony: "Zeremonie",
+                ceremonyDuration: "Die Zeremonie dauert 15 bis 30 Minuten.",
+                note: "Hinweis:",
+                ceremonyNote: "Der Platz für die Zeremonie wird begrenzt sein. Wir laden die Gäste ein, außerhalb des Stadthauses auf unseren Auszug zu warten.",
+                reception: "Empfang & Feier",
+                receptionDetails: "Wir werden zum Quartierzentrum Schütze für mexikanisches Catering mit unseren Lieblings-Tacos und Palomas weiterziehen.",
+                transport: "Die Anreise kann einfach mit öffentlichen Verkehrsmitteln erfolgen.",
+                endOfEvent: "Ende der Veranstaltung",
+                endOfEventNote: "Wenn du eine Empfehlung für ein schönes Restaurant brauchst oder Hilfe bei der Hotelbuchung, helfen wir gerne!",
+                rsvp: "RSVP",
+                rsvpMessage: "Wir würden gerne mit dir feiern! Bitte bestätige deine Teilnahme.",
+                firstName: "Vorname",
+                lastName: "Nachname",
+                firstNamePlaceholder: "Gib deinen Vornamen ein",
+                lastNamePlaceholder: "Gib deinen Nachnamen ein",
+                mealPreference: "Essensvorliebe",
+                vegetarian: "Vegetarisch",
+                meat: "Fleisch",
+                confirm: "Bestätigen",
+                rsvpSuccess: "Danke! Wir haben deine RSVP erhalten. 🎉",
+                submitting: "Wird gesendet...",
+                days: "Tage",
+                day: "Tag",
+                hours: "Stunden",
+                today: "Heute!",
+                changeLanguage: "Sprache ändern"
+            }
+        };
+
+        // Current language
+        let currentLanguage = localStorage.getItem('weddingLanguage') || null;
+
+        // Language selection function
+        function selectLanguage(lang) {
+            currentLanguage = lang;
+            localStorage.setItem('weddingLanguage', lang);
+            document.getElementById('languageSelection').classList.add('hidden');
+            document.getElementById('mainContent').classList.add('show');
+            applyTranslations(lang);
+        }
+
+        // Return to language selection
+        function returnToLanguageSelection() {
+            document.getElementById('languageSelection').classList.remove('hidden');
+            document.getElementById('mainContent').classList.remove('show');
+            // Clear language selection to show both language options again
+            currentLanguage = null;
+            localStorage.removeItem('weddingLanguage');
+        }
+
+        // Apply translations
+        function applyTranslations(lang) {
+            const langData = translations[lang];
+            if (!langData) return;
+
+            // Translate elements with data-translate attribute
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (langData[key]) {
+                    element.textContent = langData[key];
+                }
+            });
+
+            // Translate placeholders
+            document.querySelectorAll('[data-translate-placeholder]').forEach(element => {
+                const key = element.getAttribute('data-translate-placeholder');
+                if (langData[key]) {
+                    element.placeholder = langData[key];
+                }
+            });
+
+            // Update countdown text
+            updateCountdown();
+        }
+
+        // Initialize: show language selection if no language chosen
+        if (!currentLanguage) {
+            document.getElementById('languageSelection').classList.remove('hidden');
+            document.getElementById('mainContent').classList.remove('show');
+        } else {
+            document.getElementById('languageSelection').classList.add('hidden');
+            document.getElementById('mainContent').classList.add('show');
+            applyTranslations(currentLanguage);
+        }
         
         // Countdown to wedding date
         function updateCountdown() {
@@ -416,15 +639,27 @@
             const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
             
             const countdownEl = document.getElementById('countdown');
+            if (!countdownEl) return;
+            
+            const langData = currentLanguage ? translations[currentLanguage] : null;
+            const dayText = langData ? (days === 1 ? langData.day : langData.days) : (days === 1 ? 'day' : 'days');
+            const hourText = langData ? langData.hours : 'hours';
+            const todayText = langData ? langData.today : 'Today!';
             
             if (days < 0) {
-                countdownEl.textContent = 'The wedding has passed!';
+                if (currentLanguage === 'it') {
+                    countdownEl.textContent = 'Il matrimonio è passato!';
+                } else if (currentLanguage === 'de') {
+                    countdownEl.textContent = 'Die Hochzeit ist vorbei!';
+                } else {
+                    countdownEl.textContent = 'The wedding has passed!';
+                }
             } else if (days === 0) {
-                countdownEl.innerHTML = `<span class="countdown-number">Today!</span>`;
+                countdownEl.innerHTML = `<span class="countdown-number">${todayText}</span>`;
             } else if (days === 1) {
-                countdownEl.innerHTML = `<span class="countdown-number">${days}</span> day, <span class="countdown-number">${hours}</span> hours`;
+                countdownEl.innerHTML = `<span class="countdown-number">${days}</span> ${dayText}, <span class="countdown-number">${hours}</span> ${hourText}`;
             } else {
-                countdownEl.innerHTML = `<span class="countdown-number">${days}</span> days, <span class="countdown-number">${hours}</span> hours`;
+                countdownEl.innerHTML = `<span class="countdown-number">${days}</span> ${dayText}, <span class="countdown-number">${hours}</span> ${hourText}`;
             }
         }
         
@@ -434,28 +669,31 @@
 
         document.getElementById('rsvpForm').addEventListener('submit', async function(e) {
             e.preventDefault();
-            const name = document.getElementById('name').value.trim();
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
             const meal = document.querySelector('input[name="meal"]:checked');
             const submitButton = e.target.querySelector('button[type="submit"]');
             const successMessage = document.getElementById('successMessage');
             
-            if (!name || !meal) {
+            if (!firstName || !lastName || !meal) {
                 return;
             }
 
             // Disable button and show loading state
             submitButton.disabled = true;
-            submitButton.textContent = 'Submitting...';
+            const langData = currentLanguage ? translations[currentLanguage] : null;
+            submitButton.textContent = langData ? langData.submitting : 'Submitting...';
             successMessage.classList.remove('show');
 
             // Check if API URL is configured
             if (RSVP_API_URL === 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+                const langData = currentLanguage ? translations[currentLanguage] : null;
                 successMessage.textContent = 'Error: RSVP API URL not configured. Please set RSVP_API_URL in the script.';
                 successMessage.style.background = '#ffebee';
                 successMessage.style.color = '#c62828';
                 successMessage.classList.add('show');
                 submitButton.disabled = false;
-                submitButton.textContent = 'Confirm';
+                submitButton.textContent = langData ? langData.confirm : 'Confirm';
                 return;
             }
             
@@ -466,11 +704,17 @@
             form.action = RSVP_API_URL;
             form.style.display = 'none';
             
-            const nameInput = document.createElement('input');
-            nameInput.type = 'hidden';
-            nameInput.name = 'name';
-            nameInput.value = encodeURIComponent(name);
-            form.appendChild(nameInput);
+            const firstNameInput = document.createElement('input');
+            firstNameInput.type = 'hidden';
+            firstNameInput.name = 'firstName';
+            firstNameInput.value = encodeURIComponent(firstName);
+            form.appendChild(firstNameInput);
+            
+            const lastNameInput = document.createElement('input');
+            lastNameInput.type = 'hidden';
+            lastNameInput.name = 'lastName';
+            lastNameInput.value = encodeURIComponent(lastName);
+            form.appendChild(lastNameInput);
             
             const mealInput = document.createElement('input');
             mealInput.type = 'hidden';
@@ -556,15 +800,32 @@
             }, 2000);
             
             function showSuccess(data) {
-                const mealText = meal.value === 'vegetarian' ? 'vegetarian' : 'meat';
-                const updateText = data.isUpdate ? ' (updated)' : '';
-                successMessage.textContent = `Thank you, ${name}! We've received your RSVP for ${mealText} tacos. 🎉${updateText}`;
+                const langData = currentLanguage ? translations[currentLanguage] : null;
+                const mealText = meal.value === 'vegetarian' 
+                    ? (langData ? langData.vegetarian : 'vegetarian')
+                    : (langData ? langData.meat : 'meat');
+                const fullName = `${firstName} ${lastName}`;
+                
+                let thankYouText = langData 
+                    ? (langData.rsvpSuccess.replace('RSVP', '').trim() || `Grazie, ${fullName}! Abbiamo ricevuto il tuo RSVP per tacos ${mealText}. 🎉`)
+                    : `Thank you, ${fullName}! We've received your RSVP for ${mealText} tacos. 🎉`;
+                
+                if (currentLanguage === 'it') {
+                    thankYouText = `Grazie, ${fullName}! Abbiamo ricevuto il tuo RSVP per tacos ${mealText}. 🎉`;
+                } else if (currentLanguage === 'de') {
+                    thankYouText = `Danke, ${fullName}! Wir haben deine RSVP für ${mealText} Tacos erhalten. 🎉`;
+                } else {
+                    thankYouText = `Thank you, ${fullName}! We've received your RSVP for ${mealText} tacos. 🎉`;
+                }
+                
+                successMessage.textContent = thankYouText;
                 successMessage.style.background = '#e8f5e9';
                 successMessage.style.color = '#2e7d32';
                 successMessage.classList.add('show');
                 
                 // Reset form
-                document.getElementById('name').value = '';
+                document.getElementById('firstName').value = '';
+                document.getElementById('lastName').value = '';
                 document.querySelectorAll('input[name="meal"]').forEach(radio => {
                     radio.checked = false;
                 });
@@ -574,7 +835,7 @@
                 
                 // Re-enable button
                 submitButton.disabled = false;
-                submitButton.textContent = 'Confirm';
+                submitButton.textContent = langData ? langData.confirm : 'Confirm';
             }
         });
     </script>

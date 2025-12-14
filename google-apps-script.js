@@ -24,33 +24,36 @@ const SHEET_NAME = 'Sheet1'; // Change if your sheet has a different name
 function doPost(e) {
   try {
     // Parse the request data - handle both JSON and form data
-    let name, meal;
+    let firstName, lastName, meal;
     
     if (e.postData && e.postData.contents) {
       // Try to parse as JSON first
       try {
         const requestData = JSON.parse(e.postData.contents);
-        name = requestData.name;
+        firstName = requestData.firstName;
+        lastName = requestData.lastName;
         meal = requestData.meal;
       } catch (jsonError) {
         // If not JSON, parse as form data
         const params = e.parameter;
-        name = params.name;
+        firstName = params.firstName;
+        lastName = params.lastName;
         meal = params.meal;
       }
     } else {
       // Fallback to parameter parsing (form data)
       const params = e.parameter;
-      name = params.name;
+      firstName = params.firstName;
+      lastName = params.lastName;
       meal = params.meal;
     }
     
     // Validate input
-    if (!name || !meal) {
+    if (!firstName || !lastName || !meal) {
       return ContentService
         .createTextOutput(JSON.stringify({
           success: false,
-          error: 'Name and meal preference are required'
+          error: 'First name, last name, and meal preference are required'
         }))
         .setMimeType(ContentService.MimeType.JSON);
     }
@@ -60,41 +63,19 @@ function doPost(e) {
     
     // Check if headers exist, if not create them
     if (sheet.getLastRow() === 0) {
-      sheet.appendRow(['Name', 'Meal Preference', 'Timestamp', 'Updated']);
+      sheet.appendRow(['First Name', 'Last Name', 'Meal Preference', 'Timestamp']);
     }
     
-    // Check if this name already exists
-    const data = sheet.getDataRange().getValues();
-    let rowIndex = -1;
-    let isUpdate = false;
-    
-    // Start from row 2 (skip header)
-    for (let i = 1; i < data.length; i++) {
-      if (data[i][0] && data[i][0].toString().toLowerCase() === name.toLowerCase()) {
-        rowIndex = i + 1; // +1 because sheet rows are 1-indexed
-        isUpdate = true;
-        break;
-      }
-    }
-    
+    // Always create a new entry (don't check for duplicates)
+    // This allows multiple people with the same name to RSVP
     const timestamp = new Date();
-    
-    if (isUpdate) {
-      // Update existing row
-      sheet.getRange(rowIndex, 2).setValue(meal); // Update meal preference
-      sheet.getRange(rowIndex, 3).setValue(timestamp); // Update timestamp
-      sheet.getRange(rowIndex, 4).setValue('Yes'); // Mark as updated
-    } else {
-      // Add new row
-      sheet.appendRow([name, meal, timestamp, 'No']);
-    }
+    sheet.appendRow([firstName, lastName, meal, timestamp]);
     
     // Return success response
     return ContentService
       .createTextOutput(JSON.stringify({
         success: true,
-        isUpdate: isUpdate,
-        message: isUpdate ? 'RSVP updated successfully' : 'RSVP submitted successfully'
+        message: 'RSVP submitted successfully'
       }))
       .setMimeType(ContentService.MimeType.JSON);
       
@@ -116,15 +97,16 @@ function doGet(e) {
   try {
     // Get parameters from query string
     const params = e.parameter;
-    const name = params.name;
+    const firstName = params.firstName;
+    const lastName = params.lastName;
     const meal = params.meal;
     
     // Validate input
-    if (!name || !meal) {
+    if (!firstName || !lastName || !meal) {
       return ContentService
         .createTextOutput(JSON.stringify({
           success: false,
-          error: 'Name and meal preference are required'
+          error: 'First name, last name, and meal preference are required'
         }))
         .setMimeType(ContentService.MimeType.JSON);
     }
@@ -134,41 +116,19 @@ function doGet(e) {
     
     // Check if headers exist, if not create them
     if (sheet.getLastRow() === 0) {
-      sheet.appendRow(['Name', 'Meal Preference', 'Timestamp', 'Updated']);
+      sheet.appendRow(['First Name', 'Last Name', 'Meal Preference', 'Timestamp']);
     }
     
-    // Check if this name already exists
-    const data = sheet.getDataRange().getValues();
-    let rowIndex = -1;
-    let isUpdate = false;
-    
-    // Start from row 2 (skip header)
-    for (let i = 1; i < data.length; i++) {
-      if (data[i][0] && data[i][0].toString().toLowerCase() === name.toLowerCase()) {
-        rowIndex = i + 1; // +1 because sheet rows are 1-indexed
-        isUpdate = true;
-        break;
-      }
-    }
-    
+    // Always create a new entry (don't check for duplicates)
+    // This allows multiple people with the same name to RSVP
     const timestamp = new Date();
-    
-    if (isUpdate) {
-      // Update existing row
-      sheet.getRange(rowIndex, 2).setValue(meal); // Update meal preference
-      sheet.getRange(rowIndex, 3).setValue(timestamp); // Update timestamp
-      sheet.getRange(rowIndex, 4).setValue('Yes'); // Mark as updated
-    } else {
-      // Add new row
-      sheet.appendRow([name, meal, timestamp, 'No']);
-    }
+    sheet.appendRow([firstName, lastName, meal, timestamp]);
     
     // Return success response
     return ContentService
       .createTextOutput(JSON.stringify({
         success: true,
-        isUpdate: isUpdate,
-        message: isUpdate ? 'RSVP updated successfully' : 'RSVP submitted successfully'
+        message: 'RSVP submitted successfully'
       }))
       .setMimeType(ContentService.MimeType.JSON);
       
