@@ -27,13 +27,18 @@ This guide will help you set up the RSVP form to save responses to your Google S
    - Configure the deployment:
      - **Description**: "RSVP Form Handler" (optional)
      - **Execute as**: **Me** (your Google account)
-     - **Who has access**: **Anyone** (this allows your website to call it)
+     - **Who has access**: **Anyone** ⚠️ **IMPORTANT**: Must be "Anyone" (not "Anyone with Google account")
    - Click **Deploy**
    - You may need to authorize the script:
      - Click **Authorize access**
      - Choose your Google account
      - Click **Advanced** → **Go to [Project Name] (unsafe)**
      - Click **Allow**
+   
+   **⚠️ Important**: If you get a 403 error, you may need to:
+   - Make sure "Who has access" is set to **"Anyone"** (not "Anyone with Google account")
+   - Create a **NEW deployment** (don't edit the old one) - click "New deployment" again
+   - Copy the NEW URL from the new deployment
 
 6. **Copy the Web App URL**
    - After deployment, you'll see a "Web app" section with a URL
@@ -87,6 +92,15 @@ This guide will help you set up the RSVP form to save responses to your Google S
 - Make sure you've replaced `YOUR_GOOGLE_APPS_SCRIPT_URL_HERE` with your actual URL
 - Check that the URL is in quotes
 
+### 403 Forbidden Error
+- **Most common fix**: Create a NEW deployment (don't edit the existing one)
+  - Go to **Deploy** → **Manage deployments**
+  - Click the **+** button to create a new deployment
+  - Make sure "Who has access" is set to **"Anyone"** (not "Anyone with Google account")
+  - Copy the NEW URL and update it in your website
+- Make sure the URL ends with `/exec` (not `/dev`)
+- Try accessing the URL directly in your browser - it should show JSON response
+
 ### "Failed to submit RSVP" Error
 - Check the browser console (F12) for detailed error messages
 - Verify the Apps Script is deployed and accessible
@@ -98,9 +112,11 @@ This guide will help you set up the RSVP form to save responses to your Google S
 - Check Apps Script execution logs: **Executions** in the Apps Script editor
 
 ### CORS Errors
-- Google Apps Script handles CORS automatically, but if you see errors:
+- The current implementation uses GET requests with query parameters to avoid CORS issues
+- If you still see errors:
   - Make sure the deployment is set to "Anyone" access
   - Try redeploying the script
+  - The script now handles both GET and POST requests
 
 ## Security Notes
 
