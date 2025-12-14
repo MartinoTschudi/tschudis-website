@@ -58,19 +58,20 @@
         }
 
         .italian-quote {
-            font-family: 'Biro Script Plus', 'Dancing Script', 'Brush Script MT', 'Lucida Handwriting', cursive;
-            font-size: 1.8rem;
-            color: #8B0000;
             text-align: center;
-            margin-bottom: 1.5rem;
-            font-weight: 500;
-            line-height: 1.4;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            margin-bottom: 8rem;
+        }
+
+        .italian-quote img {
+            max-width: 60%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
         }
 
         .emoji {
             font-size: 4rem;
+            margin-top: 1.5rem;
             margin-bottom: 1rem;
             display: block;
             text-align: center;
@@ -310,7 +311,9 @@
         <div class="section">
             <span class="emoji">💍</span>
             <h1>Paola & Martino</h1>
-            <div class="italian-quote">Ci sposiamo,<br>ma niente di serio.</div>
+            <div class="italian-quote">
+                <img src="quote.png" alt="Ci sposiamo, ma niente di serio.">
+            </div>
             <div class="date-display">
                 <div class="date-day">Friday</div>
                 <div class="date-full">February 20th</div>
@@ -392,6 +395,10 @@
     </div>
 
     <script>
+        // Google Apps Script Web App URL
+        // Replace this with your deployed Apps Script URL after setup
+        const RSVP_API_URL = 'https://script.google.com/macros/s/AKfycbygnisn4q55G7l2YJ19sXT6K2MUIICOA_fO1yNxYAWCUaHSBKM5adpV83cIO122JStl/exec';
+        
         // Countdown to wedding date
         function updateCountdown() {
             const today = new Date();
@@ -425,25 +432,70 @@
         updateCountdown();
         setInterval(updateCountdown, 60000);
 
-        document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+        document.getElementById('rsvpForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             const name = document.getElementById('name').value.trim();
             const meal = document.querySelector('input[name="meal"]:checked');
+            const submitButton = e.target.querySelector('button[type="submit"]');
+            const successMessage = document.getElementById('successMessage');
             
-            if (name && meal) {
-                const mealText = meal.value === 'vegetarian' ? 'vegetarian' : 'meat';
-                const successMessage = document.getElementById('successMessage');
-                successMessage.textContent = `Thank you, ${name}! We've received your RSVP for ${mealText} tacos. 🎉`;
-                successMessage.classList.add('show');
+            if (!name || !meal) {
+                return;
+            }
+
+            // Disable button and show loading state
+            submitButton.disabled = true;
+            submitButton.textContent = 'Submitting...';
+            successMessage.classList.remove('show');
+
+            try {
+                // Check if API URL is configured
+                if (RSVP_API_URL === 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+                    throw new Error('RSVP API URL not configured. Please set RSVP_API_URL in the script.');
+                }
                 
-                // Reset form
-                document.getElementById('name').value = '';
-                document.querySelectorAll('input[name="meal"]').forEach(radio => {
-                    radio.checked = false;
+                const response = await fetch(RSVP_API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        name: name,
+                        meal: meal.value
+                    })
                 });
-                
-                // Scroll to success message
+
+                const data = await response.json();
+
+                if (data.success) {
+                    const mealText = meal.value === 'vegetarian' ? 'vegetarian' : 'meat';
+                    const updateText = data.isUpdate ? ' (updated)' : '';
+                    successMessage.textContent = `Thank you, ${name}! We've received your RSVP for ${mealText} tacos. 🎉${updateText}`;
+                    successMessage.style.background = '#e8f5e9';
+                    successMessage.style.color = '#2e7d32';
+                    successMessage.classList.add('show');
+                    
+                    // Reset form
+                    document.getElementById('name').value = '';
+                    document.querySelectorAll('input[name="meal"]').forEach(radio => {
+                        radio.checked = false;
+                    });
+                    
+                    // Scroll to success message
+                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                } else {
+                    throw new Error(data.error || 'Failed to submit RSVP');
+                }
+            } catch (error) {
+                successMessage.textContent = `Error: ${error.message}. Please try again.`;
+                successMessage.style.background = '#ffebee';
+                successMessage.style.color = '#c62828';
+                successMessage.classList.add('show');
                 successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            } finally {
+                // Re-enable button
+                submitButton.disabled = false;
+                submitButton.textContent = 'Confirm';
             }
         });
     </script>
