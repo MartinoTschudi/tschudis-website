@@ -256,6 +256,46 @@
             text-align: center;
             margin-bottom: 2rem;
         }
+
+        .date-display {
+            text-align: center;
+            margin: 3.5rem 0;
+            padding: 1.5rem;
+            background: #f8f8f8;
+            border-radius: 12px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .date-day {
+            font-size: 1.1rem;
+            color: #666;
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .date-full {
+            font-size: 1.8rem;
+            color: #333;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 0.8rem;
+        }
+
+        .countdown {
+            font-size: 0.85rem;
+            color: #888;
+            font-weight: 400;
+            margin-top: 0.8rem;
+            padding-top: 0.8rem;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .countdown-number {
+            font-weight: 600;
+            color: #666;
+        }
     </style>
 </head>
 <body>
@@ -264,8 +304,10 @@
             <span class="emoji">💍</span>
             <h1>Paola & Martino</h1>
             <div class="italian-quote">Ci sposiamo,<br>ma niente di serio.</div>
-            <div class="intro-text">
-                <p><strong>Friday, February 20th</strong></p>
+            <div class="date-display">
+                <div class="date-day">Friday</div>
+                <div class="date-full">February 20th</div>
+                <div id="countdown" class="countdown"></div>
             </div>
 
             <h2>Program</h2>
@@ -305,10 +347,9 @@
             <div class="program-item">
                 <div class="program-time">~18:00</div>
                 <div class="program-title">End of Event</div>
-            </div>
-
-            <div class="program-details" style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #e0e0e0; text-align: center; font-style: italic; color: #666;">
-                If you need a recommendation for a nice dining spot, or help booking a hotel, we are happy to help!
+                <div class="program-details" style="margin-top: 0.5rem; font-style: italic; color: #666;">
+                    If you need a recommendation for a nice dining spot, or help booking a hotel, we are happy to help!
+                </div>
             </div>
         </div>
 
@@ -344,6 +385,39 @@
     </div>
 
     <script>
+        // Countdown to wedding date
+        function updateCountdown() {
+            const today = new Date();
+            const currentYear = today.getFullYear();
+            let weddingDate = new Date(currentYear, 1, 20); // February 20th (month is 0-indexed)
+            
+            // If the date has passed this year, use next year
+            if (weddingDate < today) {
+                weddingDate = new Date(currentYear + 1, 1, 20);
+            }
+            
+            const diff = weddingDate - today;
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            
+            const countdownEl = document.getElementById('countdown');
+            
+            if (days < 0) {
+                countdownEl.textContent = 'The wedding has passed!';
+            } else if (days === 0) {
+                countdownEl.innerHTML = `<span class="countdown-number">Today!</span>`;
+            } else if (days === 1) {
+                countdownEl.innerHTML = `<span class="countdown-number">${days}</span> day, <span class="countdown-number">${hours}</span> hours`;
+            } else {
+                countdownEl.innerHTML = `<span class="countdown-number">${days}</span> days, <span class="countdown-number">${hours}</span> hours`;
+            }
+        }
+        
+        // Update countdown on load and every minute
+        updateCountdown();
+        setInterval(updateCountdown, 60000);
+
         document.getElementById('rsvpForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const name = document.getElementById('name').value.trim();
