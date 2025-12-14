@@ -265,44 +265,54 @@
             margin-bottom: 2rem;
         }
 
-        .date-display {
+        .date-banner {
+            background: linear-gradient(135deg, #f8f8f8 0%, #f0f0f0 100%);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            margin-top: 3rem;
             text-align: center;
-            margin: 3.5rem 0;
-            padding: 1.5rem;
-            background: #f8f8f8;
-            border-radius: 12px;
-            border: 1px solid #e0e0e0;
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .date-day {
-            font-size: 1.1rem;
-            color: #666;
+            font-size: 0.75rem;
+            color: #999;
             font-weight: 500;
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 3px;
         }
 
         .date-full {
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             color: #333;
-            font-weight: 600;
-            line-height: 1.3;
-            margin-bottom: 0.8rem;
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.3px;
+        }
+
+        .date-divider {
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #ccc, transparent);
+            margin: 0 auto 1.2rem;
         }
 
         .countdown {
             font-size: 0.85rem;
-            color: #888;
+            color: #777;
             font-weight: 400;
-            margin-top: 0.8rem;
-            padding-top: 0.8rem;
-            border-top: 1px solid #e0e0e0;
+            margin-top: 0;
+            padding-top: 0;
+            border-top: none;
+            line-height: 1.6;
         }
 
         .countdown-number {
             font-weight: 600;
-            color: #666;
+            color: #555;
+            font-size: 0.95rem;
         }
 
         .language-selector {
@@ -374,6 +384,81 @@
             opacity: 1 !important;
             text-decoration: underline !important;
         }
+
+        /* Confetti Animation */
+        .confetti-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            overflow: hidden;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ff6b6b;
+            top: -10px;
+            opacity: 0;
+            animation: confetti-fall linear forwards;
+        }
+
+        .confetti:nth-child(1) { left: 10%; background: #ff6b6b; animation-duration: 3s; animation-delay: 0s; }
+        .confetti:nth-child(2) { left: 20%; background: #4ecdc4; animation-duration: 3.5s; animation-delay: 0.2s; }
+        .confetti:nth-child(3) { left: 30%; background: #ffe66d; animation-duration: 2.8s; animation-delay: 0.1s; }
+        .confetti:nth-child(4) { left: 40%; background: #ff6b6b; animation-duration: 3.2s; animation-delay: 0.3s; }
+        .confetti:nth-child(5) { left: 50%; background: #95e1d3; animation-duration: 3.7s; animation-delay: 0s; }
+        .confetti:nth-child(6) { left: 60%; background: #ffe66d; animation-duration: 2.9s; animation-delay: 0.4s; }
+        .confetti:nth-child(7) { left: 70%; background: #ff6b6b; animation-duration: 3.3s; animation-delay: 0.2s; }
+        .confetti:nth-child(8) { left: 80%; background: #4ecdc4; animation-duration: 3.1s; animation-delay: 0.1s; }
+        .confetti:nth-child(9) { left: 90%; background: #ffe66d; animation-duration: 3.6s; animation-delay: 0.3s; }
+        .confetti:nth-child(10) { left: 15%; background: #95e1d3; animation-duration: 2.7s; animation-delay: 0.2s; }
+        .confetti:nth-child(11) { left: 25%; background: #ff6b6b; animation-duration: 3.4s; animation-delay: 0.1s; }
+        .confetti:nth-child(12) { left: 35%; background: #ffe66d; animation-duration: 3s; animation-delay: 0.4s; }
+        .confetti:nth-child(13) { left: 45%; background: #4ecdc4; animation-duration: 3.5s; animation-delay: 0s; }
+        .confetti:nth-child(14) { left: 55%; background: #ff6b6b; animation-duration: 2.8s; animation-delay: 0.3s; }
+        .confetti:nth-child(15) { left: 65%; background: #95e1d3; animation-duration: 3.2s; animation-delay: 0.2s; }
+        .confetti:nth-child(16) { left: 75%; background: #ffe66d; animation-duration: 3.6s; animation-delay: 0.1s; }
+        .confetti:nth-child(17) { left: 85%; background: #4ecdc4; animation-duration: 2.9s; animation-delay: 0.4s; }
+        .confetti:nth-child(18) { left: 95%; background: #ff6b6b; animation-duration: 3.3s; animation-delay: 0s; }
+        .confetti:nth-child(19) { left: 5%; background: #ffe66d; animation-duration: 3.1s; animation-delay: 0.3s; }
+        .confetti:nth-child(20) { left: 50%; background: #95e1d3; animation-duration: 3.7s; animation-delay: 0.2s; }
+
+        @keyframes confetti-fall {
+            0% {
+                opacity: 1;
+                transform: translateY(0) translateX(0) rotate(0deg);
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(50vh) translateX(20px) rotate(360deg);
+            }
+            100% {
+                opacity: 0.8;
+                transform: translateY(100vh) translateX(-20px) rotate(720deg);
+            }
+        }
+
+        .confetti-circle {
+            border-radius: 50%;
+        }
+
+        .confetti-square {
+            border-radius: 2px;
+        }
+
+        .confetti-triangle {
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-bottom: 10px solid;
+            background: transparent !important;
+        }
     </style>
 </head>
 <body>
@@ -398,18 +483,23 @@
 
     <!-- Main Content -->
     <div class="container main-content" id="mainContent">
+        <!-- Section 1: Title & Date -->
         <div class="section">
             <span class="emoji">💍</span>
             <h1>Paola & Martino</h1>
             <div class="italian-quote">
                 <img src="quote.png" alt="Ci sposiamo, ma niente di serio.">
             </div>
-            <div class="date-display">
+            <div class="date-banner">
                 <div class="date-day" data-translate="friday">Friday</div>
                 <div class="date-full" data-translate="february20">February 20th</div>
+                <div class="date-divider"></div>
                 <div id="countdown" class="countdown"></div>
             </div>
+        </div>
 
+        <!-- Section 2: Program -->
+        <div class="section">
             <h2 data-translate="program">Program</h2>
 
             <div class="program-item">
@@ -453,6 +543,7 @@
             </div>
         </div>
 
+        <!-- Section 3: RSVP -->
         <div class="section">
             <h2 data-translate="rsvp">RSVP</h2>
             <p style="text-align: center; margin-bottom: 2rem;" data-translate="rsvpMessage">We'd love to celebrate with you! Please confirm your attendance.</p>
@@ -521,11 +612,12 @@
                 lastName: "Cognom",
                 firstNamePlaceholder: "Inseris el to nom",
                 lastNamePlaceholder: "Inseris el to cognom",
-                mealPreference: "Cosa te preferis mangia?",
+                mealPreference: "Cosa te vo mangia?",
                 vegetarian: "Vegetarian",
                 meat: "Carn",
                 confirm: "Conferma",
                 rsvpSuccess: "Grazie! Ma ricevu la conferma. 🎉",
+                rsvpSuccessWithName: "Grazie, {name}! Ma ricevu la conferma. 🎉",
                 submitting: "Invio in cors...",
                 days: "dì",
                 day: "dì",
@@ -541,14 +633,14 @@
                 ceremony: "Cerimonia civile",
                 ceremonyDuration: "La cerimonia durerà circa 15-20 minuti.",
                 note: "Nota:",
-                ceremonyNote: "Il luogo dove si svolgerà la cerimonia ha i posti limitati. Vi invitiamo quindi ad aspettare fuori dalla Stadthaus per celebrare con noi al termine della cerimonia.",
+                ceremonyNote: "Il luogo dove si svolgerà la cerimonia ha i posti limitati. Vi invitiamo quindi ad aspettare fuori dalla Stadthaus per festeggiare con noi al termine della cerimonia.",
                 reception: "Tacos & Palomas",
                 receptionDetails: "Ci sposteremo verso il Quartierzentrum Schütze per un catering del nostro food truck messicano preferito.",
                 transport: "Il Quartierzentrum Schütze è facilemente raggiungibile con i mezzi pubblici.",
                 endOfEvent: "Fine dell'evento",
                 endOfEventNote: "Se hai bisogno di consigli per un bel ristorante per cena, o aiuto per prenotare un hotel, siamo felici di aiutarvi!",
                 rsvp: "RSVP",
-                rsvpMessage: "Ci piacerebbe celebrare con te! Per favore conferma la tua partecipazione.",
+                rsvpMessage: "Ci piacerebbe festeggiare con te! Per favore conferma la tua partecipazione.",
                 firstName: "Nome",
                 lastName: "Cognome",
                 firstNamePlaceholder: "Inserisci il tuo nome",
@@ -558,6 +650,7 @@
                 meat: "Carne",
                 confirm: "Conferma",
                 rsvpSuccess: "Grazie! Abbiamo ricevuto il tuo RSVP. 🎉",
+                rsvpSuccessWithName: "Grazie, {name}! Abbiamo ricevuto la tua conferma. 🎉",
                 submitting: "Invio in corso...",
                 days: "giorni",
                 day: "giorno",
@@ -590,6 +683,7 @@
                 meat: "Fleisch",
                 confirm: "Bestätigen",
                 rsvpSuccess: "Danke! Wir haben deine RSVP erhalten. 🎉",
+                rsvpSuccessWithName: "Danke, {name}! Wir haben deine RSVP erhalten. 🎉",
                 submitting: "Wird gesendet...",
                 days: "Tage",
                 day: "Tag",
@@ -841,18 +935,14 @@
                     : (langData ? langData.meat : 'meat');
                 const fullName = `${firstName} ${lastName}`;
                 
-                let thankYouText = langData 
-                    ? (langData.rsvpSuccess.replace('RSVP', '').trim() || `Grazie, ${fullName}! Abbiamo ricevuto il tuo RSVP per tacos ${mealText}. 🎉`)
-                    : `Thank you, ${fullName}! We've received your RSVP for ${mealText} tacos. 🎉`;
-                
-                if (currentLanguage === 'it') {
-                    thankYouText = `Grazie, ${fullName}! Abbiamo ricevuto il tuo RSVP per tacos ${mealText}. 🎉`;
-                } else if (currentLanguage === 'de') {
-                    thankYouText = `Danke, ${fullName}! Wir haben deine RSVP für ${mealText} Tacos erhalten. 🎉`;
-                } else if (currentLanguage === 'dialet') {
-                    // Use default English or allow custom message in translations
-                    thankYouText = `Thank you, ${fullName}! We've received your RSVP for ${mealText} tacos. 🎉`;
+                // Use translation template if available, otherwise fallback
+                let thankYouText;
+                if (langData && langData.rsvpSuccessWithName) {
+                    thankYouText = langData.rsvpSuccessWithName
+                        .replace('{name}', fullName)
+                        .replace('{meal}', mealText);
                 } else {
+                    // Fallback to English
                     thankYouText = `Thank you, ${fullName}! We've received your RSVP for ${mealText} tacos. 🎉`;
                 }
                 
@@ -860,6 +950,9 @@
                 successMessage.style.background = '#e8f5e9';
                 successMessage.style.color = '#2e7d32';
                 successMessage.classList.add('show');
+                
+                // Trigger confetti animation
+                createConfetti();
                 
                 // Reset form
                 document.getElementById('firstName').value = '';
@@ -874,6 +967,59 @@
                 // Re-enable button
                 submitButton.disabled = false;
                 submitButton.textContent = langData ? langData.confirm : 'Confirm';
+            }
+
+            // Confetti animation function
+            function createConfetti() {
+                // Remove any existing confetti
+                const existing = document.getElementById('confetti-container');
+                if (existing) {
+                    existing.remove();
+                }
+
+                // Create confetti container
+                const container = document.createElement('div');
+                container.id = 'confetti-container';
+                container.className = 'confetti-container';
+                document.body.appendChild(container);
+
+                // Create confetti pieces
+                const colors = ['#ff6b6b', '#4ecdc4', '#ffe66d', '#95e1d3'];
+                const shapes = ['circle', 'square', 'triangle'];
+                
+                for (let i = 0; i < 30; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    
+                    // Random shape
+                    const shape = shapes[Math.floor(Math.random() * shapes.length)];
+                    if (shape === 'circle') {
+                        confetti.classList.add('confetti-circle');
+                    } else if (shape === 'square') {
+                        confetti.classList.add('confetti-square');
+                    } else if (shape === 'triangle') {
+                        confetti.classList.add('confetti-triangle');
+                        const color = colors[Math.floor(Math.random() * colors.length)];
+                        confetti.style.borderBottomColor = color;
+                    }
+                    
+                    // Random color for non-triangles
+                    if (shape !== 'triangle') {
+                        confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    }
+                    
+                    // Random position and animation
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                    confetti.style.animationDelay = (Math.random() * 0.5) + 's';
+                    
+                    container.appendChild(confetti);
+                }
+
+                // Remove confetti container after animation
+                setTimeout(() => {
+                    container.remove();
+                }, 4000);
             }
         });
     </script>
