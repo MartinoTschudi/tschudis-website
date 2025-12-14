@@ -3,8 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
+    <title>Paola & Martino - Wedding</title>
     <style>
+        @font-face {
+            font-family: 'Biro Script Plus';
+            src: url('fonts/BiroScriptPlus.woff2') format('woff2'),
+                 url('fonts/BiroScriptPlus.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
         * {
             margin: 0;
             padding: 0;
@@ -13,52 +20,352 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
             color: #333;
+            padding: 2rem 1rem;
+            min-height: 100vh;
         }
 
         .container {
-            text-align: center;
+            max-width: 700px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .section {
             background: white;
             padding: 3rem 2rem;
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 600px;
-            width: 90%;
+            margin-bottom: 2rem;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
         }
 
         h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+            text-align: center;
+            font-weight: 600;
         }
 
-        p {
-            font-size: 1.2rem;
-            color: #666;
-            line-height: 1.6;
+        .italian-quote {
+            font-family: 'Biro Script Plus', 'Brush Script MT', 'Lucida Handwriting', cursive;
+            font-size: 1.8rem;
+            color: #8B0000;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-weight: normal;
+            line-height: 1.4;
         }
 
         .emoji {
             font-size: 4rem;
             margin-bottom: 1rem;
             display: block;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+            text-align: center;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .program-item {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .program-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .program-time {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 0.5rem;
+        }
+
+        .program-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .program-details {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 0.5rem;
+        }
+
+        .program-location {
+            margin-top: 0.5rem;
+        }
+
+        .program-location a {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .program-location a:hover {
+            text-decoration: underline;
+        }
+
+        .program-note {
+            background: #fff3cd;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 0.5rem;
+            color: #856404;
+            font-size: 0.95rem;
+        }
+
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #555;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            font-size: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            transition: border-color 0.3s ease;
+            font-family: inherit;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #666;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .radio-option {
+            flex: 1;
+            position: relative;
+        }
+
+        .radio-option input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .radio-option label {
+            display: block;
+            padding: 0.875rem 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 0;
+            font-weight: 500;
+        }
+
+        .radio-option input[type="radio"]:checked + label {
+            border-color: #333;
+            background: #333;
+            color: white;
+        }
+
+        .radio-option label:hover {
+            border-color: #666;
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .radio-option input[type="radio"]:checked + label:hover {
+            background: #333;
+        }
+
+        button {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            background: #333;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            font-family: inherit;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            background: #444;
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .success-message {
+            display: none;
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: #e8f5e9;
+            color: #2e7d32;
+            border-radius: 10px;
+            font-weight: 500;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .intro-text {
+            text-align: center;
+            margin-bottom: 2rem;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <span class="emoji">👋</span>
-        <h1>Hello World!</h1>
-        <p>Welcome to my website hosted on GitHub Pages.</p>
+        <div class="section">
+            <span class="emoji">💍</span>
+            <h1>Paola & Martino</h1>
+            <div class="italian-quote">Ci sposiamo,<br>ma niente di serio.</div>
+            <div class="intro-text">
+                <p><strong>Friday, February 20th</strong></p>
+            </div>
+
+            <h2>Program</h2>
+
+            <div class="program-item">
+                <div class="program-time">13:30</div>
+                <div class="program-title">Ceremony</div>
+                <div class="program-details">
+                    The ceremony will last 15 to 30 minutes.
+                </div>
+                <div class="program-location">
+                    <a href="https://www.google.com/maps/search/?api=1&query=Stadthaus+Zürich,+Stadthausquai+17,+8001+Zürich" target="_blank" rel="noopener noreferrer">
+                        📍 Stadthaus Zürich, Stadthausquai 17, 8001 Zürich
+                    </a>
+                </div>
+                <div class="program-note">
+                    <strong>Note:</strong> The place for the ceremony will be limited. We invite guests to wait outside the Stadthaus for our exit.
+                </div>
+            </div>
+
+            <div class="program-item">
+                <div class="program-time">~14:00</div>
+                <div class="program-title">Reception & Celebration</div>
+                <div class="program-details">
+                    We will move towards the Quartierzentrum Schütze for Mexican catering with our favorite tacos and palomas.
+                </div>
+                <div class="program-location">
+                    <a href="https://www.google.com/maps/search/?api=1&query=Quartierzentrum+Schütze,+Heinrichstrasse+238,+8005+Zürich" target="_blank" rel="noopener noreferrer">
+                        📍 Quartierzentrum Schütze, Heinrichstrasse 238, 8005 Zürich
+                    </a>
+                </div>
+                <div class="program-details" style="margin-top: 0.5rem;">
+                    Transport can be easily done with public transportation.
+                </div>
+            </div>
+
+            <div class="program-item">
+                <div class="program-time">~18:00</div>
+                <div class="program-title">End of Event</div>
+            </div>
+
+            <div class="program-details" style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #e0e0e0; text-align: center; font-style: italic; color: #666;">
+                If you need a recommendation for a nice dining spot, or help booking a hotel, we are happy to help!
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>RSVP</h2>
+            <p style="text-align: center; margin-bottom: 2rem;">We'd love to celebrate with you! Please confirm your attendance.</p>
+        
+            <form id="rsvpForm">
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label>Meal Preference</label>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="vegetarian" name="meal" value="vegetarian" required>
+                        <label for="vegetarian">Vegetarian</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="meat" name="meal" value="meat" required>
+                        <label for="meat">Meat</label>
+                    </div>
+                </div>
+            </div>
+            <button type="submit">Confirm</button>
+        </form>
+        
+            <div id="successMessage" class="success-message">
+                Thank you! We've received your RSVP. 🎉
+            </div>
+        </div>
     </div>
+
+    <script>
+        document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const meal = document.querySelector('input[name="meal"]:checked');
+            
+            if (name && meal) {
+                const mealText = meal.value === 'vegetarian' ? 'vegetarian' : 'meat';
+                const successMessage = document.getElementById('successMessage');
+                successMessage.textContent = `Thank you, ${name}! We've received your RSVP for ${mealText} tacos. 🎉`;
+                successMessage.classList.add('show');
+                
+                // Reset form
+                document.getElementById('name').value = '';
+                document.querySelectorAll('input[name="meal"]').forEach(radio => {
+                    radio.checked = false;
+                });
+                
+                // Scroll to success message
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        });
+    </script>
 </body>
 </html>
 
