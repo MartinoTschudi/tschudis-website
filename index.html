@@ -386,8 +386,9 @@
                 <img src="quote.png" alt="Ci sposiamo, ma niente di serio.">
             </div>
             <div class="language-selector">
-                <h2 data-translate="selectLanguage">Select Language / Wähle Sprache</h2>
+                <h2 data-translate="selectLanguage">Seleziona la lingua</h2>
                 <div class="language-buttons">
+                    <button class="language-button" onclick="selectLanguage('dialet')">Dialet</button>
                     <button class="language-button" onclick="selectLanguage('it')">Italiano</button>
                     <button class="language-button" onclick="selectLanguage('de')">Deutsch</button>
                 </div>
@@ -438,7 +439,7 @@
                         📍 Quartierzentrum Schütze, Heinrichstrasse 238, 8005 Zürich
                     </a>
                 </div>
-                <div class="program-details" style="margin-top: 0.5rem;" data-translate="transport">
+                <div class="program-note" style="margin-top: 0.5rem;" data-translate="transport">
                     Transport can be easily done with public transportation.
                 </div>
             </div>
@@ -500,27 +501,59 @@
         
         // Translations
         const translations = {
+            dialet: {
+                selectLanguage: "Scern la lingua",
+                friday: "Venerdì",
+                february20: "20 de febrar",
+                program: "Programma",
+                ceremony: "Matrimoni civil",
+                ceremonyDuration: "El matrimoni civil el durerà circa 15-20 minut.",
+                note: "Attenzion:",
+                ceremonyNote: "El municipi de Zuric el ga poc post nela sala dela cerimonia. Quindi un va invida a speciac fora dala Stadthaus per festegià con num ala fin de la cerimonia.",
+                reception: "Tacos & Palomas",
+                receptionDetails: "Un sa sposterà pe vers el Quartierzentrum Schütze dove ga specia un catering del nost food truck messican preferit.",
+                transport: "El Quartierzentrum Schütze sal raggiung facilment con el tram.",
+                endOfEvent: "Fin dela festa",
+                endOfEventNote: "Se te ghe bisegn de un consili per un ristorant per scena, o una man a prenotà un hotel, fac savé!",
+                rsvp: "RSVP",
+                rsvpMessage: "Ga piaserisa festegià con ti. Per piasé conferma la to partecipazion.",
+                firstName: "Nom",
+                lastName: "Cognom",
+                firstNamePlaceholder: "Inseris el to nom",
+                lastNamePlaceholder: "Inseris el to cognom",
+                mealPreference: "Cosa te preferis mangia?",
+                vegetarian: "Vegetarian",
+                meat: "Carn",
+                confirm: "Conferma",
+                rsvpSuccess: "Grazie! Ma ricevu la conferma. 🎉",
+                submitting: "Invio in cors...",
+                days: "dì",
+                day: "dì",
+                hours: "or",
+                today: "Inche!",
+                changeLanguage: "Cambia la lingua"
+            },
             it: {
-                selectLanguage: "Seleziona Lingua",
+                selectLanguage: "Seleziona la lingua",
                 friday: "Venerdì",
                 february20: "20 Febbraio",
                 program: "Programma",
-                ceremony: "Cerimonia",
-                ceremonyDuration: "La cerimonia durerà 15-30 minuti.",
+                ceremony: "Cerimonia civile",
+                ceremonyDuration: "La cerimonia durerà circa 15-20 minuti.",
                 note: "Nota:",
-                ceremonyNote: "Il luogo per la cerimonia sarà limitato. Invitiamo gli ospiti ad aspettare fuori dallo Stadthaus per la nostra uscita.",
-                reception: "Ricevimento & Celebrazione",
-                receptionDetails: "Ci sposteremo verso il Quartierzentrum Schütze per un catering messicano con i nostri tacos e palomas preferiti.",
-                transport: "Il trasporto può essere facilmente fatto con i mezzi pubblici.",
-                endOfEvent: "Fine dell'Evento",
-                endOfEventNote: "Se hai bisogno di una raccomandazione per un bel ristorante, o aiuto per prenotare un hotel, siamo felici di aiutare!",
+                ceremonyNote: "Il luogo dove si svolgerà la cerimonia ha i posti limitati. Vi invitiamo quindi ad aspettare fuori dalla Stadthaus per celebrare con noi al termine della cerimonia.",
+                reception: "Tacos & Palomas",
+                receptionDetails: "Ci sposteremo verso il Quartierzentrum Schütze per un catering del nostro food truck messicano preferito.",
+                transport: "Il Quartierzentrum Schütze è facilemente raggiungibile con i mezzi pubblici.",
+                endOfEvent: "Fine dell'evento",
+                endOfEventNote: "Se hai bisogno di consigli per un bel ristorante per cena, o aiuto per prenotare un hotel, siamo felici di aiutarvi!",
                 rsvp: "RSVP",
                 rsvpMessage: "Ci piacerebbe celebrare con te! Per favore conferma la tua partecipazione.",
                 firstName: "Nome",
                 lastName: "Cognome",
                 firstNamePlaceholder: "Inserisci il tuo nome",
                 lastNamePlaceholder: "Inserisci il tuo cognome",
-                mealPreference: "Preferenza Pasto",
+                mealPreference: "Preferenza pasto",
                 vegetarian: "Vegetariano",
                 meat: "Carne",
                 confirm: "Conferma",
@@ -530,7 +563,7 @@
                 day: "giorno",
                 hours: "ore",
                 today: "Oggi!",
-                changeLanguage: "Cambia Lingua"
+                changeLanguage: "Cambia la lingua"
             },
             de: {
                 selectLanguage: "Sprache wählen",
@@ -538,10 +571,10 @@
                 february20: "20. Februar",
                 program: "Programm",
                 ceremony: "Zeremonie",
-                ceremonyDuration: "Die Zeremonie dauert 15 bis 30 Minuten.",
+                ceremonyDuration: "Die Zeremonie dauert 15 bis 20 Minuten.",
                 note: "Hinweis:",
-                ceremonyNote: "Der Platz für die Zeremonie wird begrenzt sein. Wir laden die Gäste ein, außerhalb des Stadthauses auf unseren Auszug zu warten.",
-                reception: "Empfang & Feier",
+                ceremonyNote: "Der Platz für die Zeremonie wird begrenzt sein. Wir laden die Gäste ein, ausserhalb des Stadthauses auf uns zu warten und dann gemainsam zu feiern.",
+                reception: "Tacos & Palomas",
                 receptionDetails: "Wir werden zum Quartierzentrum Schütze für mexikanisches Catering mit unseren Lieblings-Tacos und Palomas weiterziehen.",
                 transport: "Die Anreise kann einfach mit öffentlichen Verkehrsmitteln erfolgen.",
                 endOfEvent: "Ende der Veranstaltung",
@@ -651,6 +684,8 @@
                     countdownEl.textContent = 'Il matrimonio è passato!';
                 } else if (currentLanguage === 'de') {
                     countdownEl.textContent = 'Die Hochzeit ist vorbei!';
+                } else if (currentLanguage === 'dialet' && langData) {
+                    countdownEl.textContent = langData.weddingPassed || 'The wedding has passed!';
                 } else {
                     countdownEl.textContent = 'The wedding has passed!';
                 }
@@ -814,6 +849,9 @@
                     thankYouText = `Grazie, ${fullName}! Abbiamo ricevuto il tuo RSVP per tacos ${mealText}. 🎉`;
                 } else if (currentLanguage === 'de') {
                     thankYouText = `Danke, ${fullName}! Wir haben deine RSVP für ${mealText} Tacos erhalten. 🎉`;
+                } else if (currentLanguage === 'dialet') {
+                    // Use default English or allow custom message in translations
+                    thankYouText = `Thank you, ${fullName}! We've received your RSVP for ${mealText} tacos. 🎉`;
                 } else {
                     thankYouText = `Thank you, ${fullName}! We've received your RSVP for ${mealText} tacos. 🎉`;
                 }
