@@ -460,6 +460,27 @@
             border-bottom: 10px solid;
             background: transparent !important;
         }
+
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+
+        .faq-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: #333;
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq-answer {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
     </style>
 </head>
 <body>
@@ -499,7 +520,37 @@
             </div>
         </div>
 
-        <!-- Section 2: Program -->
+        <!-- Section 2: FAQ -->
+        <div class="section" style="padding: 2rem 2rem;">
+            <h2 data-translate="faq">FAQ</h2>
+
+            <div class="faq-item">
+                <div class="faq-question" data-translate="giftsQ">Gifts</div>
+                <div class="faq-answer" data-translate="giftsA">Don't worry about gifts! If you'd like, you'll have the chance to give us something at the main ceremony in July 2027. We'll also have a wedding registry where you can choose what to gift us.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" data-translate="childrenQ">Children's Menu</div>
+                <div class="faq-answer" data-translate="childrenA">For children who don't eat tacos, we will organize Happy Meals. If you have kids, we'll contact you to find out if and what we should order.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" data-translate="tacosQ">Tacos</div>
+                <div class="faq-answer" data-translate="tacosA">Santacos will be serving their delicious tacos from 14:00 until around 18:00. We recommend having a big breakfast so you'll be hungry for the best tacos in Zurich!</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" data-translate="civilCeremonyQ">Civil Ceremony</div>
+                <div class="faq-answer" data-translate="civilCeremonyA">Our witnesses will organize a small celebration at the exit of the town hall, then we'll all move together towards the Quartierzentrum Schütze.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" data-translate="endOfEventQ">End of Event</div>
+                <div class="faq-answer" data-translate="endOfEventA">The service ends at 18:00, but this absolutely doesn't mean we're kicking you out! The venue is rented for the whole evening, so no one will make you leave a margarita half-finished.</div>
+            </div>
+        </div>
+
+        <!-- Section 3: Program -->
         <div class="section">
             <h2 data-translate="program">Program</h2>
 
@@ -521,7 +572,20 @@
 
             <div class="program-item">
                 <div class="program-time">~14:00</div>
-                <div class="program-title" data-translate="reception">Reception & Celebration</div>
+                <div class="program-title" data-translate="transportProgram">Transport</div>
+                <div class="program-details" data-translate="transportProgramDetails">
+                    We recommend taking tram 8 from Bürkliplatz and getting off at Escher-Wyss-Platz. If you're coming by car, there are some parking spots near the town hall and various parking options near the Quartierzentrum Schütze.
+                </div>
+                <div class="program-location">
+                    <a href="https://maps.app.goo.gl/WXmj3Xtzy8qUNN4x6" target="_blank" rel="noopener noreferrer">
+                        🗺️ <span data-translate="viewRoute">View route on Google Maps</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="program-item">
+                <div class="program-time">~14:30</div>
+                <div class="program-title" data-translate="reception">Tacos & Palomas</div>
                 <div class="program-details" data-translate="receptionDetails">
                     We will move towards the Quartierzentrum Schütze for Mexican catering with our favorite tacos and palomas.
                 </div>
@@ -529,9 +593,6 @@
                     <a href="https://www.google.com/maps/search/?api=1&query=Quartierzentrum+Schütze,+Heinrichstrasse+238,+8005+Zürich" target="_blank" rel="noopener noreferrer">
                         📍 Quartierzentrum Schütze, Heinrichstrasse 238, 8005 Zürich
                     </a>
-                </div>
-                <div class="program-note" style="margin-top: 0.5rem;" data-translate="transport">
-                    Transport can be easily done with public transportation.
                 </div>
             </div>
 
@@ -542,9 +603,10 @@
                     If you need a recommendation for a nice dining spot, or help booking a hotel, we are happy to help!
                 </div>
             </div>
+
         </div>
 
-        <!-- Section 3: RSVP -->
+        <!-- Section 4: RSVP -->
         <div class="section" style="display: none;">
             <h2 data-translate="rsvp">RSVP</h2>
             <p style="text-align: center; margin-bottom: 2rem;" data-translate="rsvpMessage">We'd love to celebrate with you! Please confirm your attendance.</p>
@@ -597,6 +659,24 @@
                 selectLanguage: "Scern la lingua",
                 friday: "Venerdì",
                 february20: "20 de febrar",
+                faq: "FAQ",
+                giftsQ: "Regai",
+                giftsA: "Preocupif miga! Se volì, fasic un regal ala cerimonia vera in lui 2027. Per chela un gaora anca una lista de nozz, da la qual scern cosa regalacc.",
+                childrenQ: "Menu per i pup",
+                childrenA: "Per i pup che mangia miga i tacos, un organizzera di Happy Meal. Se gavi fii, un va contatera num per savé se e cosa un po ordinà.",
+                tacosQ: "Tacos",
+                tacosA: "Santacos el servirà i sò bonisim tacos dai do fin vers i ses. Num un va consiglia de fà una colazion abondanta, isci de avec fam per i miglior tacos de Zurig!",
+                civilCeremonyQ: "Cerimonia civil",
+                civilCeremonyA: "I nost testimoni i organizerà queicos per l'uscida dal comun, dopo un sa sposterà tucc insema vers el Quartierzentrum Schütze.",
+                transportQ: "Trasport",
+                transportA: "Un va consiglia de ciapà el tram 8 da Bürkliplatz e de salta giù ala fermada Escher-Wyss-Platz. Se vegnì in machina, ghè di parchegi visign al comun e vari parchegi visign al Quartierzentrum Schütze.",
+                endOfEventQ: "Fin dela festa",
+                endOfEventA: "Ai ses finìs el servizi, ma el vo miga dì che un va manda via! El local l'è ficiò per tuta la sira, quindi nissun va farà piantà un margarita a metà.",
+                routeHere: "Chi el percors:",
+                viewOnGoogleMaps: "Guardel su Google Maps",
+                transportProgram: "Trasport",
+                transportProgramDetails: "Un va consiglia de ciapà el tram 8 da Bürkliplatz e de salta giù ala fermada Escher-Wyss-Platz. Se vegnì in machina, ghè di parchegi visign al comun e vari parchegi visign al Quartierzentrum Schütze.",
+                viewRoute: "Guarda el percors su Google Maps",
                 program: "Programma",
                 ceremony: "Matrimoni civil",
                 ceremonyDuration: "El matrimoni civil el durerà circa 15-20 minut.",
@@ -630,6 +710,24 @@
                 selectLanguage: "Seleziona la lingua",
                 friday: "Venerdì",
                 february20: "20 Febbraio",
+                faq: "FAQ",
+                giftsQ: "Regali",
+                giftsA: "Non preoccupatevi! Se lo desiderate, avrete tempo di farci un regalo alla cerimonia che si terrà a luglio 2027. Per quella avremo anche una lista nozze, dalla quale scegliere cosa volete regalarci.",
+                childrenQ: "Menu bambini",
+                childrenA: "Per i bambini che non mangiano tacos, organizzeremo degli Happy Meal. Se avete dei figli, vi contatteremo per sapere se e cosa possiamo ordinare.",
+                tacosQ: "Tacos",
+                tacosA: "Santacos servirà i suoi deliziosi tacos dalle 14:00 fino alle 18:00 circa. Noi vi consigliamo di fare una colazione abbondante, così da essere affamati per i migliori tacos di Zurigo!",
+                civilCeremonyQ: "Cerimonia civile",
+                civilCeremonyA: "I nostri testimoni organizzeranno una piccola celebrazione all'uscita dal comune, poi ci sposteremo tutti assieme verso il Quartierzentrum Schütze.",
+                transportQ: "Trasporto",
+                transportA: "Noi vi consigliamo di prendere il tram 8 da Bürkliplatz e di scendere alla fermata Escher-Wyss-Platz. Se doveste venire in auto, ci sono alcuni parcheggi vicino al comune e vari parcheggi vicino al Quartierzentrum Schütze.",
+                endOfEventQ: "Fine dell'evento",
+                endOfEventA: "Alle 18 terminerà il servizio, questo non vuole assolutamente dire che vi cacciamo! Il locale è affittato per tutta la sera, quindi nessuno vi farà lasciare un margarita a metà.",
+                routeHere: "Qui il percorso:",
+                viewOnGoogleMaps: "Vedi su Google Maps",
+                transportProgram: "Trasporto",
+                transportProgramDetails: "Noi vi consigliamo di prendere il tram 8 da Bürkliplatz e di scendere alla fermata Escher-Wyss-Platz. Se doveste venire in auto, ci sono alcuni parcheggi vicino al comune e vari parcheggi vicino al Quartierzentrum Schütze.",
+                viewRoute: "Vedi il percorso su Google Maps",
                 program: "Programma",
                 ceremony: "Cerimonia civile",
                 ceremonyDuration: "La cerimonia durerà circa 15-20 minuti.",
@@ -663,6 +761,24 @@
                 selectLanguage: "Sprache wählen",
                 friday: "Freitag",
                 february20: "20. Februar",
+                faq: "FAQ",
+                giftsQ: "Geschenke",
+                giftsA: "Macht euch keine Sorgen! Wenn ihr möchtet, habt ihr Zeit, uns bei der Hauptzeremonie im Juli 2027 etwas zu schenken. Dafür werden wir auch eine Hochzeitsliste haben, aus der ihr auswählen könnt.",
+                childrenQ: "Kindermenü",
+                childrenA: "Für Kinder, die keine Tacos essen, organisieren wir Happy Meals. Wenn ihr Kinder habt, werden wir euch kontaktieren, um zu erfahren, ob und was wir bestellen sollen.",
+                tacosQ: "Tacos",
+                tacosA: "Santacos serviert seine leckeren Tacos von 14:00 bis etwa 18:00 Uhr. Wir empfehlen ein grosses Frühstück, damit ihr hungrig seid für die besten Tacos in Zürich!",
+                civilCeremonyQ: "Standesamtliche Trauung",
+                civilCeremonyA: "Unsere Trauzeugen organisieren eine kleine Feier beim Ausgang des Rathauses, dann gehen wir alle zusammen zum Quartierzentrum Schütze.",
+                transportQ: "Transport",
+                transportA: "Wir empfehlen, das Tram 8 ab Bürkliplatz zu nehmen und an der Haltestelle Escher-Wyss-Platz auszusteigen. Wenn ihr mit dem Auto kommt, gibt es einige Parkplätze in der Nähe des Rathauses und verschiedene Parkmöglichkeiten beim Quartierzentrum Schütze.",
+                endOfEventQ: "Ende der Veranstaltung",
+                endOfEventA: "Um 18 Uhr endet der Service, aber das heisst absolut nicht, dass wir euch rausschmeissen! Der Raum ist für den ganzen Abend gemietet, also wird niemand euch zwingen, eine Margarita halb voll stehen zu lassen.",
+                routeHere: "Hier die Route:",
+                viewOnGoogleMaps: "Auf Google Maps ansehen",
+                transportProgram: "Transport",
+                transportProgramDetails: "Wir empfehlen, das Tram 8 ab Bürkliplatz zu nehmen und an der Haltestelle Escher-Wyss-Platz auszusteigen. Wenn ihr mit dem Auto kommt, gibt es einige Parkplätze in der Nähe des Rathauses und verschiedene Parkmöglichkeiten beim Quartierzentrum Schütze.",
+                viewRoute: "Route auf Google Maps ansehen",
                 program: "Programm",
                 ceremony: "Zeremonie",
                 ceremonyDuration: "Die Zeremonie dauert 15 bis 20 Minuten.",
