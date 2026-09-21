@@ -1,27 +1,8 @@
-# Hello World Website
+# tschudis.ch
 
-A simple "Hello World" website ready to be hosted on GitHub Pages.
+The Tschudi family landing page — a single self-contained `index.html` with an animated alpine night sky (parallax mountains, drifting stars, aurora, shooting stars). No build step, no dependencies.
 
-## Getting Started
+- Move the mouse / tilt your phone for parallax.
+- Click or tap the sky to launch a shooting star.
 
-1. Push this repository to GitHub
-2. Go to your repository settings
-3. Navigate to "Pages" in the left sidebar
-4. Under "Source", select your branch (usually `main` or `master`)
-5. Click "Save"
-6. Your site will be available at `https://[your-username].github.io/[repository-name]`
-
-## Local Development
-
-Simply open `index.html` in your web browser, or use a local server:
-
-```bash
-# Using Python 3
-python3 -m http.server 8000
-
-# Using Node.js (if you have http-server installed)
-npx http-server
-```
-
-Then visit `http://localhost:8000` in your browser.
-
+Hosted via GitHub Pages (`CNAME` → www.tschudis.ch). To preview locally, just open `index.html`.

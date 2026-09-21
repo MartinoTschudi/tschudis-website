@@ -1,1152 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paola & Martino - Wedding</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💍</text></svg>">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        @font-face {
-            font-family: 'Biro Script Plus';
-            src: url('fonts/BiroScriptPlus.woff2') format('woff2'),
-                 url('fonts/BiroScriptPlus.woff') format('woff'),
-                 url('fonts/BiroScriptPlus.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
-        }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
-            color: #333;
-            padding: 2rem 1rem;
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 700px;
-            width: 100%;
-            margin: 0 auto;
-        }
-
-        .section {
-            background: white;
-            padding: 3rem 2rem;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            margin-bottom: 2rem;
-        }
-
-        .section:last-child {
-            margin-bottom: 0;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            color: #333;
-            text-align: center;
-            font-weight: 600;
-        }
-
-        .italian-quote {
-            text-align: center;
-            margin-bottom: 8rem;
-        }
-
-        .italian-quote img {
-            max-width: 60%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
-
-        .emoji {
-            font-size: 4rem;
-            margin-top: 1.5rem;
-            margin-bottom: 1rem;
-            display: block;
-            text-align: center;
-        }
-
-        h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: #333;
-            text-align: center;
-        }
-
-        p {
-            font-size: 1.1rem;
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-
-        .program-item {
-            margin-bottom: 2rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .program-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .program-time {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #555;
-            margin-bottom: 0.5rem;
-        }
-
-        .program-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 0.5rem;
-        }
-
-        .program-details {
-            color: #666;
-            line-height: 1.8;
-            margin-bottom: 0.5rem;
-        }
-
-        .program-location {
-            margin-top: 0.5rem;
-        }
-
-        .program-location a {
-            color: #0066cc;
-            text-decoration: none;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.3rem;
-        }
-
-        .program-location a:hover {
-            text-decoration: underline;
-        }
-
-        .program-note {
-            background: #fff3cd;
-            padding: 1rem;
-            border-radius: 10px;
-            margin-top: 0.5rem;
-            color: #856404;
-            font-size: 0.95rem;
-        }
-
-
-        .form-group {
-            margin-bottom: 1.5rem;
-            text-align: left;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #555;
-            font-size: 1rem;
-            font-weight: 500;
-        }
-
-        input[type="text"] {
-            width: 100%;
-            padding: 0.875rem 1rem;
-            font-size: 1rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            transition: border-color 0.3s ease;
-            font-family: inherit;
-        }
-
-        input[type="text"]:focus {
-            outline: none;
-            border-color: #666;
-        }
-
-        .radio-group {
-            display: flex;
-            gap: 1rem;
-            margin-top: 0.5rem;
-        }
-
-        .radio-option {
-            flex: 1;
-            position: relative;
-        }
-
-        .radio-option input[type="radio"] {
-            position: absolute;
-            opacity: 0;
-            cursor: pointer;
-        }
-
-        .radio-option label {
-            display: block;
-            padding: 0.875rem 1rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-bottom: 0;
-            font-weight: 500;
-        }
-
-        .radio-option input[type="radio"]:checked + label {
-            border-color: #333;
-            background: #333;
-            color: white;
-        }
-
-        .radio-option label:hover {
-            border-color: #666;
-            background: rgba(0, 0, 0, 0.05);
-        }
-
-        .radio-option input[type="radio"]:checked + label:hover {
-            background: #333;
-        }
-
-        button {
-            width: 100%;
-            padding: 1rem;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: white;
-            background: #333;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            font-family: inherit;
-        }
-
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            background: #444;
-        }
-
-        button:active {
-            transform: translateY(0);
-        }
-
-        .success-message {
-            display: none;
-            margin-top: 1.5rem;
-            padding: 1rem;
-            background: #e8f5e9;
-            color: #2e7d32;
-            border-radius: 10px;
-            font-weight: 500;
-        }
-
-        .success-message.show {
-            display: block;
-        }
-
-        .intro-text {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .date-banner {
-            background: linear-gradient(135deg, #f8f8f8 0%, #f0f0f0 100%);
-            border-radius: 16px;
-            padding: 2.5rem 2rem;
-            margin-top: 3rem;
-            text-align: center;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .date-day {
-            font-size: 0.75rem;
-            color: #999;
-            font-weight: 500;
-            margin-bottom: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-
-        .date-full {
-            font-size: 2.2rem;
-            color: #333;
-            font-weight: 400;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.3px;
-        }
-
-        .date-divider {
-            width: 50px;
-            height: 2px;
-            background: linear-gradient(to right, transparent, #ccc, transparent);
-            margin: 0 auto 1.2rem;
-        }
-
-        .countdown {
-            font-size: 0.85rem;
-            color: #777;
-            font-weight: 400;
-            margin-top: 0;
-            padding-top: 0;
-            border-top: none;
-            line-height: 1.6;
-        }
-
-        .countdown-number {
-            font-weight: 600;
-            color: #555;
-            font-size: 0.95rem;
-        }
-
-        .language-selector {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .language-selector h2 {
-            font-size: 1.5rem;
-            color: #666;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-
-        .language-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .language-button {
-            padding: 1rem 2.5rem;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: white;
-            background: #333;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            font-family: inherit;
-        }
-
-        .language-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            background: #444;
-        }
-
-        .language-button:active {
-            transform: translateY(0);
-        }
-
-        .main-content {
-            display: none;
-        }
-
-        .main-content.show {
-            display: block;
-        }
-
-        .language-selection-screen {
-            display: block;
-        }
-
-        .language-selection-screen.hidden {
-            display: none;
-        }
-
-        #changeLanguageLink {
-            transition: opacity 0.2s ease;
-        }
-
-        #changeLanguageLink:hover {
-            opacity: 1 !important;
-            text-decoration: underline !important;
-        }
-
-        /* Confetti Animation */
-        .confetti-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 9999;
-            overflow: hidden;
-        }
-
-        .confetti {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: #ff6b6b;
-            top: -10px;
-            opacity: 0;
-            animation: confetti-fall linear forwards;
-        }
-
-        .confetti:nth-child(1) { left: 10%; background: #ff6b6b; animation-duration: 3s; animation-delay: 0s; }
-        .confetti:nth-child(2) { left: 20%; background: #4ecdc4; animation-duration: 3.5s; animation-delay: 0.2s; }
-        .confetti:nth-child(3) { left: 30%; background: #ffe66d; animation-duration: 2.8s; animation-delay: 0.1s; }
-        .confetti:nth-child(4) { left: 40%; background: #ff6b6b; animation-duration: 3.2s; animation-delay: 0.3s; }
-        .confetti:nth-child(5) { left: 50%; background: #95e1d3; animation-duration: 3.7s; animation-delay: 0s; }
-        .confetti:nth-child(6) { left: 60%; background: #ffe66d; animation-duration: 2.9s; animation-delay: 0.4s; }
-        .confetti:nth-child(7) { left: 70%; background: #ff6b6b; animation-duration: 3.3s; animation-delay: 0.2s; }
-        .confetti:nth-child(8) { left: 80%; background: #4ecdc4; animation-duration: 3.1s; animation-delay: 0.1s; }
-        .confetti:nth-child(9) { left: 90%; background: #ffe66d; animation-duration: 3.6s; animation-delay: 0.3s; }
-        .confetti:nth-child(10) { left: 15%; background: #95e1d3; animation-duration: 2.7s; animation-delay: 0.2s; }
-        .confetti:nth-child(11) { left: 25%; background: #ff6b6b; animation-duration: 3.4s; animation-delay: 0.1s; }
-        .confetti:nth-child(12) { left: 35%; background: #ffe66d; animation-duration: 3s; animation-delay: 0.4s; }
-        .confetti:nth-child(13) { left: 45%; background: #4ecdc4; animation-duration: 3.5s; animation-delay: 0s; }
-        .confetti:nth-child(14) { left: 55%; background: #ff6b6b; animation-duration: 2.8s; animation-delay: 0.3s; }
-        .confetti:nth-child(15) { left: 65%; background: #95e1d3; animation-duration: 3.2s; animation-delay: 0.2s; }
-        .confetti:nth-child(16) { left: 75%; background: #ffe66d; animation-duration: 3.6s; animation-delay: 0.1s; }
-        .confetti:nth-child(17) { left: 85%; background: #4ecdc4; animation-duration: 2.9s; animation-delay: 0.4s; }
-        .confetti:nth-child(18) { left: 95%; background: #ff6b6b; animation-duration: 3.3s; animation-delay: 0s; }
-        .confetti:nth-child(19) { left: 5%; background: #ffe66d; animation-duration: 3.1s; animation-delay: 0.3s; }
-        .confetti:nth-child(20) { left: 50%; background: #95e1d3; animation-duration: 3.7s; animation-delay: 0.2s; }
-
-        @keyframes confetti-fall {
-            0% {
-                opacity: 1;
-                transform: translateY(0) translateX(0) rotate(0deg);
-            }
-            50% {
-                opacity: 1;
-                transform: translateY(50vh) translateX(20px) rotate(360deg);
-            }
-            100% {
-                opacity: 0.8;
-                transform: translateY(100vh) translateX(-20px) rotate(720deg);
-            }
-        }
-
-        .confetti-circle {
-            border-radius: 50%;
-        }
-
-        .confetti-square {
-            border-radius: 2px;
-        }
-
-        .confetti-triangle {
-            width: 0;
-            height: 0;
-            border-left: 5px solid transparent;
-            border-right: 5px solid transparent;
-            border-bottom: 10px solid;
-            background: transparent !important;
-        }
-
-        .faq-item {
-            margin-bottom: 1rem;
-        }
-
-        .faq-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .faq-question {
-            font-weight: 600;
-            color: #333;
-            font-size: 1rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .faq-answer {
-            color: #666;
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>tschudis.ch</title>
+<meta name="description" content="The Tschudi family.">
+<meta name="theme-color" content="#060a18">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23060a18%22/><path d=%22M8 82 L34 38 L46 54 L60 26 L92 82 Z%22 fill=%22%23c9d6ff%22/></svg>">
+<style>
+  html, body { margin:0; height:100%; overflow:hidden; background:#060a18; }
+  canvas { position:fixed; inset:0; width:100%; height:100%; display:block; touch-action:none; }
+  .mark {
+    position:fixed; left:50%; bottom:calc(6vh + env(safe-area-inset-bottom)); transform:translateX(-50%);
+    font: 500 11px/1 -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    letter-spacing:.45em; text-indent:.45em; color:#c9d6ff; opacity:0; text-transform:lowercase;
+    animation: fade 3s 2s ease forwards; pointer-events:none; user-select:none;
+  }
+  @keyframes fade { to { opacity:.55; } }
+  @media (prefers-reduced-motion: reduce) { .mark { animation-duration:.01s; animation-delay:0s; } }
+</style>
 </head>
 <body>
-    <!-- Language Selection Screen -->
-    <div class="container language-selection-screen" id="languageSelection">
-        <div class="section">
-            <span class="emoji">💍</span>
-            <h1>Paola & Martino</h1>
-            <div class="italian-quote">
-                <img src="quote.png" alt="Ci sposiamo, ma niente di serio.">
-            </div>
-            <div class="language-selector">
-                <h2 data-translate="selectLanguage">Seleziona la lingua</h2>
-                <div class="language-buttons">
-                    <button class="language-button" onclick="selectLanguage('dialet')">Dialet</button>
-                    <button class="language-button" onclick="selectLanguage('it')">Italiano</button>
-                    <button class="language-button" onclick="selectLanguage('de')">Deutsch</button>
-                </div>
-            </div>
-        </div>
-    </div>
+<canvas id="c" aria-label="An animated alpine night sky"></canvas>
+<div class="mark" aria-hidden="true">tschudis</div>
+<script>
+(() => {
+  const canvas = document.getElementById('c');
+  const ctx = canvas.getContext('2d');
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let W, H, dpr;
 
-    <!-- Main Content -->
-    <div class="container main-content" id="mainContent">
-        <!-- Section 1: Title & Date -->
-        <div class="section">
-            <span class="emoji">💍</span>
-            <h1>Paola & Martino</h1>
-            <div class="italian-quote">
-                <img src="quote.png" alt="Ci sposiamo, ma niente di serio.">
-            </div>
-            <div class="date-banner">
-                <div class="date-day" data-translate="friday">Friday</div>
-                <div class="date-full" data-translate="february20">February 20th</div>
-                <div class="date-divider"></div>
-                <div id="countdown" class="countdown"></div>
-            </div>
-        </div>
+  // --- deterministic random ---------------------------------------------
+  const seed = s => () => (s = (s * 16807) % 2147483647) / 2147483647;
 
-        <!-- Section 2: FAQ -->
-        <div class="section" style="padding: 2rem 2rem;">
-            <h2 data-translate="faq">FAQ</h2>
+  // --- scene state ---------------------------------------------------------
+  let stars = [], ridges = [], meteors = [], snow = [];
+  let px = 0, py = 0, tx = 0, ty = 0;      // parallax (current, target)
 
-            <div class="faq-item">
-                <div class="faq-question" data-translate="giftsQ">Gifts</div>
-                <div class="faq-answer" data-translate="giftsA">Don't worry about gifts! If you'd like, you'll have the chance to give us something at the main ceremony in July 2027. We'll also have a wedding registry where you can choose what to gift us.</div>
-            </div>
+  function ridge(rand, base, amp, freq, rough, color, depth) {
+    const pts = [];
+    const n = 220;
+    let phase = rand() * 100;
+    for (let i = 0; i <= n; i++) {
+      const x = i / n;
+      let y = 0, a = amp, f = freq, p = phase;
+      for (let o = 0; o < 5; o++) {      // fractal ridge
+        y += Math.sin(x * f * Math.PI * 2 + p) * a
+           + Math.abs(Math.sin(x * f * 1.7 * Math.PI + p * .7)) * a * .6;
+        a *= rough; f *= 2.1; p += 7.3;
+      }
+      pts.push({ x, y: base - y });
+    }
+    return { pts, color, depth };
+  }
 
-            <div class="faq-item">
-                <div class="faq-question" data-translate="childrenQ">Children's Menu</div>
-                <div class="faq-answer" data-translate="childrenA">For children who don't eat tacos, we will organize Happy Meals. If you have kids, we'll contact you to find out if and what we should order.</div>
-            </div>
+  function build() {
+    dpr = Math.min(devicePixelRatio || 1, 2);
+    W = innerWidth; H = innerHeight;
+    canvas.width = W * dpr; canvas.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-            <div class="faq-item">
-                <div class="faq-question" data-translate="tacosQ">Tacos</div>
-                <div class="faq-answer" data-translate="tacosA">Santacos will be serving their delicious tacos from 14:00 until around 18:00. We recommend having a big breakfast so you'll be hungry for the best tacos in Zurich!</div>
-            </div>
+    const r = seed(1291);   // 1291: the founding of Switzerland, of course
+    stars = [];
+    const count = Math.round((W * H) / 2600);
+    for (let i = 0; i < count; i++) {
+      stars.push({
+        x: r(), y: r() * .78, s: Math.pow(r(), 3) * 1.6 + .3,
+        tw: r() * Math.PI * 2, sp: .4 + r() * 1.6, depth: .2 + r() * .5,
+      });
+    }
+    ridges = [
+      ridge(r, .56, .045, 1.1, .5, '#25325a', .18),
+      ridge(r, .64, .055, 1.6, .5, '#1a2444', .32),
+      ridge(r, .72, .06,  2.1, .52,'#111a34', .5),
+      ridge(r, .82, .05,  2.8, .55,'#0a1024', .75),
+      ridge(r, .92, .035, 3.6, .55,'#05081a', 1),
+    ];
+    snow = [];
+    for (let i = 0; i < 90; i++) snow.push({ x: r(), y: r(), s: .5 + r() * 1.4, v: .15 + r() * .35, o: r() * 6 });
+  }
 
-            <div class="faq-item">
-                <div class="faq-question" data-translate="civilCeremonyQ">Civil Ceremony</div>
-                <div class="faq-answer" data-translate="civilCeremonyA">Our witnesses will organize a small celebration at the exit of the town hall, then we'll all move together towards the Quartierzentrum Schütze.</div>
-            </div>
+  // --- meteors -------------------------------------------------------------
+  function spawnMeteor(x, y) {
+    const a = Math.PI * (.62 + Math.random() * .18);        // down-left-ish
+    meteors.push({
+      x: x ?? Math.random() * W * 1.1, y: y ?? Math.random() * H * .3,
+      vx: Math.cos(a) * -1 * (9 + Math.random() * 6), vy: Math.sin(a) * (9 + Math.random() * 6),
+      life: 1, decay: .012 + Math.random() * .012, len: 90 + Math.random() * 120,
+    });
+  }
+  canvas.addEventListener('pointerdown', e => spawnMeteor(e.clientX, e.clientY));
 
-            <div class="faq-item">
-                <div class="faq-question" data-translate="endOfEventQ">End of Event</div>
-                <div class="faq-answer" data-translate="endOfEventA">The service ends at 18:00, but this absolutely doesn't mean we're kicking you out! The venue is rented for the whole evening, so no one will make you leave a margarita half-finished.</div>
-            </div>
+  // --- parallax ------------------------------------------------------------
+  addEventListener('pointermove', e => {
+    tx = (e.clientX / W - .5) * 2; ty = (e.clientY / H - .5) * 2;
+  }, { passive: true });
+  addEventListener('deviceorientation', e => {
+    if (e.gamma == null) return;
+    tx = Math.max(-1, Math.min(1, e.gamma / 30));
+    ty = Math.max(-1, Math.min(1, (e.beta - 45) / 30));
+  }, { passive: true });
 
-            <p style="margin-top: 1.5rem; text-align: center; color: #666; font-size: 0.95rem;">
-                <span data-translate="faqContact">For any questions, feel free to call or drop me a message at:</span> <a href="tel:+41788783393" style="color: #0066cc; text-decoration: none; font-weight: 500;">+41 78 878 33 93</a>
-            </p>
-        </div>
+  // --- draw ----------------------------------------------------------------
+  function frame(now) {
+    const t = now / 1000;
+    px += (tx - px) * .04; py += (ty - py) * .04;
 
-        <!-- Section 3: Program -->
-        <div class="section">
-            <h2 data-translate="program">Program</h2>
+    // sky
+    const sky = ctx.createLinearGradient(0, 0, 0, H);
+    sky.addColorStop(0, '#04061a'); sky.addColorStop(.5, '#0b1330'); sky.addColorStop(1, '#1d2a55');
+    ctx.fillStyle = sky; ctx.fillRect(0, 0, W, H);
 
-            <div class="program-item">
-                <div class="program-time">13:30</div>
-                <div class="program-title" data-translate="ceremony">Ceremony</div>
-                <div class="program-details" data-translate="ceremonyDuration">
-                    The ceremony will last 15 to 30 minutes.
-                </div>
-                <div class="program-location">
-                    <a href="https://www.google.com/maps/search/?api=1&query=Stadthaus+Zürich,+Stadthausquai+17,+8001+Zürich" target="_blank" rel="noopener noreferrer">
-                        📍 Stadthaus Zürich, Stadthausquai 17, 8001 Zürich
-                    </a>
-                </div>
-                <div class="program-note">
-                    <strong data-translate="note">Note:</strong> <span data-translate="ceremonyNote">The place for the ceremony will be limited. We invite guests to wait outside the Stadthaus for our exit.</span>
-                </div>
-            </div>
+    // aurora
+    ctx.globalCompositeOperation = 'lighter';
+    for (let b = 0; b < 3; b++) {
+      const yb = H * (.22 + b * .07) + Math.sin(t * .17 + b) * H * .03 + py * 10;
+      const g = ctx.createLinearGradient(0, yb - H * .22, 0, yb + H * .08);
+      const hue = 150 + b * 25 + Math.sin(t * .1 + b) * 15;
+      g.addColorStop(0, `hsla(${hue},80%,60%,0)`);
+      g.addColorStop(.6, `hsla(${hue},80%,60%,${.07 + Math.sin(t * .3 + b * 2) * .025})`);
+      g.addColorStop(1, `hsla(${hue},80%,60%,0)`);
+      ctx.fillStyle = g;
+      ctx.beginPath(); ctx.moveTo(0, H);
+      for (let x = 0; x <= W; x += 12) {
+        const u = x / W;
+        const y = yb + Math.sin(u * 5 + t * .25 + b) * H * .05 + Math.sin(u * 13 - t * .4) * H * .02;
+        ctx.lineTo(x, y);
+      }
+      ctx.lineTo(W, H); ctx.closePath(); ctx.fill();
+    }
+    ctx.globalCompositeOperation = 'source-over';
 
-            <div class="program-item">
-                <div class="program-time">~14:00</div>
-                <div class="program-title" data-translate="transportProgram">Transport</div>
-                <div class="program-details" data-translate="transportProgramDetails">
-                    We recommend taking tram 8 from Bürkliplatz and getting off at Escher-Wyss-Platz. If you're coming by car, there are some parking spots near the town hall and various parking options near the Quartierzentrum Schütze.
-                </div>
-                <div class="program-location">
-                    <a href="https://maps.app.goo.gl/WXmj3Xtzy8qUNN4x6" target="_blank" rel="noopener noreferrer">
-                        🗺️ <span data-translate="viewRoute">View route on Google Maps</span>
-                    </a>
-                </div>
-            </div>
+    // stars (slow rotation about a point high right)
+    const cx = W * .78, cy = -H * .1, rot = reduced ? 0 : t * .004;
+    const cos = Math.cos(rot), sin = Math.sin(rot);
+    for (const s of stars) {
+      const ox = s.x * W - cx, oy = s.y * H - cy;
+      const x = cx + ox * cos - oy * sin - px * 14 * s.depth;
+      const y = cy + ox * sin + oy * cos - py * 8 * s.depth;
+      const a = .45 + .55 * Math.sin(s.tw + t * s.sp) ** 2;
+      ctx.fillStyle = `rgba(230,238,255,${a})`;
+      ctx.beginPath(); ctx.arc(x, y, s.s, 0, 7); ctx.fill();
+    }
 
-            <div class="program-item">
-                <div class="program-time">~14:30</div>
-                <div class="program-title" data-translate="reception">Tacos & Palomas</div>
-                <div class="program-details" data-translate="receptionDetails">
-                    We will move towards the Quartierzentrum Schütze for Mexican catering with our favorite tacos and palomas.
-                </div>
-                <div class="program-location">
-                    <a href="https://www.google.com/maps/search/?api=1&query=Quartierzentrum+Schütze,+Heinrichstrasse+238,+8005+Zürich" target="_blank" rel="noopener noreferrer">
-                        📍 Quartierzentrum Schütze, Heinrichstrasse 238, 8005 Zürich
-                    </a>
-                </div>
-            </div>
+    // moon
+    const mx = W * .74 - px * 10, my = H * .2 - py * 6, mr = Math.min(W, H) * .045;
+    const halo = ctx.createRadialGradient(mx, my, mr * .6, mx, my, mr * 5);
+    halo.addColorStop(0, 'rgba(220,230,255,.32)'); halo.addColorStop(1, 'rgba(220,230,255,0)');
+    ctx.fillStyle = halo; ctx.beginPath(); ctx.arc(mx, my, mr * 5, 0, 7); ctx.fill();
+    ctx.fillStyle = '#f2f4ff'; ctx.beginPath(); ctx.arc(mx, my, mr, 0, 7); ctx.fill();
+    ctx.fillStyle = '#0b1330'; ctx.beginPath(); ctx.arc(mx - mr * .38, my - mr * .12, mr * .88, 0, 7); ctx.fill();
 
-            <div class="program-item">
-                <div class="program-time">~18:00</div>
-                <div class="program-title" data-translate="endOfEvent">End of Event</div>
-                <div class="program-details" style="margin-top: 0.5rem; font-style: italic; color: #666;" data-translate="endOfEventNote">
-                    If you need a recommendation for a nice dining spot, or help booking a hotel, we are happy to help!
-                </div>
-            </div>
+    // meteors
+    for (let i = meteors.length - 1; i >= 0; i--) {
+      const m = meteors[i];
+      m.x += m.vx; m.y += m.vy; m.life -= m.decay;
+      if (m.life <= 0 || m.y > H) { meteors.splice(i, 1); continue; }
+      const nx = m.vx, ny = m.vy, L = Math.hypot(nx, ny);
+      const gx = m.x - nx / L * m.len, gy = m.y - ny / L * m.len;
+      const g = ctx.createLinearGradient(m.x, m.y, gx, gy);
+      g.addColorStop(0, `rgba(255,255,255,${m.life})`); g.addColorStop(1, 'rgba(255,255,255,0)');
+      ctx.strokeStyle = g; ctx.lineWidth = 1.6; ctx.lineCap = 'round';
+      ctx.beginPath(); ctx.moveTo(m.x, m.y); ctx.lineTo(gx, gy); ctx.stroke();
+    }
+    if (!reduced && Math.random() < .004) spawnMeteor();
 
-        </div>
+    // mountains with parallax + faint snowline haze
+    for (const r of ridges) {
+      const dx = -px * 40 * r.depth, dy = -py * 18 * r.depth + (1 - r.depth) * H * .02;
+      ctx.fillStyle = r.color;
+      ctx.beginPath(); ctx.moveTo(-60, H + 60);
+      for (const p of r.pts) ctx.lineTo(p.x * (W + 120) - 60 + dx, p.y * H + dy);
+      ctx.lineTo(W + 60, H + 60); ctx.closePath(); ctx.fill();
+      // mist
+      const mist = ctx.createLinearGradient(0, 0, 0, H);
+      mist.addColorStop(0, 'rgba(120,150,220,0)'); mist.addColorStop(1, `rgba(120,150,220,${.08 * (1 - r.depth)})`);
+      ctx.fillStyle = mist; ctx.fill();
+    }
 
-        <!-- Section 4: RSVP -->
-        <div class="section" style="display: none;">
-            <h2 data-translate="rsvp">RSVP</h2>
-            <p style="text-align: center; margin-bottom: 2rem;" data-translate="rsvpMessage">We'd love to celebrate with you! Please confirm your attendance.</p>
-        
-            <form id="rsvpForm">
-            <div class="form-group">
-                <label for="firstName" data-translate="firstName">First Name</label>
-                <input type="text" id="firstName" name="firstName" data-translate-placeholder="firstNamePlaceholder" placeholder="Enter your first name" required>
-            </div>
-            <div class="form-group">
-                <label for="lastName" data-translate="lastName">Last Name</label>
-                <input type="text" id="lastName" name="lastName" data-translate-placeholder="lastNamePlaceholder" placeholder="Enter your last name" required>
-            </div>
-            <div class="form-group">
-                <label data-translate="mealPreference">Meal Preference</label>
-                <div class="radio-group">
-                    <div class="radio-option">
-                        <input type="radio" id="vegetarian" name="meal" value="vegetarian" required>
-                        <label for="vegetarian" data-translate="vegetarian">Vegetarian</label>
-                    </div>
-                    <div class="radio-option">
-                        <input type="radio" id="meat" name="meal" value="meat" required>
-                        <label for="meat" data-translate="meat">Meat</label>
-                    </div>
-                </div>
-            </div>
-            <button type="submit" data-translate="confirm">Confirm</button>
-        </form>
-        
-            <div id="successMessage" class="success-message" data-translate="rsvpSuccess">
-                Thank you! We've received your RSVP. 🎉
-            </div>
-        </div>
-        
-        <div style="text-align: center; margin-top: 2rem; margin-bottom: 1rem;">
-            <a href="#" id="changeLanguageLink" onclick="returnToLanguageSelection(); return false;" style="color: #666; text-decoration: none; font-size: 0.9rem; opacity: 0.7;">
-                <span data-translate="changeLanguage">Change Language / Sprache ändern</span>
-            </a>
-        </div>
-    </div>
+    // drifting snow / dust in the foreground
+    if (!reduced) {
+      ctx.fillStyle = 'rgba(210,222,255,.55)';
+      for (const f of snow) {
+        f.y += f.v * .0008; if (f.y > 1) f.y -= 1;
+        const x = (f.x + Math.sin(t * .4 + f.o) * .01 - px * .02) * W;
+        const y = f.y * H;
+        ctx.globalAlpha = .25 + .35 * Math.sin(t + f.o) ** 2;
+        ctx.beginPath(); ctx.arc(x, y, f.s, 0, 7); ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+    }
 
-    <script>
-        // Google Apps Script Web App URL
-        // Replace this with your deployed Apps Script URL after setup
-        const RSVP_API_URL = 'https://script.google.com/macros/s/AKfycbx-EeeLriRt-WYlCgueSjEUofOWDRsrUga3FypOTWjLUcu2v_27CSca5l7xFl22Nqs/exec';
-        
-        // Translations
-        const translations = {
-            dialet: {
-                selectLanguage: "Scern la lingua",
-                friday: "Venerdì",
-                february20: "20 de febrar",
-                faq: "FAQ",
-                giftsQ: "Regai",
-                giftsA: "Preocupif miga! Se volì, fasic un regal ala cerimonia vera in lui 2027. Per chela un gaora anca una lista de nozz, da la qual scern cosa regalacc.",
-                childrenQ: "Menu per i pup",
-                childrenA: "Per i pup che mangia miga i tacos, un organizzera di Happy Meal. Se gavi fii, un va contatera num per savé se e cosa un po ordinà.",
-                tacosQ: "Tacos",
-                tacosA: "Santacos el servirà i sò bonisim tacos dai do fin vers i ses. Num un va consiglia de fà una colazion abondanta, isci de avec fam per i miglior tacos de Zurig!",
-                civilCeremonyQ: "Cerimonia civil",
-                civilCeremonyA: "I nost testimoni i organizerà queicos per l'uscida dal comun, dopo un sa sposterà tucc insema vers el Quartierzentrum Schütze.",
-                transportQ: "Trasport",
-                transportA: "Un va consiglia de ciapà el tram 8 da Bürkliplatz e de salta giù ala fermada Escher-Wyss-Platz. Se vegnì in machina, ghè di parchegi visign al comun e vari parchegi visign al Quartierzentrum Schütze.",
-                endOfEventQ: "Fin dela festa",
-                endOfEventA: "Ai ses finìs el servizi, ma el vo miga dì che un va manda via! El local l'è ficiò per tuta la sira, quindi nissun va farà piantà un margarita a metà.",
-                faqContact: "Per qualsiasi domanda, ciamim pur o scrivim al:",
-                routeHere: "Chi el percors:",
-                viewOnGoogleMaps: "Guardel su Google Maps",
-                transportProgram: "Trasport",
-                transportProgramDetails: "Un va consiglia de ciapà el tram 8 da Bürkliplatz e de salta giù ala fermada Escher-Wyss-Platz. Se vegnì in machina, ghè di parchegi visign al comun e vari parchegi visign al Quartierzentrum Schütze.",
-                viewRoute: "Guarda el percors su Google Maps",
-                program: "Programma",
-                ceremony: "Matrimoni civil",
-                ceremonyDuration: "El matrimoni civil el durerà circa 15-20 minut.",
-                note: "Attenzion:",
-                ceremonyNote: "El municipi de Zuric el ga poc post nela sala dela cerimonia. Quindi un va invida a speciac fora dala Stadthaus per festegià con num ala fin de la cerimonia.",
-                reception: "Tacos & Palomas",
-                receptionDetails: "Un sa sposterà pe vers el Quartierzentrum Schütze dove ga specia un catering del nost food truck messican preferit.",
-                transport: "El Quartierzentrum Schütze sal raggiung facilment con el tram.",
-                endOfEvent: "Fin dela festa",
-                endOfEventNote: "Se te ghe bisegn de un consili per un ristorant per scena, o una man a prenotà un hotel, fac savé!",
-                rsvp: "RSVP",
-                rsvpMessage: "Ga piaserisa festegià con ti. Per piasé conferma la to partecipazion.",
-                firstName: "Nom",
-                lastName: "Cognom",
-                firstNamePlaceholder: "Inseris el to nom",
-                lastNamePlaceholder: "Inseris el to cognom",
-                mealPreference: "Cosa te vo mangia?",
-                vegetarian: "Vegetarian",
-                meat: "Carn",
-                confirm: "Conferma",
-                rsvpSuccess: "Grazie! Ma ricevu la conferma. 🎉",
-                rsvpSuccessWithName: "Grazie, {name}! Ma ricevu la conferma. 🎉",
-                submitting: "Un secont...",
-                days: "dì",
-                day: "dì",
-                hours: "or",
-                today: "Inche!",
-                changeLanguage: "Cambia la lingua"
-            },
-            it: {
-                selectLanguage: "Seleziona la lingua",
-                friday: "Venerdì",
-                february20: "20 Febbraio",
-                faq: "FAQ",
-                giftsQ: "Regali",
-                giftsA: "Non preoccupatevi! Se lo desiderate, avrete tempo di farci un regalo alla cerimonia che si terrà a luglio 2027. Per quella avremo anche una lista nozze, dalla quale scegliere cosa volete regalarci.",
-                childrenQ: "Menu bambini",
-                childrenA: "Per i bambini che non mangiano tacos, organizzeremo degli Happy Meal. Se avete dei figli, vi contatteremo per sapere se e cosa possiamo ordinare.",
-                tacosQ: "Tacos",
-                tacosA: "Santacos servirà i suoi deliziosi tacos dalle 14:00 fino alle 18:00 circa. Noi vi consigliamo di fare una colazione abbondante, così da essere affamati per i migliori tacos di Zurigo!",
-                civilCeremonyQ: "Cerimonia civile",
-                civilCeremonyA: "I nostri testimoni organizzeranno una piccola celebrazione all'uscita dal comune, poi ci sposteremo tutti assieme verso il Quartierzentrum Schütze.",
-                transportQ: "Trasporto",
-                transportA: "Noi vi consigliamo di prendere il tram 8 da Bürkliplatz e di scendere alla fermata Escher-Wyss-Platz. Se doveste venire in auto, ci sono alcuni parcheggi vicino al comune e vari parcheggi vicino al Quartierzentrum Schütze.",
-                endOfEventQ: "Fine dell'evento",
-                endOfEventA: "Alle 18 terminerà il servizio, questo non vuole assolutamente dire che vi cacciamo! Il locale è affittato per tutta la sera, quindi nessuno vi farà lasciare un margarita a metà.",
-                faqContact: "Per qualsiasi domanda, chiamatemi o scrivetemi al:",
-                routeHere: "Qui il percorso:",
-                viewOnGoogleMaps: "Vedi su Google Maps",
-                transportProgram: "Trasporto",
-                transportProgramDetails: "Noi vi consigliamo di prendere il tram 8 da Bürkliplatz e di scendere alla fermata Escher-Wyss-Platz. Se doveste venire in auto, ci sono alcuni parcheggi vicino al comune e vari parcheggi vicino al Quartierzentrum Schütze.",
-                viewRoute: "Vedi il percorso su Google Maps",
-                program: "Programma",
-                ceremony: "Cerimonia civile",
-                ceremonyDuration: "La cerimonia durerà circa 15-20 minuti.",
-                note: "Nota:",
-                ceremonyNote: "Il luogo dove si svolgerà la cerimonia ha i posti limitati. Vi invitiamo quindi ad aspettare fuori dalla Stadthaus per festeggiare con noi al termine della cerimonia.",
-                reception: "Tacos & Palomas",
-                receptionDetails: "Ci sposteremo verso il Quartierzentrum Schütze per un catering del nostro food truck messicano preferito.",
-                transport: "Il Quartierzentrum Schütze è facilemente raggiungibile con i mezzi pubblici.",
-                endOfEvent: "Fine dell'evento",
-                endOfEventNote: "Se hai bisogno di consigli per un bel ristorante per cena, o aiuto per prenotare un hotel, siamo felici di aiutarvi!",
-                rsvp: "RSVP",
-                rsvpMessage: "Ci piacerebbe festeggiare con te! Per favore conferma la tua partecipazione.",
-                firstName: "Nome",
-                lastName: "Cognome",
-                firstNamePlaceholder: "Inserisci il tuo nome",
-                lastNamePlaceholder: "Inserisci il tuo cognome",
-                mealPreference: "Preferenza pasto",
-                vegetarian: "Vegetariano",
-                meat: "Carne",
-                confirm: "Conferma",
-                rsvpSuccess: "Grazie! Abbiamo ricevuto il tuo RSVP. 🎉",
-                rsvpSuccessWithName: "Grazie, {name}! Abbiamo ricevuto la tua conferma. 🎉",
-                submitting: "Invio in corso...",
-                days: "giorni",
-                day: "giorno",
-                hours: "ore",
-                today: "Oggi!",
-                changeLanguage: "Cambia la lingua"
-            },
-            de: {
-                selectLanguage: "Sprache wählen",
-                friday: "Freitag",
-                february20: "20. Februar",
-                faq: "FAQ",
-                giftsQ: "Geschenke",
-                giftsA: "Macht euch keine Sorgen! Wenn ihr möchtet, habt ihr Zeit, uns bei der Hauptzeremonie im Juli 2027 etwas zu schenken. Dafür werden wir auch eine Hochzeitsliste haben, aus der ihr auswählen könnt.",
-                childrenQ: "Kindermenü",
-                childrenA: "Für Kinder, die keine Tacos essen, organisieren wir Happy Meals. Wenn ihr Kinder habt, werden wir euch kontaktieren, um zu erfahren, ob und was wir bestellen sollen.",
-                tacosQ: "Tacos",
-                tacosA: "Santacos serviert seine leckeren Tacos von 14:00 bis etwa 18:00 Uhr. Wir empfehlen ein grosses Frühstück, damit ihr hungrig seid für die besten Tacos in Zürich!",
-                civilCeremonyQ: "Standesamtliche Trauung",
-                civilCeremonyA: "Unsere Trauzeugen organisieren eine kleine Feier beim Ausgang des Rathauses, dann gehen wir alle zusammen zum Quartierzentrum Schütze.",
-                transportQ: "Transport",
-                transportA: "Wir empfehlen, das Tram 8 ab Bürkliplatz zu nehmen und an der Haltestelle Escher-Wyss-Platz auszusteigen. Wenn ihr mit dem Auto kommt, gibt es einige Parkplätze in der Nähe des Rathauses und verschiedene Parkmöglichkeiten beim Quartierzentrum Schütze.",
-                endOfEventQ: "Ende der Veranstaltung",
-                endOfEventA: "Um 18 Uhr endet der Service, aber das heisst absolut nicht, dass wir euch rausschmeissen! Der Raum ist für den ganzen Abend gemietet, also wird niemand euch zwingen, eine Margarita halb voll stehen zu lassen.",
-                faqContact: "Bei Fragen ruft mich an oder schreibt mir:",
-                routeHere: "Hier die Route:",
-                viewOnGoogleMaps: "Auf Google Maps ansehen",
-                transportProgram: "Transport",
-                transportProgramDetails: "Wir empfehlen, das Tram 8 ab Bürkliplatz zu nehmen und an der Haltestelle Escher-Wyss-Platz auszusteigen. Wenn ihr mit dem Auto kommt, gibt es einige Parkplätze in der Nähe des Rathauses und verschiedene Parkmöglichkeiten beim Quartierzentrum Schütze.",
-                viewRoute: "Route auf Google Maps ansehen",
-                program: "Programm",
-                ceremony: "Zeremonie",
-                ceremonyDuration: "Die Zeremonie dauert 15 bis 20 Minuten.",
-                note: "Hinweis:",
-                ceremonyNote: "Der Platz für die Zeremonie wird begrenzt sein. Wir laden die Gäste ein, ausserhalb des Stadthauses auf uns zu warten und dann gemainsam zu feiern.",
-                reception: "Tacos & Palomas",
-                receptionDetails: "Wir werden zum Quartierzentrum Schütze für mexikanisches Catering mit unseren Lieblings-Tacos und Palomas weiterziehen.",
-                transport: "Die Anreise kann einfach mit öffentlichen Verkehrsmitteln erfolgen.",
-                endOfEvent: "Ende der Veranstaltung",
-                endOfEventNote: "Wenn du eine Empfehlung für ein schönes Restaurant brauchst oder Hilfe bei der Hotelbuchung, helfen wir gerne!",
-                rsvp: "RSVP",
-                rsvpMessage: "Wir würden gerne mit dir feiern! Bitte bestätige deine Teilnahme.",
-                firstName: "Vorname",
-                lastName: "Nachname",
-                firstNamePlaceholder: "Gib deinen Vornamen ein",
-                lastNamePlaceholder: "Gib deinen Nachnamen ein",
-                mealPreference: "Essensvorliebe",
-                vegetarian: "Vegetarisch",
-                meat: "Fleisch",
-                confirm: "Bestätigen",
-                rsvpSuccess: "Danke! Wir haben deine RSVP erhalten. 🎉",
-                rsvpSuccessWithName: "Danke, {name}! Wir haben deine RSVP erhalten. 🎉",
-                submitting: "Wird gesendet...",
-                days: "Tage",
-                day: "Tag",
-                hours: "Stunden",
-                today: "Heute!",
-                changeLanguage: "Sprache ändern"
-            }
-        };
+    // vignette
+    const v = ctx.createRadialGradient(W / 2, H / 2, Math.min(W, H) * .4, W / 2, H / 2, Math.max(W, H) * .8);
+    v.addColorStop(0, 'rgba(0,0,0,0)'); v.addColorStop(1, 'rgba(0,0,0,.45)');
+    ctx.fillStyle = v; ctx.fillRect(0, 0, W, H);
 
-        // Current language
-        let currentLanguage = localStorage.getItem('weddingLanguage') || null;
+    requestAnimationFrame(frame);
+  }
 
-        // Language selection function
-        function selectLanguage(lang) {
-            currentLanguage = lang;
-            localStorage.setItem('weddingLanguage', lang);
-            document.getElementById('languageSelection').classList.add('hidden');
-            document.getElementById('mainContent').classList.add('show');
-            applyTranslations(lang);
-        }
-
-        // Return to language selection
-        function returnToLanguageSelection() {
-            document.getElementById('languageSelection').classList.remove('hidden');
-            document.getElementById('mainContent').classList.remove('show');
-            // Clear language selection to show both language options again
-            currentLanguage = null;
-            localStorage.removeItem('weddingLanguage');
-        }
-
-        // Apply translations
-        function applyTranslations(lang) {
-            const langData = translations[lang];
-            if (!langData) return;
-
-            // Translate elements with data-translate attribute
-            document.querySelectorAll('[data-translate]').forEach(element => {
-                const key = element.getAttribute('data-translate');
-                if (langData[key]) {
-                    element.textContent = langData[key];
-                }
-            });
-
-            // Translate placeholders
-            document.querySelectorAll('[data-translate-placeholder]').forEach(element => {
-                const key = element.getAttribute('data-translate-placeholder');
-                if (langData[key]) {
-                    element.placeholder = langData[key];
-                }
-            });
-
-            // Update countdown text
-            updateCountdown();
-        }
-
-        // Initialize: show language selection if no language chosen
-        if (!currentLanguage) {
-            document.getElementById('languageSelection').classList.remove('hidden');
-            document.getElementById('mainContent').classList.remove('show');
-        } else {
-            document.getElementById('languageSelection').classList.add('hidden');
-            document.getElementById('mainContent').classList.add('show');
-            applyTranslations(currentLanguage);
-        }
-        
-        // Countdown to wedding date
-        function updateCountdown() {
-            const today = new Date();
-            const currentYear = today.getFullYear();
-            let weddingDate = new Date(currentYear, 1, 20); // February 20th (month is 0-indexed)
-            
-            // If the date has passed this year, use next year
-            if (weddingDate < today) {
-                weddingDate = new Date(currentYear + 1, 1, 20);
-            }
-            
-            const diff = weddingDate - today;
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            
-            const countdownEl = document.getElementById('countdown');
-            if (!countdownEl) return;
-            
-            const langData = currentLanguage ? translations[currentLanguage] : null;
-            const dayText = langData ? (days === 1 ? langData.day : langData.days) : (days === 1 ? 'day' : 'days');
-            const hourText = langData ? langData.hours : 'hours';
-            const todayText = langData ? langData.today : 'Today!';
-            
-            if (days < 0) {
-                if (currentLanguage === 'it') {
-                    countdownEl.textContent = 'Il matrimonio è passato!';
-                } else if (currentLanguage === 'de') {
-                    countdownEl.textContent = 'Die Hochzeit ist vorbei!';
-                } else if (currentLanguage === 'dialet' && langData) {
-                    countdownEl.textContent = langData.weddingPassed || 'The wedding has passed!';
-                } else {
-                    countdownEl.textContent = 'The wedding has passed!';
-                }
-            } else if (days === 0) {
-                countdownEl.innerHTML = `<span class="countdown-number">${todayText}</span>`;
-            } else if (days === 1) {
-                countdownEl.innerHTML = `<span class="countdown-number">${days}</span> ${dayText}, <span class="countdown-number">${hours}</span> ${hourText}`;
-            } else {
-                countdownEl.innerHTML = `<span class="countdown-number">${days}</span> ${dayText}, <span class="countdown-number">${hours}</span> ${hourText}`;
-            }
-        }
-        
-        // Update countdown on load and every minute
-        updateCountdown();
-        setInterval(updateCountdown, 60000);
-
-        document.getElementById('rsvpForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const firstName = document.getElementById('firstName').value.trim();
-            const lastName = document.getElementById('lastName').value.trim();
-            const meal = document.querySelector('input[name="meal"]:checked');
-            const submitButton = e.target.querySelector('button[type="submit"]');
-            const successMessage = document.getElementById('successMessage');
-            
-            if (!firstName || !lastName || !meal) {
-                return;
-            }
-
-            // Disable button and show loading state
-            submitButton.disabled = true;
-            const langData = currentLanguage ? translations[currentLanguage] : null;
-            submitButton.textContent = langData ? langData.submitting : 'Submitting...';
-            successMessage.classList.remove('show');
-
-            // Check if API URL is configured
-            if (RSVP_API_URL === 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
-                const langData = currentLanguage ? translations[currentLanguage] : null;
-                successMessage.textContent = 'Error: RSVP API URL not configured. Please set RSVP_API_URL in the script.';
-                successMessage.style.background = '#ffebee';
-                successMessage.style.color = '#c62828';
-                successMessage.classList.add('show');
-                submitButton.disabled = false;
-                submitButton.textContent = langData ? langData.confirm : 'Confirm';
-                return;
-            }
-            
-            // Use a form submission approach that works better with Google Apps Script
-            // Create a temporary form and submit it
-            const form = document.createElement('form');
-            form.method = 'GET';
-            form.action = RSVP_API_URL;
-            form.style.display = 'none';
-            
-            const firstNameInput = document.createElement('input');
-            firstNameInput.type = 'hidden';
-            firstNameInput.name = 'firstName';
-            firstNameInput.value = encodeURIComponent(firstName);
-            form.appendChild(firstNameInput);
-            
-            const lastNameInput = document.createElement('input');
-            lastNameInput.type = 'hidden';
-            lastNameInput.name = 'lastName';
-            lastNameInput.value = encodeURIComponent(lastName);
-            form.appendChild(lastNameInput);
-            
-            const mealInput = document.createElement('input');
-            mealInput.type = 'hidden';
-            mealInput.name = 'meal';
-            mealInput.value = encodeURIComponent(meal.value);
-            form.appendChild(mealInput);
-            
-            document.body.appendChild(form);
-            
-            // Create a hidden iframe to receive the response
-            let responseFrame = document.getElementById('rsvp-response-frame');
-            if (!responseFrame) {
-                responseFrame = document.createElement('iframe');
-                responseFrame.id = 'rsvp-response-frame';
-                responseFrame.name = 'rsvp-response-frame';
-                responseFrame.style.display = 'none';
-                responseFrame.style.width = '0';
-                responseFrame.style.height = '0';
-                responseFrame.style.border = 'none';
-                document.body.appendChild(responseFrame);
-            }
-            
-            form.target = 'rsvp-response-frame';
-            
-            // Set up response handler
-            let handled = false;
-            const handleResponse = () => {
-                if (handled) return;
-                handled = true;
-                
-                // Wait a bit for the response to load
-                setTimeout(() => {
-                    try {
-                        // Try to read response from iframe
-                        const iframeDoc = responseFrame.contentDocument || responseFrame.contentWindow.document;
-                        if (iframeDoc && iframeDoc.body) {
-                            const responseText = iframeDoc.body.textContent || iframeDoc.body.innerText || '';
-                            try {
-                                const data = JSON.parse(responseText.trim());
-                                showSuccess(data);
-                            } catch (e) {
-                                // If we can't parse JSON, check if it looks like success
-                                if (responseText.includes('success') || responseText.length > 0) {
-                                    showSuccess({ success: true, isUpdate: false });
-                                } else {
-                                    showSuccess({ success: true, isUpdate: false });
-                                }
-                            }
-                        } else {
-                            // Can't read response, assume success
-                            showSuccess({ success: true, isUpdate: false });
-                        }
-                    } catch (e) {
-                        // Cross-origin error - this is expected, assume success
-                        showSuccess({ success: true, isUpdate: false });
-                    }
-                    
-                    // Clean up
-                    form.remove();
-                }, 500);
-            };
-            
-            // Listen for iframe load
-            responseFrame.onload = handleResponse;
-            responseFrame.onerror = () => {
-                if (!handled) {
-                    handled = true;
-                    showSuccess({ success: true, isUpdate: false });
-                    form.remove();
-                }
-            };
-            
-            // Submit the form
-            form.submit();
-            
-            // Fallback: show success after 2 seconds
-            setTimeout(() => {
-                if (!handled) {
-                    handled = true;
-                    showSuccess({ success: true, isUpdate: false });
-                    form.remove();
-                }
-            }, 2000);
-            
-            function showSuccess(data) {
-                const langData = currentLanguage ? translations[currentLanguage] : null;
-                const mealText = meal.value === 'vegetarian' 
-                    ? (langData ? langData.vegetarian : 'vegetarian')
-                    : (langData ? langData.meat : 'meat');
-                const fullName = `${firstName} ${lastName}`;
-                
-                // Use translation template if available, otherwise fallback
-                let thankYouText;
-                if (langData && langData.rsvpSuccessWithName) {
-                    thankYouText = langData.rsvpSuccessWithName
-                        .replace('{name}', fullName)
-                        .replace('{meal}', mealText);
-                } else {
-                    // Fallback to English
-                    thankYouText = `Thank you, ${fullName}! We've received your RSVP for ${mealText} tacos. 🎉`;
-                }
-                
-                successMessage.textContent = thankYouText;
-                successMessage.style.background = '#e8f5e9';
-                successMessage.style.color = '#2e7d32';
-                successMessage.classList.add('show');
-                
-                // Trigger confetti animation
-                createConfetti();
-                
-                // Reset form
-                document.getElementById('firstName').value = '';
-                document.getElementById('lastName').value = '';
-                document.querySelectorAll('input[name="meal"]').forEach(radio => {
-                    radio.checked = false;
-                });
-                
-                // Scroll to success message
-                successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                
-                // Re-enable button
-                submitButton.disabled = false;
-                submitButton.textContent = langData ? langData.confirm : 'Confirm';
-            }
-
-            // Confetti animation function
-            function createConfetti() {
-                // Remove any existing confetti
-                const existing = document.getElementById('confetti-container');
-                if (existing) {
-                    existing.remove();
-                }
-
-                // Create confetti container
-                const container = document.createElement('div');
-                container.id = 'confetti-container';
-                container.className = 'confetti-container';
-                document.body.appendChild(container);
-
-                // Create confetti pieces
-                const colors = ['#ff6b6b', '#4ecdc4', '#ffe66d', '#95e1d3'];
-                const shapes = ['circle', 'square', 'triangle'];
-                
-                for (let i = 0; i < 30; i++) {
-                    const confetti = document.createElement('div');
-                    confetti.className = 'confetti';
-                    
-                    // Random shape
-                    const shape = shapes[Math.floor(Math.random() * shapes.length)];
-                    if (shape === 'circle') {
-                        confetti.classList.add('confetti-circle');
-                    } else if (shape === 'square') {
-                        confetti.classList.add('confetti-square');
-                    } else if (shape === 'triangle') {
-                        confetti.classList.add('confetti-triangle');
-                        const color = colors[Math.floor(Math.random() * colors.length)];
-                        confetti.style.borderBottomColor = color;
-                    }
-                    
-                    // Random color for non-triangles
-                    if (shape !== 'triangle') {
-                        confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
-                    }
-                    
-                    // Random position and animation
-                    confetti.style.left = Math.random() * 100 + '%';
-                    confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
-                    confetti.style.animationDelay = (Math.random() * 0.5) + 's';
-                    
-                    container.appendChild(confetti);
-                }
-
-                // Remove confetti container after animation
-                setTimeout(() => {
-                    container.remove();
-                }, 4000);
-            }
-        });
-    </script>
+  addEventListener('resize', build);
+  build();
+  requestAnimationFrame(frame);
+})();
+</script>
 </body>
 </html>
-
