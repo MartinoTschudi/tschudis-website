@@ -127,6 +127,17 @@ function step(dt) {
     l.vr += -l.r * ROT_STIFF * dt; l.vr *= Math.exp(-ROT_DAMP * dt); l.r += l.vr * dt;
   }
 
+  // the family holds hands: each letter is softly linked to its neighbours,
+  // so pulling one drags the others along, more the closer they are
+  const LINK = 14;                                              // 1/s²
+  for (let i = 0; i < letters.length - 1; i++) {
+    const a = letters[i], b = letters[i + 1];
+    const dx = b.x - a.x, dy = b.y - a.y;                        // difference of offsets = stretch
+    const fx = dx * LINK * dt, fy = dy * LINK * dt;
+    if (a.grab == null) { a.vx += fx; a.vy += fy; }
+    if (b.grab == null) { b.vx -= fx; b.vy -= fy; }
+  }
+
   // letters don't pass through each other (only when both free)
   for (let i = 0; i < letters.length - 1; i++) {
     const a = letters[i], b = letters[i + 1];
