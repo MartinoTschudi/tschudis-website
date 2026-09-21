@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Gran Canaria · ott 2026 · mappa</title>
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="theme-color" content="#f6f6f3">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+:root{--ink:#1b1b1b;--ink2:#555;--muted:#8a8a8a;--line:#e6e6e1;--blue:#2a78d6}
+*{box-sizing:border-box}html,body{margin:0;height:100%;font:14px/1.45 -apple-system,Inter,Segoe UI,sans-serif;color:var(--ink);overflow:hidden}
+#map{position:fixed;inset:0}
+.top{position:fixed;top:0;left:0;right:0;z-index:1000;padding:10px 10px 6px;background:linear-gradient(#f6f6f3 70%,#f6f6f300);pointer-events:none}
+.top>*{pointer-events:auto}
+.row1{display:flex;gap:8px;align-items:center}
+.back{width:38px;height:38px;border-radius:50%;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--ink);font-size:18px;box-shadow:0 2px 8px #0002;flex:none}
+.reg{display:inline-flex;border:1px solid var(--line);border-radius:99px;background:#fff;padding:3px;box-shadow:0 2px 8px #0002}
+.reg button{border:0;background:transparent;padding:6px 12px;border-radius:99px;font:600 13px -apple-system,Inter,sans-serif;color:var(--ink2)}
+.reg button.on{background:var(--ink);color:#fff}
+.chips{display:flex;gap:6px;overflow-x:auto;padding:8px 0 4px;scrollbar-width:none;-webkit-overflow-scrolling:touch}.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;border:1px solid var(--line);background:#fff;border-radius:99px;padding:6px 11px;font:600 12.5px -apple-system,Inter,sans-serif;color:var(--ink2);box-shadow:0 1px 4px #0001;white-space:nowrap}
+.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.emk span{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#fff;border:1px solid #0002;box-shadow:0 2px 8px #0003;font-size:18px;line-height:1}
+.emk.stay span{width:40px;height:40px;font-size:22px;border:2px solid #eb6834}
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:1001;background:#fff;border-radius:16px 16px 0 0;box-shadow:0 -6px 24px #0002;padding:14px 16px calc(16px + env(safe-area-inset-bottom));transform:translateY(110%);transition:transform .22s}
+.sheet.open{transform:none}
+.sheet h3{margin:0 0 4px;font-size:17px}.sheet .cat{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}.sheet p{margin:6px 0 10px;color:var(--ink2)}
+.acts{display:flex;gap:8px;flex-wrap:wrap}.act{flex:1;min-width:120px;text-align:center;padding:10px 12px;border-radius:10px;background:var(--ink);color:#fff;text-decoration:none;font-weight:600;font-size:13px}
+.act.sec{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.x{position:absolute;right:12px;top:10px;width:30px;height:30px;border-radius:50%;border:0;background:#f1f1ee;font-size:16px}
+.leaflet-control-attribution{font-size:10px}
+.count{position:fixed;right:10px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:999;background:#fff;border:1px solid var(--line);border-radius:99px;padding:6px 10px;font-size:12px;color:var(--ink2);box-shadow:0 2px 8px #0002}
+.chip{font-weight:600;padding:7px 12px;border-radius:12px;box-shadow:0 1px 3px #0001}.chip.on{background:#17171a}.reg{border-radius:12px}.reg button{border-radius:9px}.reg button.on{background:#17171a}.back{border-radius:12px}.sheet{padding:16px 18px calc(18px + env(safe-area-inset-bottom));box-shadow:0 -10px 30px #0002}.sheet h3{font-size:18px;letter-spacing:-.01em}.act{border-radius:12px;background:#17171a}.count{border-radius:10px}
+</style></head><body>
+<div id="map"></div>
+<div class="top">
+<div class="row1"><a class="back" href="/gc2026/" title="Dashboard">‹</a>
+<div class="reg"><button id="rgc" onclick="setReg('gc')">Gran Canaria</button><button id="rpt" onclick="setReg('pt')">Portogallo</button></div></div>
+<div class="chips" id="chips"></div>
+</div>
+<div class="count" id="count"></div>
+<div class="sheet" id="sheet"><button class="x" onclick="closeSheet()">×</button><div class="cat" id="scat"></div><h3 id="sname"></h3><p id="sdesc"></p><div class="acts"><a class="act" id="snav" target="_blank">Naviga · Google Maps</a><a class="act sec" id="sapple" target="_blank">Apple Maps</a></div></div>
+<script>
+const CATS=['Stay','Beaches','Pools','Views','Food','Villages','Nature','Boat','Caterham','Shopping','Airport'];
+const CE={Stay:'🏠',Beaches:'🏖️',Pools:'🏊',Views:'🌄',Food:'🍽️',Villages:'🏘️',Nature:'🌿',Boat:'⛵',Caterham:'🏎️',Shopping:'🛍️',Airport:'✈️'};const IT={Stay:'Alloggi',Beaches:'Spiagge',Pools:'Piscine',Views:'Belvedere',Food:'Cibo',Villages:'Paesi',Nature:'Natura',Boat:'Barca',Caterham:'Caterham',Shopping:'Shopping',Airport:'Aeroporto'};
+const CL={Stay:'Alloggio',Beaches:'Spiagge',Pools:'Piscine',Views:'Panorami',Food:'Cibo',Villages:'Paesi',Nature:'Natura',Boat:'Barca',Caterham:'Caterham',Shopping:'Shopping',Airport:'Aeroporto'};
+let DATA=[],reg=localStorage.getItem('mapreg')||'gc',active=new Set(CATS),layer;
+const map=L.map('map',{zoomControl:false}).setView([27.93,-15.6],10);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{attribution:'© OpenStreetMap · © CARTO',maxZoom:19}).addTo(m=map);
+L.control.zoom({position:'bottomleft'}).addTo(map);
+function chips(){const c=document.getElementById('chips');c.innerHTML='';const all=document.createElement('button');all.className='chip'+(active.size===CATS.length?' on':'');all.textContent='Tutti';all.onclick=()=>{active=new Set(CATS);render()};c.append(all);
+CATS.forEach(k=>{if(!DATA.some(d=>d.r===reg&&d.c===k))return;const b=document.createElement('button');b.className='chip'+(active.has(k)&&active.size!==CATS.length?' on':'');b.textContent=CE[k]+' '+CL[k];b.onclick=()=>{if(active.size===CATS.length)active=new Set([k]);else if(active.has(k)){active.delete(k);if(!active.size)active=new Set(CATS)}else active.add(k);render()};c.append(b)})}
+function render(){chips();if(layer)map.removeLayer(layer);layer=L.layerGroup().addTo(map);let n=0,bounds=[];
+DATA.filter(d=>d.r===reg&&active.has(d.c)).forEach(d=>{n++;bounds.push([d.lat,d.lon]);
+L.marker([d.lat,d.lon],{icon:L.divIcon({className:'emk'+(d.c==='Stay'?' stay':''),html:'<span>'+d.e+'</span>',iconSize:[34,34],iconAnchor:[17,17]})}).addTo(layer).on('click',()=>openSheet(d))});
+document.getElementById('count').textContent=n+' luoghi';
+if(bounds.length&&!render.fitted[reg]){map.fitBounds(bounds,{padding:[90,30]});render.fitted[reg]=true}}
+render.fitted={};
+function setReg(r){reg=r;localStorage.setItem('mapreg',r);document.getElementById('rgc').classList.toggle('on',r==='gc');document.getElementById('rpt').classList.toggle('on',r==='pt');active=new Set(CATS);render.fitted[r]=false;render()}
+function openSheet(d){document.getElementById('scat').textContent=d.e+' '+(CL[d.c]||d.c);document.getElementById('sname').textContent=d.n;document.getElementById('sdesc').innerHTML=d.d;
+document.getElementById('snav').href='https://www.google.com/maps/search/?api=1&query='+d.lat+','+d.lon+'('+encodeURIComponent(d.n)+')';
+document.getElementById('sapple').href='https://maps.apple.com/?q='+encodeURIComponent(d.n)+'&ll='+d.lat+','+d.lon;
+document.getElementById('sheet').classList.add('open');map.panTo([d.lat,d.lon],{animate:true})}
+function closeSheet(){document.getElementById('sheet').classList.remove('open')}
+map.on('click',closeSheet);
+fetch('poi.json').then(r=>r.json()).then(j=>{DATA=j;setReg(reg)});
+</script></body></html>
