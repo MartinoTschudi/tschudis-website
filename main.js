@@ -166,7 +166,7 @@ function entrance() {
     l.el.style.opacity = p.toFixed(3);
     l.y = (1 - ease(p)) * size() * 0.35;
   });
-  if (done) { ready = true; letters.forEach(l => { l.el.style.opacity = ''; l.y = 0; }); }
+  if (done) { ready = true; letters.forEach(l => { l.el.style.opacity = '1'; l.y = 0; }); }
 }
 
 function render() {
@@ -178,7 +178,7 @@ function loop(now) {
   const t = now / 1000;
   const dt = Math.min(0.033, lastT ? t - lastT : 0.016);
   lastT = t; elapsed += dt;
-  if (ready) step(dt); else entrance();
+  try { if (ready) step(dt); else entrance(); } catch (_) { /* never let one bad frame stop the word */ }
   render();
   requestAnimationFrame(loop);
 }
