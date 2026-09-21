@@ -103,7 +103,7 @@ export function createPalette(api) {
       const lag = (pointer.inside ? 0.03 : 0.01) * Math.min(3, dt * 60);
       light.x += (tx - light.x) * lag; light.y += (ty - light.y) * lag;
     }
-    const alpha = to === DARK && fade > 0.5 ? 0.14 : 0.18;
+    const alpha = to === DARK && fade > 0.5 ? 0.07 : 0.09;
     const g = ctx.createRadialGradient(light.x, light.y, 0, light.x, light.y, R);
     g.addColorStop(0, cur.accent + Math.round(alpha * 255).toString(16).padStart(2, '0'));
     g.addColorStop(0.55, cur.accent + Math.round(alpha * 0.35 * 255).toString(16).padStart(2, '0'));

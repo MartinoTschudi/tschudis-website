@@ -36,7 +36,8 @@
     font-weight: 700;
     color: var(--ink);
     line-height: 1;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.035em;
+    font-feature-settings: "kern" 1;
     cursor: default;
     visibility: hidden;
   }
@@ -44,9 +45,10 @@
   #word span {
     display: inline-block;
     text-align: center;
-    will-change: transform, font-variation-settings;
+    will-change: transform;
     font-variation-settings: "wght" 700, "wdth" 100;
     transform-origin: 50% 70%;
+    opacity: 0;
   }
   #front { z-index: 2; }
 </style>

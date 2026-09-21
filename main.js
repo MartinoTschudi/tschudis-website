@@ -103,10 +103,10 @@ function poke(x, y, strength) {
     const dx = c.x - x, dy = c.y - y, d = Math.hypot(dx, dy) + 1;
     const r = l.home.h * 2.2;
     if (d > r) continue;
-    const f = (1 - d / r) * 900 * strength;
-    l.vx += (dx / d) * f; l.vy += (dy / d) * f * 0.6 - f * 0.25;
-    l.vr += (dx / d) * -0.02 * strength * (1 - d / r) * 20;
-    l.vw += -400 * strength * (1 - d / r);
+    const f = (1 - d / r) * 380 * strength;
+    l.vx += (dx / d) * f; l.vy += (dy / d) * f * 0.5 - f * 0.2;
+    l.vr += (dx / d) * -0.004 * strength * (1 - d / r);
+    l.vw += -120 * strength * (1 - d / r);
   }
   energy = Math.min(1, energy + 0.35 * strength);
   scenes.onInteraction(strength, x, y);
@@ -123,10 +123,10 @@ function startEntrance() {
     const k = order.indexOf(i);
     const dir = (i % 2 ? 1 : -1);
     l.enterAt = ENTER_DELAY + k * ENTER_STAGGER;
-    l.x = dir * (120 + k * 40) * (W / 1200 + 0.4);
-    l.y = -H * 0.6 - k * 60;
-    l.rot = dir * 0.6;
-    l.wght = 200; l.wdth = 75;
+    l.x = dir * (14 + k * 4);
+    l.y = H * 0.12 + k * 6;
+    l.rot = dir * 0.05;
+    l.wght = 500; l.wdth = 96;
     l.entered = false;
   });
   entranceStart = elapsed;
@@ -158,12 +158,12 @@ function maybeSignature(t) {
   letters.forEach((l, i) => {
     const c = letterCenter(l);
     const d = Math.abs(c.x - pointer.x) / W;
-    const f = (1 - d) * 1400;
-    l.vx += dirx * f * (0.4 + Math.random() * 0.6);
-    l.vy += -f * (0.5 + Math.random() * 0.8);
-    l.vr += (Math.random() - 0.5) * 12;
-    l.vw += (Math.random() - 0.5) * 3000;
-    l.vd += (Math.random() - 0.5) * 300;
+    const f = (1 - d) * 700;
+    l.vx += dirx * f * (0.5 + Math.random() * 0.5);
+    l.vy += -f * (0.4 + Math.random() * 0.5);
+    l.vr += (Math.random() - 0.5) * 1.2;
+    l.vw += (Math.random() - 0.5) * 600;
+    l.vd += (Math.random() - 0.5) * 60;
   });
   energy = 1;
   scenes.signature(pointer.x, pointer.y, dirx);
@@ -184,35 +184,35 @@ function step(t, dt) {
       const dx = c.x - pointer.x, dy = c.y - pointer.y;
       const d = Math.hypot(dx, dy) + 1, r = restH * 1.6;
       if (d < r) {
-        const s = (1 - d / r);
-        ax += (dx / d) * s * 70; ay += (dy / d) * s * 40;
-        l.vr += (dx / d) * -s * 0.003 * k;
-        // cursor "presses" the letter: it compresses in weight
-        l.vw += -s * 60 * k; l.vd += s * 10 * k;
+        const s = (1 - d / r) ** 2;             // soft falloff: only close passes matter
+        ax += (dx / d) * s * 28; ay += (dy / d) * s * 14;
+        l.vr += (dx / d) * -s * 0.0008 * k;
+        // cursor "presses" the letter: a slight, slow compression
+        l.vw += -s * 14 * k; l.vd += s * 3 * k;
       }
       // dragging: pull the nearest letter along
       if (pointer.down && d < restH * 0.8) {
-        ax += (pointer.x - c.x) * 8; ay += (pointer.y - c.y) * 8;
+        ax += (pointer.x - c.x) * 6; ay += (pointer.y - c.y) * 6;
       }
     }
     // tilt gravity
-    ax += tilt.x * 40; ay += tilt.y * 30;
+    ax += tilt.x * 20; ay += tilt.y * 14;
 
-    // spring home
-    const K = 0.085, D = 0.86;
+    // spring home (critically damped feel: slow, heavy, no overshoot chatter)
+    const K = 0.05, D = 0.80;
     l.vx += (-l.x * K + ax * dt * 4) * k; l.vy += (-l.y * K + ay * dt * 4) * k;
     l.vx *= Math.pow(D, k); l.vy *= Math.pow(D, k);
     l.x += l.vx * dt * 3.5; l.y += l.vy * dt * 3.5;
 
-    // rotation
-    l.vr += -l.rot * 0.09 * k; l.vr *= Math.pow(0.86, k); l.rot += l.vr * dt * 3.5;
-    if (Math.abs(l.rot) > 0.9) { l.rot = Math.sign(l.rot) * 0.9; l.vr *= -0.3; }
+    // rotation — very restrained
+    l.vr += -l.rot * 0.06 * k; l.vr *= Math.pow(0.80, k); l.rot += l.vr * dt * 3.5;
+    if (Math.abs(l.rot) > 0.35) { l.rot = Math.sign(l.rot) * 0.35; l.vr *= -0.3; }
 
-    // font axes spring
-    l.vw += (700 - l.wght) * 0.08 * k; l.vw *= Math.pow(0.8, k); l.wght += l.vw * dt * 3;
-    l.vd += (100 - l.wdth) * 0.08 * k; l.vd *= Math.pow(0.8, k); l.wdth += l.vd * dt * 3;
-    l.wght = Math.max(200, Math.min(900, l.wght));
-    l.wdth = Math.max(70, Math.min(122, l.wdth));
+    // font axes spring (heavily damped)
+    l.vw += (700 - l.wght) * 0.05 * k; l.vw *= Math.pow(0.70, k); l.wght += l.vw * dt * 3;
+    l.vd += (100 - l.wdth) * 0.05 * k; l.vd *= Math.pow(0.70, k); l.wdth += l.vd * dt * 3;
+    l.wght = Math.max(450, Math.min(800, l.wght));
+    l.wdth = Math.max(88, Math.min(110, l.wdth));
   }
 
   // neighbour coupling: the family holds hands (soft springs + collision)
@@ -223,17 +223,17 @@ function step(t, dt) {
     const restGap = (b.home.x + b.home.w / 2) - (a.home.x + a.home.w / 2);
     const gap = cb.x - ca.x;
     const stretch = gap - restGap;
-    const f = stretch * 0.012 * k;
+    const f = stretch * 0.008 * k;
     a.vx += f; b.vx -= f;
-    const dy = (cb.y - ca.y) * 0.006 * k;
+    const dy = (cb.y - ca.y) * 0.004 * k;
     a.vy += dy; b.vy -= dy;
     // collision: don't overlap
-    const minGap = restGap * 0.62;
+    const minGap = restGap * 0.7;
     if (gap < minGap) {
       const push = (minGap - gap) * 0.5;
       a.x -= push * 0.5; b.x += push * 0.5;
       const rel = b.vx - a.vx;
-      if (rel < 0) { a.vx += rel * 0.55; b.vx -= rel * 0.55; a.vw += 300; b.vw += 300; }
+      if (rel < 0) { a.vx += rel * 0.55; b.vx -= rel * 0.55; a.vw += 120; b.vw += 120; }
     }
   }
 
@@ -244,12 +244,24 @@ function step(t, dt) {
   energy = Math.max(0, energy - dt * 0.25);
   if (motion > 30) { energy = Math.min(1, energy + dt * 0.4); stillness = 0; } else stillness += dt;
   pointer.speed *= Math.pow(0.85, k); // decays unless moving
+
+  // snap tiny residuals so the word is perfectly still at rest
+  for (const l of letters) {
+    if (Math.abs(l.x) < 0.02 && Math.abs(l.vx) < 0.05) { l.x = 0; l.vx = 0; }
+    if (Math.abs(l.y) < 0.02 && Math.abs(l.vy) < 0.05) { l.y = 0; l.vy = 0; }
+    if (Math.abs(l.rot) < 0.0005 && Math.abs(l.vr) < 0.001) { l.rot = 0; l.vr = 0; }
+  }
 }
 
 function render() {
   for (const l of letters) {
     l.el.style.transform = `translate3d(${l.x.toFixed(2)}px,${l.y.toFixed(2)}px,0) rotate(${l.rot.toFixed(4)}rad)`;
     l.el.style.fontVariationSettings = `"wght" ${l.wght.toFixed(0)}, "wdth" ${l.wdth.toFixed(1)}`;
+    if (!entranceDone) {
+      // fade in over the first ~0.5 s after each letter enters
+      const since = l.entered ? elapsed - entranceStart - l.enterAt : 0;
+      l.el.style.opacity = l.entered ? Math.min(1, since / 0.5).toFixed(3) : '0';
+    } else if (l.el.style.opacity !== '') l.el.style.opacity = '';
   }
 }
 

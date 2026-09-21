@@ -33,8 +33,8 @@ export function createScenes(api) {
   }
 
   function scheduleNext() {
-    let gap = rnd(9, 16);
-    if (api.stillness > 4) gap *= 0.6;
+    let gap = rnd(14, 24);
+    if (api.stillness > 6) gap *= 0.7;
     nextAt = api.elapsed + gap;
   }
 
@@ -57,7 +57,7 @@ export function createScenes(api) {
         catch (e) { active = null; nextAt = null; resetCanvasState(); }
       }
     }
-    if (api.reduced || active || api.elapsed <= 3) return;
+    if (api.reduced || active || api.elapsed <= 6) return;
     if (nextAt == null) scheduleNext();
     else if (api.elapsed >= nextAt) { nextAt = null; start(pick(all), null); }
   }
