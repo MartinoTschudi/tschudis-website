@@ -118,7 +118,7 @@ function step(dt) {
     l.x += l.vx * dt; l.y += l.vy * dt;
 
     // gentle walls: letters can leave the viewport briefly on an explosion, but come back
-    const c = center(l), m = S * 0.5;
+    const c = center(l), m = S * 0.25;
     if (c.x < m) l.vx += (m - c.x) * 30 * dt;
     if (c.x > W - m) l.vx -= (c.x - (W - m)) * 30 * dt;
     if (c.y < m) l.vy += (m - c.y) * 30 * dt;
@@ -127,29 +127,39 @@ function step(dt) {
     l.vr += -l.r * ROT_STIFF * dt; l.vr *= Math.exp(-ROT_DAMP * dt); l.r += l.vr * dt;
   }
 
-  // the family holds hands: each letter is softly linked to its neighbours,
-  // so pulling one drags the others along, more the closer they are
-  const LINK = 14;                                              // 1/s²
-  for (let i = 0; i < letters.length - 1; i++) {
-    const a = letters[i], b = letters[i + 1];
-    const dx = b.x - a.x, dy = b.y - a.y;                        // difference of offsets = stretch
-    const fx = dx * LINK * dt, fy = dy * LINK * dt;
-    if (a.grab == null) { a.vx += fx; a.vy += fy; }
-    if (b.grab == null) { b.vx -= fx; b.vy -= fy; }
-  }
-
-  // letters don't pass through each other (only when both free)
-  for (let i = 0; i < letters.length - 1; i++) {
-    const a = letters[i], b = letters[i + 1];
-    if (a.grab != null || b.grab != null) continue;
-    const ca = center(a), cb = center(b);
-    const minGap = ((a.home.w + b.home.w) / 2) * 0.8;
-    const gap = cb.x - ca.x;
-    if (gap < minGap && Math.abs(cb.y - ca.y) < a.home.h * 0.5) {
-      const push = (minGap - gap) / 2;
-      a.x -= push; b.x += push;
-      const rel = b.vx - a.vx;
-      if (rel < 0) { a.vx += rel * 0.5; b.vx -= rel * 0.5; }
+  // Collisions: every letter is a solid body. A held letter is an immovable pusher —
+  // drag it into the others and they get shoved aside and bounce. Free letters
+  // bounce off each other. Two iterations so stacked contacts resolve cleanly.
+  const REST = 0.45;                                              // bounciness
+  for (let iter = 0; iter < 2; iter++) {
+    for (let i = 0; i < letters.length; i++) {
+      for (let j = i + 1; j < letters.length; j++) {
+        const a = letters[i], b = letters[j];
+        const ca = center(a), cb = center(b);
+        // contact distance: never larger than the letters' rest spacing, so the word is
+        // stable at rest, but tight enough that a dragged letter shoves the others
+        const ra = a.home.w * 0.5, rb = b.home.w * 0.5;
+        const restD = Math.hypot((b.home.x + b.home.w / 2) - (a.home.x + a.home.w / 2), 0);
+        const minD = Math.min((ra + rb) * 0.98, restD * 0.96);
+        let dx = cb.x - ca.x, dy = cb.y - ca.y;
+        let d = Math.hypot(dx, dy);
+        if (d >= minD) continue;
+        if (d < 0.001) { dx = 1; dy = 0; d = 1; }
+        const nx = dx / d, ny = dy / d, overlap = minD - d;
+        const aHeld = a.grab != null, bHeld = b.grab != null;
+        if (aHeld && bHeld) continue;
+        // separate: a held letter doesn't move, the other takes the full correction
+        const wa = aHeld ? 0 : bHeld ? 1 : 0.5, wb = 1 - wa;
+        a.x -= nx * overlap * wa; a.y -= ny * overlap * wa;
+        b.x += nx * overlap * wb; b.y += ny * overlap * wb;
+        // relative velocity along the normal; only respond if approaching
+        const rvx = b.vx - a.vx, rvy = b.vy - a.vy;
+        const vn = rvx * nx + rvy * ny;
+        if (vn >= 0) continue;
+        const jn = -(1 + REST) * vn / (wa + wb);
+        if (!aHeld) { a.vx -= nx * jn * wa; a.vy -= ny * jn * wa; a.vr += (Math.random() - 0.5) * 2 * Math.min(1, -vn / (S * 3)); }
+        if (!bHeld) { b.vx += nx * jn * wb; b.vy += ny * jn * wb; b.vr += (Math.random() - 0.5) * 2 * Math.min(1, -vn / (S * 3)); }
+      }
     }
   }
 
