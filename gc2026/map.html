@@ -32,7 +32,7 @@
 <div id="map"></div>
 <div class="top">
 <div class="row1"><a class="back" href="/gc2026/" title="Dashboard">‹</a>
-<div class="reg"><button id="rgc" onclick="setReg('gc')">Gran Canaria</button><button id="rpt" onclick="setReg('pt')">Portogallo</button></div></div>
+<div class="reg"><button id="rgc" class="on">Gran Canaria · ott 2026</button></div></div>
 <div class="chips" id="chips"></div>
 </div>
 <div class="count" id="count"></div>
@@ -41,7 +41,7 @@
 const CATS=['Stay','Beaches','Pools','Views','Food','Villages','Nature','Boat','Caterham','Shopping','Airport'];
 const CE={Stay:'🏠',Beaches:'🏖️',Pools:'🏊',Views:'🌄',Food:'🍽️',Villages:'🏘️',Nature:'🌿',Boat:'⛵',Caterham:'🏎️',Shopping:'🛍️',Airport:'✈️'};const IT={Stay:'Alloggi',Beaches:'Spiagge',Pools:'Piscine',Views:'Belvedere',Food:'Cibo',Villages:'Paesi',Nature:'Natura',Boat:'Barca',Caterham:'Caterham',Shopping:'Shopping',Airport:'Aeroporto'};
 const CL={Stay:'Alloggio',Beaches:'Spiagge',Pools:'Piscine',Views:'Panorami',Food:'Cibo',Villages:'Paesi',Nature:'Natura',Boat:'Barca',Caterham:'Caterham',Shopping:'Shopping',Airport:'Aeroporto'};
-let DATA=[],reg=localStorage.getItem('mapreg')||'gc',active=new Set(CATS),layer;
+let DATA=[],reg='gc',active=new Set(CATS),layer;
 const map=L.map('map',{zoomControl:false}).setView([27.93,-15.6],10);
 L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{attribution:'© OpenStreetMap · © CARTO',maxZoom:19}).addTo(m=map);
 L.control.zoom({position:'bottomleft'}).addTo(map);
@@ -53,7 +53,7 @@ L.marker([d.lat,d.lon],{icon:L.divIcon({className:'emk'+(d.c==='Stay'?' stay':''
 document.getElementById('count').textContent=n+' luoghi';
 if(bounds.length&&!render.fitted[reg]){map.fitBounds(bounds,{padding:[90,30]});render.fitted[reg]=true}}
 render.fitted={};
-function setReg(r){reg=r;localStorage.setItem('mapreg',r);document.getElementById('rgc').classList.toggle('on',r==='gc');document.getElementById('rpt').classList.toggle('on',r==='pt');active=new Set(CATS);render.fitted[r]=false;render()}
+function setReg(r){reg='gc';active=new Set(CATS);render.fitted[reg]=false;render()}
 function openSheet(d){document.getElementById('scat').textContent=d.e+' '+(CL[d.c]||d.c);document.getElementById('sname').textContent=d.n;document.getElementById('sdesc').innerHTML=d.d;
 document.getElementById('snav').href='https://www.google.com/maps/search/?api=1&query='+d.lat+','+d.lon+'('+encodeURIComponent(d.n)+')';
 document.getElementById('sapple').href='https://maps.apple.com/?q='+encodeURIComponent(d.n)+'&ll='+d.lat+','+d.lon;
