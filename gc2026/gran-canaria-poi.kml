@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2"><Document><name>Gran Canaria · Oct 2026 · POI</name>
+<Style id="Airports"><IconStyle><color>ffd6782a</color><scale>1.2</scale><Icon><href>https://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle></Style>
+<Style id="Stays"><IconStyle><color>ff3468eb</color><scale>1.2</scale><Icon><href>https://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle></Style>
+<Style id="Caterham"><IconStyle><color>ff4849e3</color><scale>1.2</scale><Icon><href>https://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle></Style>
+<Style id="Viewpoints"><IconStyle><color>ff00a1ed</color><scale>1.2</scale><Icon><href>https://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle></Style>
+<Style id="Beachescoves"><IconStyle><color>ff7aaf1b</color><scale>1.2</scale><Icon><href>https://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle></Style>
+<Style id="Boat"><IconStyle><color>ff7aaf1b</color><scale>1.2</scale><Icon><href>https://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle></Style>
+<Style id="Villagesculture"><IconStyle><color>ff00a1ed</color><scale>1.2</scale><Icon><href>https://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle></Style>
+<Style id="Naturalpools"><IconStyle><color>ff7aaf1b</color><scale>1.2</scale><Icon><href>https://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle></Style>
+<Style id="Fooddrink"><IconStyle><color>ffa47be8</color><scale>1.2</scale><Icon><href>https://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle></Style>
+<Style id="Nature"><IconStyle><color>ff008300</color><scale>1.2</scale><Icon><href>https://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle></Style>
+<Style id="Shoppingmarkets"><IconStyle><color>ffa73a4a</color><scale>1.2</scale><Icon><href>https://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle></Style>
+<Folder><name>Airports</name>
+<Placemark><name>✈️ Gran Canaria Airport</name><description><![CDATA[Thu 15 arr 12:45 · Mon 26 dep 10:20<br><a href="https://www.google.com/maps/search/?api=1&query=27.9319,-15.3866">Navigate</a>]]></description><styleUrl>#Airports</styleUrl><Point><coordinates>-15.3866,27.9319,0</coordinates></Point></Placemark>
+</Folder>
+<Folder><name>Stays</name>
+<Placemark><name>🏠 Salobre Homes villa</name><description><![CDATA[11 nights · CHF 2454<br><a href="https://www.google.com/maps/search/?api=1&query=27.786,-15.615">Navigate</a>]]></description><styleUrl>#Stays</styleUrl><Point><coordinates>-15.615,27.786,0</coordinates></Point></Placemark>
+</Folder>
+<Folder><name>Caterham</name>
+<Placemark><name>🏎️ IslaCar · Caterham Seven</name><description><![CDATA[C.C. Sonneland · 6 min from villa<br><a href="https://www.google.com/maps/search/?api=1&query=27.765,-15.590">Navigate</a>]]></description><styleUrl>#Caterham</styleUrl><Point><coordinates>-15.590,27.765,0</coordinates></Point></Placemark>
+</Folder>
+<Folder><name>Viewpoints</name>
+<Placemark><name>🌄 Maspalomas dunes</name><description><![CDATA[Sunset walk · Bohemia 360° rooftop<br><a href="https://www.google.com/maps/search/?api=1&query=27.737,-15.586">Navigate</a>]]></description><styleUrl>#Viewpoints</styleUrl><Point><coordinates>-15.586,27.737,0</coordinates></Point></Placemark>
+<Placemark><name>🌄 Roque Nublo · Tejeda</name><description><![CDATA[08:00 · almond cake<br><a href="https://www.google.com/maps/search/?api=1&query=27.97,-15.61">Navigate</a>]]></description><styleUrl>#Viewpoints</styleUrl><Point><coordinates>-15.61,27.97,0</coordinates></Point></Placemark>
+<Placemark><name>🌄 Playa de Sardina</name><description><![CDATA[Turquoise cove · sunset fish<br><a href="https://www.google.com/maps/search/?api=1&query=28.16,-15.70">Navigate</a>]]></description><styleUrl>#Viewpoints</styleUrl><Point><coordinates>-15.70,28.16,0</coordinates></Point></Placemark>
+<Placemark><name>🌄 Artenara</name><description><![CDATA[Cave houses · Mirador de Unamuno<br><a href="https://www.google.com/maps/search/?api=1&query=28.02,-15.52">Navigate</a>]]></description><styleUrl>#Viewpoints</styleUrl><Point><coordinates>-15.52,28.02,0</coordinates></Point></Placemark>
+<Placemark><name>🌄 Pico de las Nieves</name><description><![CDATA[Sunrise over cloud sea<br><a href="https://www.google.com/maps/search/?api=1&query=27.96,-15.57">Navigate</a>]]></description><styleUrl>#Viewpoints</styleUrl><Point><coordinates>-15.57,27.96,0</coordinates></Point></Placemark>
+<Placemark><name>🌄 Degollada de las Yeguas</name><description><![CDATA[Sunrise 07:30 · 30 min from villa<br><a href="https://www.google.com/maps/search/?api=1&query=27.85,-15.54">Navigate</a>]]></description><styleUrl>#Viewpoints</styleUrl><Point><coordinates>-15.54,27.85,0</coordinates></Point></Placemark>
+<Placemark><name>🌄 Las Canteras</name><description><![CDATA[La Marinera · Summum sunset<br><a href="https://www.google.com/maps/search/?api=1&query=28.14,-15.44">Navigate</a>]]></description><styleUrl>#Viewpoints</styleUrl><Point><coordinates>-15.44,28.14,0</coordinates></Point></Placemark>
+</Folder>
+<Folder><name>Beaches &amp; coves</name>
+<Placemark><name>🏖️ Playa de Amadores</name><description><![CDATA[Beach club · calm water<br><a href="https://www.google.com/maps/search/?api=1&query=27.77,-15.68">Navigate</a>]]></description><styleUrl>#Beachescoves</styleUrl><Point><coordinates>-15.68,27.77,0</coordinates></Point></Placemark>
+<Placemark><name>🏖️ Tiritaña · Medio Almud</name><description><![CDATA[Locals-only coves<br><a href="https://www.google.com/maps/search/?api=1&query=27.83,-15.77">Navigate</a>]]></description><styleUrl>#Beachescoves</styleUrl><Point><coordinates>-15.77,27.83,0</coordinates></Point></Placemark>
+<Placemark><name>🏖️ Montaña de Arena</name><description><![CDATA[Golden dune cove · 20 min walk<br><a href="https://www.google.com/maps/search/?api=1&query=27.82,-15.55">Navigate</a>]]></description><styleUrl>#Beachescoves</styleUrl><Point><coordinates>-15.55,27.82,0</coordinates></Point></Placemark>
+<Placemark><name>🏖️ Tufia</name><description><![CDATA[Cave-house hamlet · two coves<br><a href="https://www.google.com/maps/search/?api=1&query=27.98,-15.31">Navigate</a>]]></description><styleUrl>#Beachescoves</styleUrl><Point><coordinates>-15.31,27.98,0</coordinates></Point></Placemark>
+</Folder>
+<Folder><name>Boat</name>
+<Placemark><name>⛵ Puerto de Mogán</name><description><![CDATA[Self-drive boat · Friday market · Los Guayres<br><a href="https://www.google.com/maps/search/?api=1&query=27.815,-15.765">Navigate</a>]]></description><styleUrl>#Boat</styleUrl><Point><coordinates>-15.765,27.815,0</coordinates></Point></Placemark>
+<Placemark><name>⛵ Güigüí beach</name><description><![CDATA[Remote · by boat<br><a href="https://www.google.com/maps/search/?api=1&query=27.95,-15.83">Navigate</a>]]></description><styleUrl>#Boat</styleUrl><Point><coordinates>-15.83,27.95,0</coordinates></Point></Placemark>
+</Folder>
+<Folder><name>Villages &amp; culture</name>
+<Placemark><name>🏘️ GC-200 Andén Verde</name><description><![CDATA[West-coast balcony road<br><a href="https://www.google.com/maps/search/?api=1&query=27.99,-15.79">Navigate</a>]]></description><styleUrl>#Villagesculture</styleUrl><Point><coordinates>-15.79,27.99,0</coordinates></Point></Placemark>
+<Placemark><name>🏘️ Fataga</name><description><![CDATA[Palm valley, GC-60<br><a href="https://www.google.com/maps/search/?api=1&query=27.9,-15.53">Navigate</a>]]></description><styleUrl>#Villagesculture</styleUrl><Point><coordinates>-15.53,27.9,0</coordinates></Point></Placemark>
+</Folder>
+<Folder><name>Natural pools</name>
+<Placemark><name>🏊 Agaete · Puerto de las Nieves</name><description><![CDATA[Coffee farm · natural pools · Casa Romántica<br><a href="https://www.google.com/maps/search/?api=1&query=28.10,-15.70">Navigate</a>]]></description><styleUrl>#Naturalpools</styleUrl><Point><coordinates>-15.70,28.10,0</coordinates></Point></Placemark>
+<Placemark><name>🏊 Charco Azul · El Risco</name><description><![CDATA[Waterfall pool · 25 min path<br><a href="https://www.google.com/maps/search/?api=1&query=28.10,-15.62">Navigate</a>]]></description><styleUrl>#Naturalpools</styleUrl><Point><coordinates>-15.62,28.10,0</coordinates></Point></Placemark>
+</Folder>
+<Folder><name>Food &amp; drink</name>
+<Placemark><name>🍽️ Guayadeque · Tagoror</name><description><![CDATA[Cave lunch<br><a href="https://www.google.com/maps/search/?api=1&query=27.99,-15.38">Navigate</a>]]></description><styleUrl>#Fooddrink</styleUrl><Point><coordinates>-15.38,27.99,0</coordinates></Point></Placemark>
+</Folder>
+<Folder><name>Nature</name>
+<Placemark><name>🌿 Presa de las Niñas</name><description><![CDATA[Dam lake picnic · stargazing<br><a href="https://www.google.com/maps/search/?api=1&query=27.93,-15.63">Navigate</a>]]></description><styleUrl>#Nature</styleUrl><Point><coordinates>-15.63,27.93,0</coordinates></Point></Placemark>
+</Folder>
+<Folder><name>Shopping &amp; markets</name>
+<Placemark><name>🛍️ Vegueta · Triana</name><description><![CDATA[Old town · Qué Leche · vintage<br><a href="https://www.google.com/maps/search/?api=1&query=28.1,-15.415">Navigate</a>]]></description><styleUrl>#Shoppingmarkets</styleUrl><Point><coordinates>-15.415,28.1,0</coordinates></Point></Placemark>
+</Folder>
+</Document></kml>

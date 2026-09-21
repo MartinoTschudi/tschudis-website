@@ -1,0 +1,443 @@
+[
+{
+"lat": 37.0144,
+"lon": -7.9659,
+"n": "Faro Airport",
+"d": "Mon 12 · 08:20 · car pick-up",
+"c": "Airport",
+"e": "✈️",
+"r": "pt"
+},
+{
+"lat": 37.0895,
+"lon": -8.4125,
+"n": "Praia da Marinha clifftop",
+"d": "Postcard from above · no boats",
+"c": "Boat",
+"e": "⛵",
+"r": "pt"
+},
+{
+"lat": 37.0233,
+"lon": -8.996,
+"n": "Cabo São Vicente",
+"d": "End of Europe · 15 min",
+"c": "Nature",
+"e": "🌿",
+"r": "pt"
+},
+{
+"lat": 37.083,
+"lon": -8.912,
+"n": "A Eira do Mel · Vila do Bispo",
+"d": "Lunch · Bib Gourmand · book",
+"c": "Food",
+"e": "🍽️",
+"r": "pt"
+},
+{
+"lat": 37.548,
+"lon": -8.783,
+"n": "Praia da Amália",
+"d": "Waterfall cove · carrier",
+"c": "Beaches",
+"e": "🏖️",
+"r": "pt"
+},
+{
+"lat": 38.408,
+"lon": -8.755,
+"n": "Carrasqueira stilt pier",
+"d": "5-min photo stop",
+"c": "Nature",
+"e": "🌿",
+"r": "pt"
+},
+{
+"lat": 37.1029,
+"lon": -8.6753,
+"n": "Lagos · Coffee Studio",
+"d": "Specialty roastery · Ponta da Piedade boardwalk 10 min",
+"c": "Food",
+"e": "🍽️",
+"r": "pt"
+},
+{
+"lat": 37.2,
+"lon": -8.9,
+"n": "Praia da Bordeira",
+"d": "Optional viewpoint detour",
+"c": "Views",
+"e": "🌄",
+"r": "pt"
+},
+{
+"lat": 37.33,
+"lon": -8.83,
+"n": "Aljezur / Odeceixe",
+"d": "N120 · river beach",
+"c": "Beaches",
+"e": "🏖️",
+"r": "pt"
+},
+{
+"lat": 37.51,
+"lon": -8.71,
+"n": "Craveiral Farmhouse",
+"d": "Nights 1–2",
+"c": "Stay",
+"e": "🏠",
+"r": "pt"
+},
+{
+"lat": 37.52,
+"lon": -8.78,
+"n": "Zambujeira · Cabo Sardão",
+"d": "Tue · storks · O Sacas",
+"c": "Food",
+"e": "🍽️",
+"r": "pt"
+},
+{
+"lat": 37.725,
+"lon": -8.783,
+"n": "Vila Nova de Milfontes",
+"d": "Wed · Mira estuary fort",
+"c": "Beaches",
+"e": "🏖️",
+"r": "pt"
+},
+{
+"lat": 37.85,
+"lon": -8.79,
+"n": "Porto Covo",
+"d": "Wed coffee",
+"c": "Food",
+"e": "🍽️",
+"r": "pt"
+},
+{
+"lat": 38.38,
+"lon": -8.79,
+"n": "Comporta · Cavalariça",
+"d": "Wed lunch · Praia do Pego",
+"c": "Beaches",
+"e": "🏖️",
+"r": "pt"
+},
+{
+"lat": 38.7125,
+"lon": -9.138,
+"n": "Hygge House Downtown",
+"d": "Night 3 · Baixa",
+"c": "Stay",
+"e": "🏠",
+"r": "pt"
+},
+{
+"lat": 38.7189,
+"lon": -9.1325,
+"n": "Senhora do Monte",
+"d": "Skyline viewpoint",
+"c": "Views",
+"e": "🌄",
+"r": "pt"
+},
+{
+"lat": 38.6968,
+"lon": -9.2058,
+"n": "Belém · Comoba · MAAT",
+"d": "Tram 15E",
+"c": "Villages",
+"e": "🏘️",
+"r": "pt"
+},
+{
+"lat": 38.7756,
+"lon": -9.1354,
+"n": "Lisbon Airport",
+"d": "Thu 15 · car drop 08:10 · TAP 10:20",
+"c": "Airport",
+"e": "✈️",
+"r": "pt"
+},
+{
+"lat": 27.9319,
+"lon": -15.3866,
+"n": "Gran Canaria Airport",
+"d": "Thu 15 arr 12:45 · Mon 26 dep 10:20",
+"c": "Airport",
+"e": "✈️",
+"r": "gc"
+},
+{
+"lat": 27.786,
+"lon": -15.615,
+"n": "Salobre Homes villa",
+"d": "11 nights · CHF 2454",
+"c": "Stay",
+"e": "🏠",
+"r": "gc"
+},
+{
+"lat": 27.765,
+"lon": -15.59,
+"n": "IslaCar · Caterham Seven",
+"d": "C.C. Sonneland · 6 min from villa",
+"c": "Caterham",
+"e": "🏎️",
+"r": "gc"
+},
+{
+"lat": 27.737,
+"lon": -15.586,
+"n": "Maspalomas dunes",
+"d": "Sunset walk · Bohemia 360° rooftop",
+"c": "Views",
+"e": "🌄",
+"r": "gc"
+},
+{
+"lat": 27.77,
+"lon": -15.68,
+"n": "Playa de Amadores",
+"d": "Beach club · calm water",
+"c": "Beaches",
+"e": "🏖️",
+"r": "gc"
+},
+{
+"lat": 27.815,
+"lon": -15.765,
+"n": "Puerto de Mogán",
+"d": "Self-drive boat · Friday market · Los Guayres",
+"c": "Boat",
+"e": "⛵",
+"r": "gc"
+},
+{
+"lat": 27.83,
+"lon": -15.77,
+"n": "Tiritaña · Medio Almud",
+"d": "Locals-only coves",
+"c": "Beaches",
+"e": "🏖️",
+"r": "gc"
+},
+{
+"lat": 27.95,
+"lon": -15.83,
+"n": "Güigüí beach",
+"d": "Remote · by boat",
+"c": "Boat",
+"e": "⛵",
+"r": "gc"
+},
+{
+"lat": 27.99,
+"lon": -15.79,
+"n": "GC-200 Andén Verde",
+"d": "West-coast balcony road",
+"c": "Villages",
+"e": "🏘️",
+"r": "gc"
+},
+{
+"lat": 28.1,
+"lon": -15.7,
+"n": "Agaete · Puerto de las Nieves",
+"d": "Coffee farm · natural pools · Casa Romántica",
+"c": "Pools",
+"e": "🏊",
+"r": "gc"
+},
+{
+"lat": 27.97,
+"lon": -15.61,
+"n": "Roque Nublo · Tejeda",
+"d": "08:00 · almond cake",
+"c": "Views",
+"e": "🌄",
+"r": "gc"
+},
+{
+"lat": 27.9,
+"lon": -15.53,
+"n": "Fataga",
+"d": "Palm valley, GC-60",
+"c": "Villages",
+"e": "🏘️",
+"r": "gc"
+},
+{
+"lat": 27.99,
+"lon": -15.38,
+"n": "Guayadeque · Tagoror",
+"d": "Cave lunch",
+"c": "Food",
+"e": "🍽️",
+"r": "gc"
+},
+{
+"lat": 28.16,
+"lon": -15.7,
+"n": "Playa de Sardina",
+"d": "Turquoise cove · sunset fish",
+"c": "Views",
+"e": "🌄",
+"r": "gc"
+},
+{
+"lat": 27.82,
+"lon": -15.55,
+"n": "Montaña de Arena",
+"d": "Golden dune cove · 20 min walk",
+"c": "Beaches",
+"e": "🏖️",
+"r": "gc"
+},
+{
+"lat": 28.1,
+"lon": -15.62,
+"n": "Charco Azul · El Risco",
+"d": "Waterfall pool · 25 min path",
+"c": "Pools",
+"e": "🏊",
+"r": "gc"
+},
+{
+"lat": 28.02,
+"lon": -15.52,
+"n": "Artenara",
+"d": "Cave houses · Mirador de Unamuno",
+"c": "Views",
+"e": "🌄",
+"r": "gc"
+},
+{
+"lat": 27.93,
+"lon": -15.63,
+"n": "Presa de las Niñas",
+"d": "Dam lake picnic · stargazing",
+"c": "Nature",
+"e": "🌿",
+"r": "gc"
+},
+{
+"lat": 27.96,
+"lon": -15.57,
+"n": "Pico de las Nieves",
+"d": "Sunrise over cloud sea",
+"c": "Views",
+"e": "🌄",
+"r": "gc"
+},
+{
+"lat": 27.85,
+"lon": -15.54,
+"n": "Degollada de las Yeguas",
+"d": "Sunrise 07:30 · 30 min from villa",
+"c": "Views",
+"e": "🌄",
+"r": "gc"
+},
+{
+"lat": 27.98,
+"lon": -15.31,
+"n": "Tufia",
+"d": "Cave-house hamlet · two coves",
+"c": "Beaches",
+"e": "🏖️",
+"r": "gc"
+},
+{
+"lat": 28.1,
+"lon": -15.415,
+"n": "Vegueta · Triana",
+"d": "Old town · Qué Leche · vintage",
+"c": "Shopping",
+"e": "🛍️",
+"r": "gc"
+},
+{
+"lat": 28.14,
+"lon": -15.44,
+"n": "Las Canteras",
+"d": "La Marinera · Summum sunset",
+"c": "Views",
+"e": "🌄",
+"r": "gc"
+},
+{
+"lat": 27.79,
+"lon": -15.735,
+"n": "Playa de Tauro",
+"d": "Wilder chiringuito beach · mountain-to-sea frame",
+"c": "Beaches",
+"e": "🏖️",
+"r": "gc"
+},
+{
+"lat": 28.1534,
+"lon": -15.6962,
+"n": "La Pizarra · Sabores del Mar",
+"d": "Clifftop lunch after Sardina beach · closed Tue/Wed · GF fish",
+"c": "Food",
+"e": "🍽️",
+"r": "gc"
+},
+{
+"lat": 27.762,
+"lon": -15.576,
+"n": "El Churrasco Meloneras",
+"d": "Argentine steak · 18:30 early dinner · GF ✓",
+"c": "Food",
+"e": "🍽️",
+"r": "gc"
+},
+{
+"lat": 27.76,
+"lon": -15.594,
+"n": "Hospital San Roque Maspalomas",
+"d": "Paediatric ER 24/7 · 928 063 650",
+"c": "Villages",
+"e": "🏥",
+"r": "gc"
+},
+{
+"lat": 28.1,
+"lon": -15.42,
+"n": "Fuji · Las Palmas",
+"d": "Oldest Japanese in Spain · lunch 13:30 · sashimi GF",
+"c": "Food",
+"e": "🍽️",
+"r": "gc"
+},
+{
+"lat": 28.105,
+"lon": -15.418,
+"n": "Qué Leche · Triana",
+"d": "Cult tapas · lunch Tue–Sat 13:30 · GF ask",
+"c": "Food",
+"e": "🍽️",
+"r": "gc"
+},
+{
+"lat": 28.01,
+"lon": -15.5,
+"n": "Bodegón Vandama",
+"d": "Sunday lunch after Teror · grill, GF ✓ · +34 928 352 754",
+"c": "Food",
+"e": "🍽️",
+"r": "gc"
+},
+{
+"lat": 28.145,
+"lon": -15.653,
+"n": "Cueva Pintada · Gáldar",
+"d": "Tue–Sat 10–18 · EN tour 12:30 · barrier-free · CHF 5.65",
+"c": "Villages",
+"e": "🏘️",
+"r": "gc"
+}
+]
