@@ -1,15 +1,9 @@
 # tschudis.ch
 
-The Tschudi family landing page — one word, alive.
+The Tschudi family landing page. One word.
 
-`tschudis` sits centred in Archivo (variable weight + width). Each letter is a damped spring, linked to its neighbours. Nothing else on the page.
+`tschudis` fades in, letter by letter, from the middle out. Pull a letter and it springs back with a bounce. Tap anywhere and the letters explode apart, tumble, and find their way home.
 
-**Touch (primary):** press a letter to hold it, drag it around, flick to throw it; hold two with two fingers; tap empty space and the word flinches; sweep a finger fast across the word to scatter it. Tilt the phone and the word leans. It always settles back into `tschudis`.
-
-**Mouse:** letters lean gently away from a close cursor; click-drag and fast sweeps work the same.
-
-Colours drift slowly between six moods.
-
-No build step, no dependencies, plain ES modules: `index.html`, `main.js` (physics + input), `palette.js` (colour moods).
+Two files, no build, no dependencies: `index.html`, `main.js`.
 
 Hosted via GitHub Pages (`CNAME` → www.tschudis.ch). Preview locally with any static server (ES modules need http://), e.g. `python3 -m http.server`.

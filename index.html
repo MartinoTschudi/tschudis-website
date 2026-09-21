@@ -5,25 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <title>tschudis</title>
 <meta name="description" content="tschudis">
-<meta name="theme-color" content="#f4efe6">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="tschudis">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23f4efe6%22/><text x=%2250%22 y=%2270%22 font-family=%22Helvetica,Arial,sans-serif%22 font-weight=%22700%22 font-size=%2262%22 text-anchor=%22middle%22 fill=%22%231a2447%22>t</text></svg>">
+<meta name="theme-color" content="#f3eee6">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23f3eee6%22/><text x=%2250%22 y=%2270%22 font-family=%22Helvetica,Arial,sans-serif%22 font-weight=%22700%22 font-size=%2262%22 text-anchor=%22middle%22 fill=%22%231b2540%22>t</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=block" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700&display=block" rel="stylesheet">
 <style>
-  :root {
-    --bg: #f4efe6;
-    --ink: #1a2447;
-    --accent: #e07a4f;
-    --accent2: #2f6fb0;
-    --accent3: #6a9c5b;
-  }
   html, body {
     margin: 0; height: 100%; overflow: hidden;
-    background: var(--bg);
+    background: #f3eee6;
     overscroll-behavior: none;
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
@@ -32,33 +22,32 @@
     position: fixed; inset: 0;
     touch-action: none;
     user-select: none; -webkit-user-select: none;
-    transition: background-color 0.4s linear;
   }
   #word {
-    position: fixed; inset: 0; z-index: 1;
+    position: fixed; inset: 0;
     display: flex; align-items: center; justify-content: center;
     padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-    font-family: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 700;
-    color: var(--ink);
-    line-height: 1;
+    font: 700 10px/1 "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
     letter-spacing: -0.035em;
-    font-feature-settings: "kern" 1;
-    cursor: default;
+    cursor: grab;
     visibility: hidden;
-    transition: color 0.4s linear;
   }
   #word.ready { visibility: visible; }
   #word span {
     display: inline-block;
-    text-align: center;
     will-change: transform;
-    font-variation-settings: "wght" 700, "wdth" 100;
-    transform-origin: 50% 70%;
     opacity: 0;
-    touch-action: none;
     -webkit-user-drag: none;
   }
+  /* each letter its own warm colour; the whole reads as one family */
+  #word span:nth-child(1) { color: #1b2540; }
+  #word span:nth-child(2) { color: #d9603b; }
+  #word span:nth-child(3) { color: #1b2540; }
+  #word span:nth-child(4) { color: #2f6db0; }
+  #word span:nth-child(5) { color: #1b2540; }
+  #word span:nth-child(6) { color: #e0a634; }
+  #word span:nth-child(7) { color: #1b2540; }
+  #word span:nth-child(8) { color: #5f9a63; }
 </style>
 </head>
 <body>
