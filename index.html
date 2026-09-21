@@ -2,10 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <title>tschudis</title>
 <meta name="description" content="tschudis">
 <meta name="theme-color" content="#f4efe6">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="tschudis">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23f4efe6%22/><text x=%2250%22 y=%2270%22 font-family=%22Helvetica,Arial,sans-serif%22 font-weight=%22700%22 font-size=%2262%22 text-anchor=%22middle%22 fill=%22%231a2447%22>t</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,15 +26,18 @@
     background: var(--bg);
     overscroll-behavior: none;
     -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
   }
-  body { position: fixed; inset: 0; touch-action: none; user-select: none; -webkit-user-select: none; }
-  #back, #front {
-    position: fixed; inset: 0; width: 100%; height: 100%; display: block; pointer-events: none;
+  body {
+    position: fixed; inset: 0;
+    touch-action: none;
+    user-select: none; -webkit-user-select: none;
+    transition: background-color 0.4s linear;
   }
-  #back { z-index: 0; }
   #word {
     position: fixed; inset: 0; z-index: 1;
     display: flex; align-items: center; justify-content: center;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
     font-family: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 700;
     color: var(--ink);
@@ -40,6 +46,7 @@
     font-feature-settings: "kern" 1;
     cursor: default;
     visibility: hidden;
+    transition: color 0.4s linear;
   }
   #word.ready { visibility: visible; }
   #word span {
@@ -49,14 +56,13 @@
     font-variation-settings: "wght" 700, "wdth" 100;
     transform-origin: 50% 70%;
     opacity: 0;
+    touch-action: none;
+    -webkit-user-drag: none;
   }
-  #front { z-index: 2; }
 </style>
 </head>
 <body>
-<canvas id="back" aria-hidden="true"></canvas>
 <div id="word" aria-label="tschudis"><span>t</span><span>s</span><span>c</span><span>h</span><span>u</span><span>d</span><span>i</span><span>s</span></div>
-<canvas id="front" aria-hidden="true"></canvas>
 <script type="module" src="main.js"></script>
 </body>
 </html>

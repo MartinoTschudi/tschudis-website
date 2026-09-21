@@ -1,5 +1,4 @@
-// palette.js — slowly evolving moods. Writes --bg/--ink/--accent* to :root and paints
-// one soft, drifting circle of light on the back canvas. No globals, no libraries.
+// palette.js — slowly evolving colour moods, written to --bg/--ink/--accent* on :root.
 
 const MOODS = [
   { name: 'paper',   bg: '#f4efe6', ink: '#1a2447', accent: '#e07a4f', accent2: '#2f6fb0', accent3: '#6a9c5b' },
@@ -60,8 +59,6 @@ export function createPalette(api) {
   const written = {};
   const cur = {};                // current CSS strings
 
-  // ambient light: slow drift plus pointer follow
-  const light = { x: 0, y: 0, init: false };
 
   function pickNext() {
     const pool = MOODS.map((_, i) => i).filter(i => i !== to);
@@ -90,28 +87,6 @@ export function createPalette(api) {
     }
   }
 
-  function drawLight(dt) {
-    const { W, H, back: ctx, pointer, reduced } = api;
-    if (!W || !H) return;
-    const R = Math.max(W, H) * 0.55;
-    // drift path: one slow loop around the middle every ~180 s
-    const a = (api.elapsed / 180) * Math.PI * 2;
-    const dx = W * 0.5 + Math.cos(a) * W * 0.28, dy = H * 0.5 + Math.sin(a * 0.7) * H * 0.24;
-    if (!light.init || reduced) { light.x = reduced ? W * 0.5 : dx; light.y = reduced ? H * 0.45 : dy; light.init = true; }
-    else {
-      const tx = pointer.inside ? pointer.x : dx, ty = pointer.inside ? pointer.y : dy;
-      const lag = (pointer.inside ? 0.03 : 0.01) * Math.min(3, dt * 60);
-      light.x += (tx - light.x) * lag; light.y += (ty - light.y) * lag;
-    }
-    const alpha = to === DARK && fade > 0.5 ? 0.07 : 0.09;
-    const g = ctx.createRadialGradient(light.x, light.y, 0, light.x, light.y, R);
-    g.addColorStop(0, cur.accent + Math.round(alpha * 255).toString(16).padStart(2, '0'));
-    g.addColorStop(0.55, cur.accent + Math.round(alpha * 0.35 * 255).toString(16).padStart(2, '0'));
-    g.addColorStop(1, cur.accent + '00');
-    ctx.fillStyle = g;
-    ctx.fillRect(0, 0, W, H);
-  }
-
   function update(t, dt) {
     const e = api.elapsed;
     if (fade < 1) fade = Math.min(1, fade + dt / fadeDur);
@@ -121,7 +96,6 @@ export function createPalette(api) {
     }
     computeColors();
     writeCss(t);
-    drawLight(dt);
   }
 
   computeColors();
