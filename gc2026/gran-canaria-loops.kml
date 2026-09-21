@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<kml xmlns="http://www.opengis.net/kml/2.2"><Document><name>Gran Canaria · driving loops</name>
-<Placemark><name>GC-60 Caterham mountain loop</name><Style><LineStyle><color>ff3468eb</color><width>4</width></LineStyle></Style><LineString><coordinates>-15.586,27.76,0 -15.5789,27.8196,0 -15.53,27.9,0 -15.61,27.95,0 -15.59,27.98,0 -15.61,27.95,0 -15.53,27.9,0 -15.586,27.76,0</coordinates></LineString></Placemark>
-<Placemark><name>GC-500 → GC-200 coast loop</name><Style><LineStyle><color>ff3468eb</color><width>4</width></LineStyle></Style><LineString><coordinates>-15.586,27.76,0 -15.68,27.77,0 -15.765,27.815,0 -15.78,27.87,0 -15.79,27.92,0 -15.78,27.87,0 -15.765,27.815,0 -15.586,27.76,0</coordinates></LineString></Placemark>
-</Document></kml>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Gran Canaria · Oct 2026 · map</title>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Gran Canaria · ott 2026 · mappa</title>
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="theme-color" content="#f6f6f3">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
@@ -32,28 +32,29 @@
 <div id="map"></div>
 <div class="top">
 <div class="row1"><a class="back" href="/gc2026/" title="Dashboard">‹</a>
-<div class="reg"><button id="rgc" onclick="setReg('gc')">Gran Canaria</button><button id="rpt" onclick="setReg('pt')">Portugal</button></div></div>
+<div class="reg"><button id="rgc" onclick="setReg('gc')">Gran Canaria</button><button id="rpt" onclick="setReg('pt')">Portogallo</button></div></div>
 <div class="chips" id="chips"></div>
 </div>
 <div class="count" id="count"></div>
-<div class="sheet" id="sheet"><button class="x" onclick="closeSheet()">×</button><div class="cat" id="scat"></div><h3 id="sname"></h3><p id="sdesc"></p><div class="acts"><a class="act" id="snav" target="_blank">Navigate · Google Maps</a><a class="act sec" id="sapple" target="_blank">Apple Maps</a></div></div>
+<div class="sheet" id="sheet"><button class="x" onclick="closeSheet()">×</button><div class="cat" id="scat"></div><h3 id="sname"></h3><p id="sdesc"></p><div class="acts"><a class="act" id="snav" target="_blank">Naviga · Google Maps</a><a class="act sec" id="sapple" target="_blank">Apple Maps</a></div></div>
 <script>
 const CATS=['Stay','Beaches','Pools','Views','Food','Villages','Nature','Boat','Caterham','Shopping','Airport'];
-const CE={Stay:'🏠',Beaches:'🏖️',Pools:'🏊',Views:'🌄',Food:'🍽️',Villages:'🏘️',Nature:'🌿',Boat:'⛵',Caterham:'🏎️',Shopping:'🛍️',Airport:'✈️'};
+const CE={Stay:'🏠',Beaches:'🏖️',Pools:'🏊',Views:'🌄',Food:'🍽️',Villages:'🏘️',Nature:'🌿',Boat:'⛵',Caterham:'🏎️',Shopping:'🛍️',Airport:'✈️'};const IT={Stay:'Alloggi',Beaches:'Spiagge',Pools:'Piscine',Views:'Belvedere',Food:'Cibo',Villages:'Paesi',Nature:'Natura',Boat:'Barca',Caterham:'Caterham',Shopping:'Shopping',Airport:'Aeroporto'};
+const CL={Stay:'Alloggio',Beaches:'Spiagge',Pools:'Piscine',Views:'Panorami',Food:'Cibo',Villages:'Paesi',Nature:'Natura',Boat:'Barca',Caterham:'Caterham',Shopping:'Shopping',Airport:'Aeroporto'};
 let DATA=[],reg=localStorage.getItem('mapreg')||'gc',active=new Set(CATS),layer;
 const map=L.map('map',{zoomControl:false}).setView([27.93,-15.6],10);
 L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{attribution:'© OpenStreetMap · © CARTO',maxZoom:19}).addTo(m=map);
 L.control.zoom({position:'bottomleft'}).addTo(map);
-function chips(){const c=document.getElementById('chips');c.innerHTML='';const all=document.createElement('button');all.className='chip'+(active.size===CATS.length?' on':'');all.textContent='All';all.onclick=()=>{active=new Set(CATS);render()};c.append(all);
-CATS.forEach(k=>{if(!DATA.some(d=>d.r===reg&&d.c===k))return;const b=document.createElement('button');b.className='chip'+(active.has(k)&&active.size!==CATS.length?' on':'');b.textContent=CE[k]+' '+k;b.onclick=()=>{if(active.size===CATS.length)active=new Set([k]);else if(active.has(k)){active.delete(k);if(!active.size)active=new Set(CATS)}else active.add(k);render()};c.append(b)})}
+function chips(){const c=document.getElementById('chips');c.innerHTML='';const all=document.createElement('button');all.className='chip'+(active.size===CATS.length?' on':'');all.textContent='Tutti';all.onclick=()=>{active=new Set(CATS);render()};c.append(all);
+CATS.forEach(k=>{if(!DATA.some(d=>d.r===reg&&d.c===k))return;const b=document.createElement('button');b.className='chip'+(active.has(k)&&active.size!==CATS.length?' on':'');b.textContent=CE[k]+' '+CL[k];b.onclick=()=>{if(active.size===CATS.length)active=new Set([k]);else if(active.has(k)){active.delete(k);if(!active.size)active=new Set(CATS)}else active.add(k);render()};c.append(b)})}
 function render(){chips();if(layer)map.removeLayer(layer);layer=L.layerGroup().addTo(map);let n=0,bounds=[];
 DATA.filter(d=>d.r===reg&&active.has(d.c)).forEach(d=>{n++;bounds.push([d.lat,d.lon]);
 L.marker([d.lat,d.lon],{icon:L.divIcon({className:'emk'+(d.c==='Stay'?' stay':''),html:'<span>'+d.e+'</span>',iconSize:[34,34],iconAnchor:[17,17]})}).addTo(layer).on('click',()=>openSheet(d))});
-document.getElementById('count').textContent=n+' places';
+document.getElementById('count').textContent=n+' luoghi';
 if(bounds.length&&!render.fitted[reg]){map.fitBounds(bounds,{padding:[90,30]});render.fitted[reg]=true}}
 render.fitted={};
 function setReg(r){reg=r;localStorage.setItem('mapreg',r);document.getElementById('rgc').classList.toggle('on',r==='gc');document.getElementById('rpt').classList.toggle('on',r==='pt');active=new Set(CATS);render.fitted[r]=false;render()}
-function openSheet(d){document.getElementById('scat').textContent=d.e+' '+d.c;document.getElementById('sname').textContent=d.n;document.getElementById('sdesc').innerHTML=d.d;
+function openSheet(d){document.getElementById('scat').textContent=d.e+' '+(CL[d.c]||d.c);document.getElementById('sname').textContent=d.n;document.getElementById('sdesc').innerHTML=d.d;
 document.getElementById('snav').href='https://www.google.com/maps/search/?api=1&query='+d.lat+','+d.lon+'('+encodeURIComponent(d.n)+')';
 document.getElementById('sapple').href='https://maps.apple.com/?q='+encodeURIComponent(d.n)+'&ll='+d.lat+','+d.lon;
 document.getElementById('sheet').classList.add('open');map.panTo([d.lat,d.lon],{animate:true})}
