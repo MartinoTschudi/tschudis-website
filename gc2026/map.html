@@ -2,7 +2,7 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Gran Canaria · Oct 2026 · map</title>
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="theme-color" content="#f6f6f3">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
 :root{--ink:#1b1b1b;--ink2:#555;--muted:#8a8a8a;--line:#e6e6e1;--blue:#2a78d6}
 *{box-sizing:border-box}html,body{margin:0;height:100%;font:14px/1.45 -apple-system,Inter,Segoe UI,sans-serif;color:var(--ink);overflow:hidden}
@@ -27,6 +27,7 @@
 .x{position:absolute;right:12px;top:10px;width:30px;height:30px;border-radius:50%;border:0;background:#f1f1ee;font-size:16px}
 .leaflet-control-attribution{font-size:10px}
 .count{position:fixed;right:10px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:999;background:#fff;border:1px solid var(--line);border-radius:99px;padding:6px 10px;font-size:12px;color:var(--ink2);box-shadow:0 2px 8px #0002}
+.chip{font-weight:600;padding:7px 12px;border-radius:12px;box-shadow:0 1px 3px #0001}.chip.on{background:#17171a}.reg{border-radius:12px}.reg button{border-radius:9px}.reg button.on{background:#17171a}.back{border-radius:12px}.sheet{padding:16px 18px calc(18px + env(safe-area-inset-bottom));box-shadow:0 -10px 30px #0002}.sheet h3{font-size:18px;letter-spacing:-.01em}.act{border-radius:12px;background:#17171a}.count{border-radius:10px}
 </style></head><body>
 <div id="map"></div>
 <div class="top">
