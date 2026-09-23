@@ -43,7 +43,7 @@ const CE={Stay:'🏠',Beaches:'🏖️',Pools:'🏊',Views:'🌄',Food:'🍽️'
 const CL={Stay:'Alloggio',Beaches:'Spiagge',Pools:'Piscine',Views:'Panorami',Food:'Cibo',Villages:'Paesi',Nature:'Natura',Boat:'Barca',Caterham:'Caterham',Shopping:'Shopping',Airport:'Aeroporto'};
 let DATA=[],reg='gc',active=new Set(CATS),layer;
 const map=L.map('map',{zoomControl:false}).setView([27.93,-15.6],10);
-L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{attribution:'© OpenStreetMap · © CARTO',maxZoom:19}).addTo(m=map);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>',maxZoom:19}).addTo(m=map);
 L.control.zoom({position:'bottomleft'}).addTo(map);
 function chips(){const c=document.getElementById('chips');c.innerHTML='';const all=document.createElement('button');all.className='chip'+(active.size===CATS.length?' on':'');all.textContent='Tutti';all.onclick=()=>{active=new Set(CATS);render()};c.append(all);
 CATS.forEach(k=>{if(!DATA.some(d=>d.r===reg&&d.c===k))return;const b=document.createElement('button');b.className='chip'+(active.has(k)&&active.size!==CATS.length?' on':'');b.textContent=CE[k]+' '+CL[k];b.onclick=()=>{if(active.size===CATS.length)active=new Set([k]);else if(active.has(k)){active.delete(k);if(!active.size)active=new Set(CATS)}else active.add(k);render()};c.append(b)})}

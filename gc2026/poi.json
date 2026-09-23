@@ -3,41 +3,41 @@
 "lat": 27.9319,
 "lon": -15.3866,
 "n": "Aeroporto di Gran Canaria",
-"d": "gio 15 arrivo 12:45 · lun 26 partenza 10:20",
+"d": "mar 13 arrivo 09:30 (WK200) · sab 24 partenza 11:50 (WK201) · auto AutoReisen",
 "c": "Airport",
 "e": "✈️",
 "r": "gc"
 },
 {
-"lat": 27.786,
-"lon": -15.615,
+"lat": 27.7826,
+"lon": -15.641,
 "n": "Villa Salobre Homes",
-"d": "11 notti · CHF 2454",
+"d": "Suite Golf & Ocean View · mar 13 → sab 24 · check-in 15:00, check-out 11:00",
 "c": "Stay",
 "e": "🏠",
 "r": "gc"
 },
 {
-"lat": 27.765,
-"lon": -15.59,
+"lat": 27.7612,
+"lon": -15.5989,
 "n": "IslaCar · Caterham Seven",
-"d": "C.C. Sonneland · 6 min dalla villa",
+"d": "C.C. Sonnenland · 6 min dalla villa",
 "c": "Caterham",
 "e": "🏎️",
 "r": "gc"
 },
 {
-"lat": 27.737,
-"lon": -15.586,
+"lat": 27.7439,
+"lon": -15.5829,
 "n": "Dune di Maspalomas",
-"d": "Passeggiata al tramonto · rooftop Bohemia 360°",
+"d": "Passeggiata tra le dune · al tramonto (19:25–19:35) coincide con la nanna",
 "c": "Views",
 "e": "🌄",
 "r": "gc"
 },
 {
-"lat": 27.77,
-"lon": -15.68,
+"lat": 27.79,
+"lon": -15.7239,
 "n": "Playa de Amadores",
 "d": "Beach club · acqua calma",
 "c": "Beaches",
@@ -45,17 +45,17 @@
 "r": "gc"
 },
 {
-"lat": 27.815,
-"lon": -15.765,
+"lat": 27.8166,
+"lon": -15.7656,
 "n": "Puerto de Mogán",
-"d": "Barca senza patente · mercato del venerdì · Los Guayres",
+"d": "Passeggiata nel porto, uscita facile · la barca senza patente ora richiede la patente (dal 1 ott 2026)",
 "c": "Boat",
 "e": "⛵",
 "r": "gc"
 },
 {
-"lat": 27.83,
-"lon": -15.77,
+"lat": 27.8018,
+"lon": -15.74,
 "n": "Tiritaña · Medio Almud",
 "d": "Cale solo per locali",
 "c": "Beaches",
@@ -63,8 +63,8 @@
 "r": "gc"
 },
 {
-"lat": 27.95,
-"lon": -15.83,
+"lat": 27.9452,
+"lon": -15.8279,
 "n": "Spiaggia di Güigüí",
 "d": "Remota · in barca",
 "c": "Boat",
@@ -72,35 +72,35 @@
 "r": "gc"
 },
 {
-"lat": 27.99,
-"lon": -15.79,
-"n": "GC-200 Andén Verde",
-"d": "Strada a balcone della costa ovest",
-"c": "Villages",
-"e": "🏘️",
-"r": "gc"
-},
-{
-"lat": 28.1,
-"lon": -15.7,
-"n": "Agaete · Puerto de las Nieves",
-"d": "Piantagione di caffè · piscine naturali · Casa Romántica",
-"c": "Pools",
-"e": "🏊",
-"r": "gc"
-},
-{
-"lat": 27.97,
-"lon": -15.61,
-"n": "Roque Nublo · Tejeda",
-"d": "08:00 · torta di mandorle",
+"lat": 28.0194,
+"lon": -15.7852,
+"n": "Mirador del Balcón",
+"d": "Belvedere sulla costa ovest · vecchia GC-200 chiusa, si arriva solo da La Aldea",
 "c": "Views",
 "e": "🌄",
 "r": "gc"
 },
 {
-"lat": 27.9,
-"lon": -15.53,
+"lat": 28.1017,
+"lon": -15.7106,
+"n": "Agaete · Puerto de las Nieves",
+"d": "Piscine naturali Las Salinas · passeggiata verso il Dedo de Dios",
+"c": "Pools",
+"e": "🏊",
+"r": "gc"
+},
+{
+"lat": 27.9708,
+"lon": -15.6126,
+"n": "Roque Nublo · Tejeda",
+"d": "Vista da Ayacata o Cruz de Tejeda · a piedi solo con prenotazione e navetta · Tejeda: dolci alle mandorle",
+"c": "Views",
+"e": "🌄",
+"r": "gc"
+},
+{
+"lat": 27.8873,
+"lon": -15.5642,
 "n": "Fataga",
 "d": "Valle delle palme, GC-60",
 "c": "Villages",
@@ -108,44 +108,44 @@
 "r": "gc"
 },
 {
-"lat": 27.99,
-"lon": -15.38,
-"n": "Guayadeque · Tagoror",
-"d": "Pranzo in grotta",
+"lat": 27.9367,
+"lon": -15.512,
+"n": "Guayadeque · Restaurante Vega",
+"d": "Pranzo in grotta · quasi tutto senza glutine · niente dolce (mandorle) · mer–dom",
 "c": "Food",
 "e": "🍽️",
 "r": "gc"
 },
 {
-"lat": 28.16,
-"lon": -15.7,
+"lat": 28.152,
+"lon": -15.6963,
 "n": "Playa de Sardina",
-"d": "Cala turchese · pesce al tramonto",
+"d": "Cala Bandiera Blu, la spiaggia per il bebè · pranzo a La Pizarra",
 "c": "Views",
 "e": "🌄",
 "r": "gc"
 },
 {
-"lat": 27.82,
-"lon": -15.55,
+"lat": 27.7507,
+"lon": -15.6386,
 "n": "Montaña de Arena",
-"d": "Cala con duna dorata · 20 min a piedi",
+"d": "Cala con duna dorata · 10–15 min a piedi",
 "c": "Beaches",
 "e": "🏖️",
 "r": "gc"
 },
 {
-"lat": 28.1,
-"lon": -15.62,
+"lat": 28.04,
+"lon": -15.7207,
 "n": "Charco Azul · El Risco",
-"d": "Piscina con cascata · sentiero di 25 min",
+"d": "Piscina con cascata · sentiero di 30 min · solo se ha piovuto",
 "c": "Pools",
 "e": "🏊",
 "r": "gc"
 },
 {
-"lat": 28.02,
-"lon": -15.52,
+"lat": 28.0194,
+"lon": -15.6463,
 "n": "Artenara",
 "d": "Case grotta · Mirador de Unamuno",
 "c": "Views",
@@ -153,35 +153,35 @@
 "r": "gc"
 },
 {
-"lat": 27.93,
-"lon": -15.63,
+"lat": 27.9237,
+"lon": -15.6703,
 "n": "Presa de las Niñas",
-"d": "Picnic al lago della diga · stelle",
+"d": "Picnic al lago della diga · salire da Mogán (GC‑605 da Ayacata in ricostruzione)",
 "c": "Nature",
 "e": "🌿",
 "r": "gc"
 },
 {
-"lat": 27.96,
-"lon": -15.57,
+"lat": 27.962,
+"lon": -15.5719,
 "n": "Pico de las Nieves",
-"d": "Alba sul mare di nuvole",
+"d": "Belvedere asfaltato a 1.949 m · il Teide all'orizzonte · 8–14 °C",
 "c": "Views",
 "e": "🌄",
 "r": "gc"
 },
 {
-"lat": 27.85,
-"lon": -15.54,
+"lat": 27.8193,
+"lon": -15.5793,
 "n": "Degollada de las Yeguas",
-"d": "Alba 07:30 · 30 min dalla villa",
+"d": "Belvedere astronomico · 25 min · passeggino ✓",
 "c": "Views",
 "e": "🌄",
 "r": "gc"
 },
 {
-"lat": 27.98,
-"lon": -15.31,
+"lat": 27.9625,
+"lon": -15.3799,
 "n": "Tufia",
 "d": "Borgo di case grotta · due cale",
 "c": "Beaches",
@@ -189,26 +189,26 @@
 "r": "gc"
 },
 {
-"lat": 28.1,
-"lon": -15.415,
+"lat": 28.1008,
+"lon": -15.4147,
 "n": "Vegueta · Triana",
-"d": "Centro storico · Qué Leche · vintage",
+"d": "Centro storico · Mercado de Vegueta (lun–sab mattina) · vintage",
 "c": "Shopping",
 "e": "🛍️",
 "r": "gc"
 },
 {
-"lat": 28.14,
-"lon": -15.44,
+"lat": 28.1487,
+"lon": -15.4326,
 "n": "Las Canteras",
-"d": "La Marinera · tramonto al Summum",
+"d": "Lungomare della città",
 "c": "Views",
 "e": "🌄",
 "r": "gc"
 },
 {
-"lat": 27.79,
-"lon": -15.735,
+"lat": 27.7955,
+"lon": -15.7273,
 "n": "Playa de Tauro",
 "d": "Spiaggia più selvaggia con chiringuito · dalla montagna al mare",
 "c": "Beaches",
@@ -219,23 +219,14 @@
 "lat": 28.1534,
 "lon": -15.6962,
 "n": "La Pizarra · Sabores del Mar",
-"d": "Pranzo sulla scogliera dopo la spiaggia di Sardina · chiuso mar/mer · pesce GF",
+"d": "Pranzo sulla scogliera dopo la spiaggia di Sardina · chiuso mer (forse anche mar) · pesce alla piastra, niente fritti · torta di mandorle in carta",
 "c": "Food",
 "e": "🍽️",
 "r": "gc"
 },
 {
-"lat": 27.762,
-"lon": -15.576,
-"n": "El Churrasco Meloneras",
-"d": "Bistecca argentina · cena presto alle 18:30 · GF ✓",
-"c": "Food",
-"e": "🍽️",
-"r": "gc"
-},
-{
-"lat": 27.76,
-"lon": -15.594,
+"lat": 27.7498,
+"lon": -15.6072,
 "n": "Hospital San Roque Maspalomas",
 "d": "Pronto soccorso pediatrico 24/7 · 928 063 650",
 "c": "Villages",
@@ -243,39 +234,183 @@
 "r": "gc"
 },
 {
-"lat": 28.1,
-"lon": -15.42,
-"n": "Fuji · Las Palmas",
-"d": "Il giapponese più antico di Spagna · pranzo 13:30 · sashimi GF",
-"c": "Food",
-"e": "🍽️",
-"r": "gc"
-},
-{
-"lat": 28.105,
-"lon": -15.418,
+"lat": 28.1043,
+"lon": -15.417,
 "n": "Qué Leche · Triana",
-"d": "Tapas cult · pranzo mar–sab 13:30 · GF su richiesta",
+"d": "Fusione venezuelana-canaria · pranzo mar–sab 13–16 · GF da verificare (soia) · frutta secca da chiedere",
 "c": "Food",
 "e": "🍽️",
 "r": "gc"
 },
 {
-"lat": 28.01,
-"lon": -15.5,
+"lat": 28.0393,
+"lon": -15.4624,
 "n": "Bodegón Vandama",
-"d": "Pranzo domenicale dopo Teror · griglia, GF ✓ · +34 928 352 754",
+"d": "Pranzo tra le vigne · GF da chiedere · mer–dom · +34 928 352 754",
 "c": "Food",
 "e": "🍽️",
 "r": "gc"
 },
 {
-"lat": 28.145,
-"lon": -15.653,
+"lat": 28.1441,
+"lon": -15.6551,
 "n": "Cueva Pintada · Gáldar",
 "d": "mar–sab 10–18 · tour in EN 12:30 · senza barriere · CHF 5.65",
 "c": "Villages",
 "e": "🏘️",
+"r": "gc"
+},
+{
+"lat": 27.7376,
+"lon": -15.6003,
+"n": "Bevir by Lopesan · Meloneras",
+"d": "Cucina canaria di Germán Ortega · cena mar–sab dalle 18:30 · menù Ansite €90",
+"c": "Food",
+"e": "🍽️",
+"r": "gc"
+},
+{
+"lat": 27.7354,
+"lon": -15.5974,
+"n": "El Senador Beach House",
+"d": "Riso e pesce accanto al faro · carta per celiaci · tutti i giorni 11–23",
+"c": "Food",
+"e": "🍽️",
+"r": "gc"
+},
+{
+"lat": 27.7562,
+"lon": -15.6844,
+"n": "Cofradía de Pescadores · Arguineguín",
+"d": "Ristorante e pescheria sul molo · pesce al sale o alla piastra · pescheria mar–sab 8–14",
+"c": "Food",
+"e": "🍽️",
+"r": "gc"
+},
+{
+"lat": 27.7976,
+"lon": -15.463,
+"n": "Liágora · Castillo del Romeral",
+"d": "Riso e pesce in un paese di pescatori · chiuso mar/mer (da confermare)",
+"c": "Food",
+"e": "🍽️",
+"r": "gc"
+},
+{
+"lat": 27.8567,
+"lon": -15.3932,
+"n": "Ca'Miguel · Arinaga",
+"d": "Cucina 100 % senza glutine · pesce canario · orari da chiedere",
+"c": "Food",
+"e": "🍽️",
+"r": "gc"
+},
+{
+"lat": 27.7767,
+"lon": -15.6401,
+"n": "Casa Salobre by Jevule",
+"d": "Cena napoletana all'ingresso del resort · mer–dom · 4 min",
+"c": "Food",
+"e": "🍽️",
+"r": "gc"
+},
+{
+"lat": 28.0066,
+"lon": -15.5999,
+"n": "Parador di Cruz de Tejeda",
+"d": "Pranzo del giro in montagna · terrazza sulla caldera · menù senza glutine da prenotare",
+"c": "Food",
+"e": "🍽️",
+"r": "gc"
+},
+{
+"lat": 28.0753,
+"lon": -15.6687,
+"n": "Finca La Laja · Bodega Los Berrazales",
+"d": "Caffè, vino e agrumi · tutti i giorni 9–19 · visita libera",
+"c": "Food",
+"e": "☕",
+"r": "gc"
+},
+{
+"lat": 28.0828,
+"lon": -15.6696,
+"n": "Casa Romántica · Agaete",
+"d": "Pranzo gio–lun · cucina dalle fincas di famiglia",
+"c": "Food",
+"e": "🍽️",
+"r": "gc"
+},
+{
+"lat": 28.1055,
+"lon": -15.5281,
+"n": "Casa Brito · Visvique",
+"d": "Griglia di famiglia · pranzo della domenica dopo Teror · mer–dom",
+"c": "Food",
+"e": "🍽️",
+"r": "gc"
+},
+{
+"lat": 27.747,
+"lon": -15.6254,
+"n": "Pasito Blanco · pesca e catamarano",
+"d": "Pesca con Marrajo 08–13 · catamarano Sailing4You 11–14 · 12 min",
+"c": "Boat",
+"e": "⛵",
+"r": "gc"
+},
+{
+"lat": 27.784,
+"lon": -15.7154,
+"n": "Escuela de Vela · Puerto Rico",
+"d": "Hobie Cat 16 · lezione privata · opzionale, se c'è vento",
+"c": "Boat",
+"e": "⛵",
+"r": "gc"
+},
+{
+"lat": 27.7657,
+"lon": -15.5717,
+"n": "Quesos Amurga · San Fernando",
+"d": "Formaggi di capra e pecora premiati · 12 min",
+"c": "Shopping",
+"e": "🧀",
+"r": "gc"
+},
+{
+"lat": 27.9241,
+"lon": -15.434,
+"n": "Panadería Mis Hijos Sin Gluten · Ingenio",
+"d": "Panetteria 100 % senza glutine · lun–sab mattina · ordinare prima",
+"c": "Shopping",
+"e": "🥖",
+"r": "gc"
+},
+{
+"lat": 27.9668,
+"lon": -15.5834,
+"n": "Llanos de la Pez",
+"d": "Pineta, passeggiata in piano di 15 min · area picnic",
+"c": "Nature",
+"e": "🌿",
+"r": "gc"
+},
+{
+"lat": 27.7533,
+"lon": -15.676,
+"n": "Perchel Beach Club · La Arrocería",
+"d": "Piscina a sfioro e letti balinesi · pranzo di riso (paella) 12:30–17 · mer 14",
+"c": "Beaches",
+"e": "🏖️",
+"r": "gc"
+},
+{
+"lat": 27.7975,
+"lon": -15.4636,
+"n": "Cofradía de Pescadores · Castillo del Romeral",
+"d": "Pesce al pubblico al mattino · bocinegro, medregal",
+"c": "Shopping",
+"e": "🐟",
 "r": "gc"
 }
 ]
